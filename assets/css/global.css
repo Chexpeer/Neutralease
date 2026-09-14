@@ -1,12 +1,11 @@
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (ACCESSIBLE & PÉDAGOGIQUE)
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION FINALE CORRIGÉE)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. VARIABLES THÉMATIQUES
    -------------------------------------------------------------------------- */
 :root {
-  /* Couleurs de fond */
   --bg-dark: #0b0f17;
   --bg-card: #151c28;
   --bg-card-hover: #1c2636;
@@ -14,23 +13,19 @@
   --border: #232d3f;
   --border-focus: #3b82f6;
 
-  /* Typographie */
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
   --text-white: #ffffff;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Marque Principale : NeutralEase */
   --brand-primary: #3b82f6;
   --brand-glow: rgba(59, 130, 246, 0.25);
 
-  /* Marques Spécialisées */
   --accent-echolease: #00e5ff;
   --accent-dentalease: #10b981;
   --accent-diaglease: #a855f7;
   --accent-recuplease: #f59e0b;
 
-  /* Arrondis et transitions */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
   --transition-fast: all 0.2s ease;
@@ -40,7 +35,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. REZ-DE-CHAUSSÉE & BASES
+   2. BASES
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -72,7 +67,6 @@ ul {
 
 img {
   max-width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -83,7 +77,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   3. NAVIGATION (PARFAITEMENT ALIGNÉE)
+   3. NAVIGATION (VERSION STABLE & CORRIGÉE)
    -------------------------------------------------------------------------- */
 .header {
   border-bottom: 1px solid var(--border);
@@ -116,22 +110,29 @@ img {
   align-items: center;
 }
 
-.nav-links a:hover, 
+.nav-links a:hover,
 .nav-links a.active {
   color: var(--text-white);
 }
 
-/* Menus déroulants */
+/* ------------------------------
+   DROPDOWN — VERSION STABLE
+   ------------------------------ */
 .dropdown {
   position: relative;
+  display: inline-block; /* FIX: plus stable que inline-flex */
+}
+
+.dropdown > a {
+  padding: 12px 16px;
   display: inline-flex;
   align-items: center;
 }
 
+/* Sous-menu */
 .dropdown-content {
-  display: none;
   position: absolute;
-  top: 100%;
+  top: 100%;      /* FIX: collé au bouton */
   left: 0;
   background-color: var(--bg-card);
   min-width: 220px;
@@ -139,19 +140,23 @@ img {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 8px 0;
-  margin-top: 8px;
-  z-index: 1001;
+  margin-top: 0;  /* FIX: supprime le trou de survol */
+  display: none;
+  z-index: 2000;  /* FIX: passe devant tout */
 }
 
+/* Affichage */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
+/* Liens du sous-menu */
 .dropdown-content a {
   padding: 10px 18px;
   display: block;
   font-size: 0.85rem;
   color: var(--text-muted);
+  white-space: nowrap; /* FIX: évite les retours à la ligne */
 }
 
 .dropdown-content a:hover {
@@ -160,7 +165,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOUTONS & ÉTIQUETTES
+   4. BOUTONS
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
@@ -176,7 +181,6 @@ img {
   cursor: pointer;
   transition: var(--transition-fast);
   font-size: 0.9rem;
-  line-height: 1;
 }
 
 .btn-primary:hover {
@@ -197,7 +201,6 @@ img {
   gap: 8px;
   transition: var(--transition-fast);
   font-size: 0.9rem;
-  line-height: 1;
 }
 
 .btn-outline:hover {
@@ -205,42 +208,8 @@ img {
   border-color: var(--text-muted);
 }
 
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.badge-echolease { 
-  background: rgba(0, 229, 255, 0.12); 
-  color: var(--accent-echolease); 
-  border: 1px solid rgba(0, 229, 255, 0.3); 
-}
-
-.badge-dentalease { 
-  background: rgba(16, 185, 129, 0.12); 
-  color: var(--accent-dentalease); 
-  border: 1px solid rgba(16, 185, 129, 0.3); 
-}
-
-.badge-diaglease { 
-  background: rgba(168, 85, 247, 0.12); 
-  color: var(--accent-diaglease); 
-  border: 1px solid rgba(168, 85, 247, 0.3); 
-}
-
-.badge-recuplease { 
-  background: rgba(245, 158, 11, 0.12); 
-  color: var(--accent-recuplease); 
-  border: 1px solid rgba(245, 158, 11, 0.3); 
-}
-
 /* --------------------------------------------------------------------------
-   5. CARTES ET DISPOSITIONS
+   5. CARTES & GRILLES
    -------------------------------------------------------------------------- */
 .grid-3 {
   display: grid;
@@ -268,23 +237,8 @@ img {
   box-shadow: var(--shadow-md);
 }
 
-.logo-partner-container {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.75;
-  filter: grayscale(100%);
-  transition: var(--transition-fast);
-}
-
-.logo-partner-container:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-
 /* --------------------------------------------------------------------------
-   6. PIED DE PAGE (FOOTER)
+   6. FOOTER
    -------------------------------------------------------------------------- */
 .footer {
   border-top: 1px solid var(--border);
@@ -338,11 +292,11 @@ img {
   .nav-links {
     display: none;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .grid-2 {
     grid-template-columns: 1fr;
   }
@@ -352,7 +306,7 @@ img {
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
@@ -361,19 +315,18 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   8. INTEGRATION LOGO GLOBAL (CHEMIN RACINE CORRIGÉ)
+   8. LOGO
    -------------------------------------------------------------------------- */
 .logo {
   display: inline-block;
   width: 180px;
   height: 50px;
-  background-image: url('/assets/images/logo.svg'); /* Chemin absolu corrigé */
+  background-image: url('/assets/images/logo.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
   text-indent: -9999px;
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .footer .logo {
