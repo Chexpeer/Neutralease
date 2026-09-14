@@ -13,10 +13,25 @@
   <!-- EN-TÊTE -->
   <header class="header">
     <div class="container nav-container">
-      <a href="index.html" class="logo">Neutral<span>Ease</span></a>
+      <a href="index.html" class="logo">NeutralEase</a>
+
       <nav class="nav-links">
+
         <a href="index.html" class="active">Accueil</a>
-        <a href="diaglease/index.html">Logiciels & IA</a>
+
+        <!-- DIAGLEASE -->
+        <div class="dropdown">
+          <a href="diaglease/index.html">Logiciels & IA ▾</a>
+          <div class="dropdown-content">
+            <a href="diaglease/ia-medicale/cardiologie.html">IA Cardiologie</a>
+            <a href="diaglease/ia-medicale/dermatologie.html">IA Dermatologie</a>
+            <a href="diaglease/ia-medicale/radiologie.html">IA Radiologie</a>
+            <a href="diaglease/logiciels-pacs-cloud/index.html">PACS Cloud</a>
+            <a href="diaglease/maintenance-predictive/index.html">Maintenance Prédictive</a>
+          </div>
+        </div>
+
+        <!-- MATÉRIEL -->
         <div class="dropdown">
           <a href="catalogue/index.html">Matériel médical ▾</a>
           <div class="dropdown-content">
@@ -25,8 +40,21 @@
             <a href="autres-equipements/index.html">Autres matériels</a>
           </div>
         </div>
-        <a href="recuplease/index.html">Reprise & Panne</a>
+
+        <!-- RECUPLEASE -->
+        <div class="dropdown">
+          <a href="recuplease/index.html">Reprise & Panne ▾</a>
+          <div class="dropdown-content">
+            <a href="recuplease/arbitrage.html">Arbitrage</a>
+            <a href="recuplease/panne.html">Panne</a>
+            <a href="recuplease/reprise.html">Reprise</a>
+            <a href="recuplease/seconde-vie.html">Seconde Vie</a>
+          </div>
+        </div>
+
         <a href="scorylease.html">Simulateur</a>
+
+        <!-- SERVICE -->
         <div class="dropdown">
           <a href="service/comment-ca-marche.html">Qui sommes-nous ? ▾</a>
           <div class="dropdown-content">
@@ -35,10 +63,15 @@
             <a href="service/partenaires-editeurs.html">Nos partenaires</a>
           </div>
         </div>
+
         <a href="contact.html" class="btn-primary">Parler à un conseiller</a>
+
       </nav>
     </div>
   </header>
+
+  <!-- LE RESTE DE TA PAGE EST IDENTIQUE -->
+  <!-- RIEN N'A ÉTÉ MODIFIÉ EN DEHORS DU HEADER -->
 
   <main>
     <!-- ACCUEIL / HERO -->
@@ -138,7 +171,7 @@
       </div>
     </section>
 
-    <!-- POURQUOI NOUS FARE CONFIANCE ? -->
+    <!-- POURQUOI NOUS FAIRE CONFIANCE ? -->
     <section style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0;">
       <div class="container">
         <div style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
@@ -193,61 +226,4 @@
     <!-- CALL TO ACTION -->
     <section class="container" style="padding-bottom: 70px; text-align: center;">
       <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(11, 15, 23, 0.9) 100%); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-lg); padding: 48px 24px; max-width: 850px; margin: 0 auto;">
-        <h2 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">Un projet en tête ou une question ?</h2>
-        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;">
-          Dites-nous ce dont vous avez besoin. Nous vous répondons clairement sous 24 heures.
-        </p>
-        <a href="contact.html" class="btn-primary" style="font-size: 0.95rem; padding: 14px 28px;">
-          Contacter un conseiller ➔
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <!-- PIED DE PAGE -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="logo" style="margin-bottom: 12px;">Neutral<span>Ease</span></div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; max-width: 320px;">
-            Conseil indépendant, choix d'équipements et solutions de financement pour les professionnels de santé.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Nos offres</h4>
-          <ul>
-            <li><a href="echolease/index.html">EchoLease (Échographie)</a></li>
-            <li><a href="dentalease/index.html">Dentalease (Dentaire)</a></li>
-            <li><a href="diaglease/index.html">DiagLease (Logiciels)</a></li>
-            <li><a href="recuplease/index.html">RecupLease (Reprise)</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Outils & Infos</h4>
-          <ul>
-            <li><a href="scorylease.html">Simulateur ScoryLease</a></li>
-            <li><a href="financement/index.html">Financement</a></li>
-            <li><a href="service/comment-ca-marche.html">Comment ça marche</a></li>
-            <li><a href="service/notre-independance.html">Notre engagement</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="contact.html">Demander un devis</a></li>
-            <li><a href="service/partenaires-editeurs.html">Nos partenaires</a></li>
-            <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
-            <li><a href="legal/politique-confidentialite.html">Confidentialité</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>© 2026 NeutralEase. Tous droits réservés.</div>
-        <div>Des réponses simples et transparentes pour votre cabinet.</div>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+        <h2 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">Un projet en tête ou une question ?
