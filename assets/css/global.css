@@ -1,12 +1,12 @@
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (CSS CENTRALISÉ)
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (ACCESSIBLE & PÉDAGOGIQUE)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES THÉMATIQUES ET CHARTE GRAPHIQUE
+   1. VARIABLES THÉMATIQUES
    -------------------------------------------------------------------------- */
 :root {
-  /* Couleurs de fond et structures */
+  /* Couleurs de fond */
   --bg-dark: #0b0f17;
   --bg-card: #151c28;
   --bg-card-hover: #1c2636;
@@ -20,17 +20,17 @@
   --text-white: #ffffff;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Identité Marque Mère : NeutralEase */
+  /* Marque Principale : NeutralEase */
   --brand-primary: #3b82f6;
   --brand-glow: rgba(59, 130, 246, 0.25);
 
-  /* Identités Marques Filles (Accentuations) */
-  --accent-echolease: #00e5ff;   /* Cyan Imagerie */
-  --accent-dentalease: #10b981;  /* Émeraude Dentaire */
-  --accent-diaglease: #a855f7;   /* Violet IA / PACS / Software */
-  --accent-recuplease: #f59e0b;  /* Ambre Support / Reprise / Maintenance */
+  /* Marques Spécialisées */
+  --accent-echolease: #00e5ff;
+  --accent-dentalease: #10b981;
+  --accent-diaglease: #a855f7;
+  --accent-recuplease: #f59e0b;
 
-  /* Ombrages et transitions */
+  /* Arrondis et transitions */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
   --transition-fast: all 0.2s ease;
@@ -40,7 +40,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET ET BASES TYPOGRAPHIQUES
+   2. REZ-DE-CHAUSSÉE & BASES
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -83,7 +83,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   3. NAVIGATION ET EN-TÊTE UNIFIÉ (ALIGNEMENT CORRIGÉ)
+   3. NAVIGATION (PARFAITEMENT ALIGNÉE)
    -------------------------------------------------------------------------- */
 .header {
   border-bottom: 1px solid var(--border);
@@ -134,7 +134,7 @@ img {
   color: var(--text-white);
 }
 
-/* Menus Déroulants (Dropdowns) */
+/* Menus déroulants */
 .dropdown {
   position: relative;
   display: inline-flex;
@@ -173,7 +173,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOUTONS ET BADGES
+   4. BOUTONS & ETIQUETTES
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
@@ -218,7 +218,6 @@ img {
   border-color: var(--text-muted);
 }
 
-/* Badges de Marques Filles */
 .badge {
   display: inline-block;
   padding: 4px 10px;
@@ -254,7 +253,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   5. CARTES ET GRILLES DE CONTENU
+   5. CARTES ET DISPOSITIONS
    -------------------------------------------------------------------------- */
 .grid-3 {
   display: grid;
@@ -282,23 +281,6 @@ img {
   box-shadow: var(--shadow-md);
 }
 
-/* --------------------------------------------------------------------------
-   6. EMPLACEMENTS MÉDIAS NORMÉS (LOGOS & IMAGES)
-   -------------------------------------------------------------------------- */
-.img-placeholder-16-9 {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #0f1520;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  overflow: hidden;
-}
-
 .logo-partner-container {
   height: 40px;
   display: flex;
@@ -315,44 +297,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. FORMULAIRES UNIFIÉS
-   -------------------------------------------------------------------------- */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-main);
-}
-
-.form-input, 
-.form-select, 
-.form-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-white);
-  font-family: inherit;
-  font-size: 0.9rem;
-  transition: var(--transition-fast);
-}
-
-.form-input:focus, 
-.form-select:focus, 
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px var(--brand-glow);
-}
-
-/* --------------------------------------------------------------------------
-   8. PIED DE PAGE (FOOTER)
+   6. PIED DE PAGE (FOOTER)
    -------------------------------------------------------------------------- */
 .footer {
   border-top: 1px solid var(--border);
@@ -400,7 +345,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   9. RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   7. RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
   .nav-links {
