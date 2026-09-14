@@ -361,22 +361,23 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   8. INTEGRATION LOGO GLOBAL (ACCUEIL & INTERACTIVE)
+   8. INTEGRATION LOGO GLOBAL (NL GEOMETRIQUE)
    -------------------------------------------------------------------------- */
 .logo {
   display: inline-block;
-  width: 220px;
-  height: 45px;
-  background-image: url('../images/logo.jpg');
+  width: 180px;
+  height: 50px;
+  background-image: url('../images/logo.svg'); /* Ou logo.png selon ton format */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
-  text-indent: -9999px; /* Masque le texte HTML tout en préservant le SEO */
+  text-indent: -9999px; /* Cache le texte HTML pour préserver le SEO */
   overflow: hidden;
   white-space: nowrap;
 }
 
+/* Ajustement spécifique pour le footer */
 .footer .logo {
-  width: 240px;
-  height: 50px;
+  width: 200px;
+  height: 55px;
 }
