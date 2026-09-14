@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScoryLease — Estimation & Simulation Financière Indicative | NeutralEase</title>
+  <meta name="description" content="Simulateur de mensualités pour équipements et logiciels médicaux. Obtenez une estimation indicative pour vos projets de leasing ou de location financière.">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER UNIFIÉ NEUTRALEASE -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Neutral<span>Ease</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="diaglease/index.html">DiagLease</a>
+        <div class="dropdown">
+          <a href="catalogue/index.html">Équipements ▾</a>
+          <div class="dropdown-content">
+            <a href="echolease/index.html">EchoLease (Imagerie)</a>
+            <a href="dentalease/index.html">Dentalease (Dentaire)</a>
+            <a href="autres-equipements/index.html">Autres Équipements</a>
+          </div>
+        </div>
+        <a href="recuplease/index.html">RecupLease</a>
+        <a href="scorylease.html" class="active">ScoryLease</a>
+        <div class="dropdown">
+          <a href="service/comment-ca-marche.html">Le Service ▾</a>
+          <div class="dropdown-content">
+            <a href="service/comment-ca-marche.html">Comment ça marche</a>
+            <a href="service/notre-independance.html">Notre indépendance</a>
+            <a href="service/partenaires-editeurs.html">Partenaires</a>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Présenter mon projet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION SCORYLEASE -->
+    <section style="padding: 50px 0 30px 0; background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, rgba(11,15,23,0) 100%); border-bottom: 1px solid var(--border);">
+      <div class="container" style="text-align: center; max-width: 850px;">
+        <span class="badge" style="background: rgba(59, 130, 246, 0.12); color: var(--brand-primary); border: 1px solid rgba(59, 130, 246, 0.3); margin-bottom: 12px;">
+          ScoryLease — Ingénierie & Projection Financière
+        </span>
+        <h1 style="font-size: 2.3rem; font-weight: 800; color: #fff; margin: 10px 0; letter-spacing: -0.02em;">
+          Simulateur de financement médical
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+          Évaluez instantanément l'impact budgétaire de vos futurs équipements ou logiciels. Un outil clair, transparent et sans engagement.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTERFACE DE SIMULATION -->
+    <section class="container" style="padding: 50px 20px;">
+      <div class="grid-2" style="gap: 32px; align-items: start;">
+        
+        <!-- FORMULAIRE DES PARAMÈTRES DE SIMULATION -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px;">
+          <h2 style="color: #fff; font-size: 1.3rem; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+            1. Paramètres de l'investissement
+          </h2>
+
+          <div class="form-group">
+            <label class="form-label" for="montant-invest">Montant global du projet (€ HT)</label>
+            <input type="number" id="montant-invest" class="form-input" value="35000" step="1000" min="2000" max="500000">
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Inclus matériel, logiciels, licences IA et mise en service.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="duree-location">Durée du financement</label>
+            <select id="duree-location" class="form-select">
+              <option value="36">36 mois (3 ans)</option>
+              <option value="48">48 mois (4 ans)</option>
+              <option value="60" selected>60 mois (5 ans)</option>
+              <option value="72">72 mois (6 ans)</option>
+              <option value="84">84 mois (7 ans)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apport-initial">Premier loyer majoré / Apport optionnel (€ HT)</label>
+            <input type="number" id="apport-initial" class="form-input" value="0" step="500" min="0">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="valeur-reprise">Valeur de reprise estimée RecupLease (€ HT)</label>
+            <input type="number" id="valeur-reprise" class="form-input" value="0" step="500" min="0">
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Déduite du capital à financer pour réduire les mensualités.</p>
+          </div>
+        </div>
+
+        <!-- AFFICHAGE DES RÉSULTATS INDICATIFS -->
+        <div style="background: var(--bg-card); border: 1px solid var(--brand-primary); border-radius: var(--radius-lg); padding: 32px; box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);">
+          <h2 style="color: #fff; font-size: 1.3rem; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+            2. Estimation indicative
+          </h2>
+
+          <div style="text-align: center; background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Mensualité estimée HT</span>
+            <div id="resultat-mensualite" style="font-size: 2.8rem; font-weight: 800; color: var(--brand-primary); margin: 8px 0;">-- €</div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">hors assurances et prestations complémentaires</span>
+          </div>
+
+          <div style="font-size: 0.88rem; color: var(--text-main); margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px;">
+              <span>Capital net financé :</span>
+              <strong id="detail-capital" style="color: #fff;">-- €</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px;">
+              <span>Durée sélectionnée :</span>
+              <strong id="detail-duree" style="color: #fff;">-- mois</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px;">
+              <span>Option d'achat estimée :</span>
+              <strong id="detail-option" style="color: #fff;">1,00 %</strong>
+            </div>
+          </div>
+
+          <!-- MENTION DE SÉCURITÉ JURIDIQUE / DISCLAIMER -->
+          <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-sm); padding: 14px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+            ⚠️ <strong>Avertissement légal</strong> : Ce calculateur délivre une simple projection financière à titre strictement indicatif. Les conditions définitives demeurent soumises à l'analyse de solvabilité et à l'accord formel de nos partenaires bailleurs financiers.
+          </div>
+
+          <a id="btn-finaliser-simu" href="contact.html?service=scorylease" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.95rem;">
+            Valider et solliciter une étude de dossier ➔
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER UNIFIÉ NEUTRALEASE -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom: 12px;">Neutral<span>Ease</span></div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Plateforme indépendante d'ingénierie, d'orientation et de financement pour les équipements professionnels de santé.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Piliers Métiers</h4>
+          <ul>
+            <li><a href="diaglease/index.html">DiagLease (IA & Software)</a></li>
+            <li><a href="echolease/index.html">EchoLease (Imagerie)</a></li>
+            <li><a href="dentalease/index.html">Dentalease (Dentaire)</a></li>
+            <li><a href="recuplease/index.html">RecupLease (Support & Reprise)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services & Outils</h4>
+          <ul>
+            <li><a href="scorylease.html">ScoryLease (Simulation)</a></li>
+            <li><a href="financement/index.html">Financement Médical</a></li>
+            <li><a href="service/comment-ca-marche.html">Comment ça marche</a></li>
+            <li><a href="service/notre-independance.html">Charte d'impartialité</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Accompagnement</h4>
+          <ul>
+            <li><a href="contact.html">Présenter un projet</a></li>
+            <li><a href="service/partenaires-editeurs.html">Partenaires écosystème</a></li>
+            <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
+            <li><a href="legal/politique-confidentialite.html">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 NeutralEase. Tous droits réservés.</div>
+        <div>Estimations indicatives non contractuelles conditionnées à l'étude de dossier.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DU CALCULATEUR DYNAMIQUE SCORYLEASE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputMontant = document.getElementById('montant-invest');
+      const selectDuree = document.getElementById('duree-location');
+      const inputApport = document.getElementById('apport-initial');
+      const inputReprise = document.getElementById('valeur-reprise');
+
+      const elMensualite = document.getElementById('resultat-mensualite');
+      const elCapital = document.getElementById('detail-capital');
+      const elDuree = document.getElementById('detail-duree');
+      const btnFinaliser = document.getElementById('btn-finaliser-simu');
+
+      function calculerSimulation() {
+        const montant = parseFloat(inputMontant.value) || 0;
+        const duree = parseInt(selectDuree.value) || 60;
+        const apport = parseFloat(inputApport.value) || 0;
+        const reprise = parseFloat(inputReprise.value) || 0;
+
+        // Calcul du capital net
+        const capitalNet = Math.max(0, montant - apport - reprise);
+
+        // Taux annuel moyen indicatif appliqué selon les barèmes de marché
+        const tauxAnnuel = 0.045; 
+        const tauxMensuel = tauxAnnuel / 12;
+
+        let mensualite = 0;
+        if (capitalNet > 0) {
+          mensualite = (capitalNet * tauxMensuel) / (1 - Math.pow(1 + tauxMensuel, -duree));
+        }
+
+        // Formratage des valeurs
+        const formatEuro = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+        elMensualite.textContent = formatEuro.format(mensualite) + ' / mois';
+        elCapital.textContent = formatEuro.format(capitalNet) + ' HT';
+        elDuree.textContent = duree + ' mois';
+
+        // Mise à jour du lien de redirection vers contact.html avec contexte
+        btnFinaliser.href = `contact.html?service=scorylease&montant=${montant}&duree=${duree}&mensualite=${Math.round(mensualite)}`;
+      }
+
+      // Écoute des modifications sur tous les champs
+      inputMontant.addEventListener('input', calculerSimulation);
+      selectDuree.addEventListener('change', calculerSimulation);
+      inputApport.addEventListener('input', calculerSimulation);
+      inputReprise.addEventListener('input', calculerSimulation);
+
+      // Calcul initial
+      calculerSimulation();
+    });
+  </script>
+
+</body>
+</html>
