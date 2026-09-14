@@ -101,19 +101,6 @@ img {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-white);
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-}
-
-.logo span {
-  color: var(--brand-primary);
-}
-
 .nav-links {
   display: flex;
   gap: 22px;
@@ -173,7 +160,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOUTONS & ETIQUETTES
+   4. BOUTONS & ÉTIQUETTES
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
@@ -371,4 +358,25 @@ img {
     gap: 12px;
     text-align: center;
   }
+}
+
+/* --------------------------------------------------------------------------
+   8. INTEGRATION LOGO GLOBAL (ACCUEIL & INTERACTIVE)
+   -------------------------------------------------------------------------- */
+.logo {
+  display: inline-block;
+  width: 220px;
+  height: 45px;
+  background-image: url('../images/logo.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: -9999px; /* Masque le texte HTML tout en préservant le SEO */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.footer .logo {
+  width: 240px;
+  height: 50px;
 }
