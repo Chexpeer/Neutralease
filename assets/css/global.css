@@ -361,22 +361,21 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   8. INTEGRATION LOGO GLOBAL (NL GEOMETRIQUE)
+   8. INTEGRATION LOGO GLOBAL (CHEMIN RACINE CORRIGÉ)
    -------------------------------------------------------------------------- */
 .logo {
   display: inline-block;
   width: 180px;
   height: 50px;
-  background-image: url('../images/logo.svg'); /* Ou logo.png selon ton format */
+  background-image: url('/assets/images/logo.svg'); /* Chemin absolu corrigé */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
-  text-indent: -9999px; /* Cache le texte HTML pour préserver le SEO */
+  text-indent: -9999px;
   overflow: hidden;
   white-space: nowrap;
 }
 
-/* Ajustement spécifique pour le footer */
 .footer .logo {
   width: 200px;
   height: 55px;
