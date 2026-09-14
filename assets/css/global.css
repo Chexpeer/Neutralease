@@ -361,22 +361,21 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   8. INTEGRATION LOGO GLOBAL (ACCUEIL & INTERACTIVE)
+   8. INTEGRATION LOGO GLOBAL - OPTION 3 (FULL GRADIENT)
    -------------------------------------------------------------------------- */
 .logo {
-  display: inline-block;
-  width: 220px;
-  height: 45px;
-  background-image: url('../images/logo.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left center;
-  text-indent: -9999px; /* Masque le texte HTML tout en préservant le SEO */
-  overflow: hidden;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-indent: 0;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ffffff 0%, var(--brand-primary) 60%, var(--accent-echolease) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.footer .logo {
-  width: 240px;
-  height: 50px;
+.logo span {
+  font-weight: 300;
 }
