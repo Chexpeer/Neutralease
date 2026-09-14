@@ -1,202 +1,420 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeutralEase — Votre matériel médical, votre projet, en toute simplicité.</title>
-  <meta name="description" content="Acheter, financer, remplacer ou simplement comprendre quoi faire de votre équipement : NeutralEase vous accompagne.">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ==========================================================================
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (CSS CENTRALISÉ - ORIGINE)
+   ========================================================================== */
 
-  <!-- HEADER UNIFIÉ NEUTRALEASE -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Neutral<span>Ease</span></a>
-      <nav class="nav-links">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="diaglease/index.html">DiagLease</a>
-        <div class="dropdown">
-          <a href="catalogue/index.html">Équipements ▾</a>
-          <div class="dropdown-content">
-            <a href="echolease/index.html">EchoLease (Imagerie)</a>
-            <a href="dentalease/index.html">Dentalease (Dentaire)</a>
-            <a href="autres-equipements/index.html">Autres Équipements</a>
-          </div>
-        </div>
-        <a href="recuplease/index.html">RecupLease</a>
-        <a href="scorylease.html">ScoryLease</a>
-        <div class="dropdown">
-          <a href="service/comment-ca-marche.html">Le Service ▾</a>
-          <div class="dropdown-content">
-            <a href="service/comment-ca-marche.html">Comment ça marche</a>
-            <a href="service/notre-independance.html">Notre indépendance</a>
-            <a href="service/partenaires-editeurs.html">Partenaires</a>
-          </div>
-        </div>
-        <a href="contact.html" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Présenter mon projet</a>
-      </nav>
-    </div>
-  </header>
+/* --------------------------------------------------------------------------
+   1. VARIABLES THÉMATIQUES ET CHARTE GRAPHIQUE
+   -------------------------------------------------------------------------- */
+:root {
+  /* Couleurs de fond et structures */
+  --bg-dark: #0b0f17;
+  --bg-card: #151c28;
+  --bg-card-hover: #1c2636;
+  --bg-input: #070a0f;
+  --border: #232d3f;
+  --border-focus: #3b82f6;
 
-  <main>
-    <!-- HERO SECTION PRINCIPALE -->
-    <section style="padding: 90px 0 70px 0; background: linear-gradient(180deg, #eff6ff 0%, #fcfcfd 100%); border-bottom: 1px solid var(--border);">
-      <div class="container" style="text-align: center; max-width: 850px;">
-        <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--brand-primary); border: 1px solid rgba(37, 99, 235, 0.25); margin-bottom: 16px;">
-          Tiers de confiance pour les professionnels de santé
-        </span>
-        <h1 style="font-size: 2.8rem; font-weight: 800; color: var(--text-white); margin: 16px 0; letter-spacing: -0.02em; line-height: 1.2;">
-          Votre matériel médical.<br>Votre projet.<br>Nous vous aidons à avancer.
-        </h1>
-        <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.6; margin-bottom: 36px; max-width: 700px; margin-left: auto; margin-right: auto;">
-          Acheter, financer, remplacer ou simplement comprendre quoi faire de votre équipement : NeutralEase vous accompagne pas à pas.
-        </p>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="btn-primary" style="font-size: 0.95rem; padding: 14px 28px;">
-            Présenter mon projet ➔
-          </a>
-          <a href="catalogue/index.html" class="btn-outline" style="font-size: 0.95rem; padding: 14px 28px;">
-            Découvrir nos solutions
-          </a>
-        </div>
-      </div>
-    </section>
+  /* Typographie */
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-white: #ffffff;
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    <!-- LES 4 PILIERS DE L'ÉCOSYSTÈME -->
-    <section class="container" style="padding: 70px 20px;">
-      <div style="text-align: center; max-width: 750px; margin: 0 auto 48px auto;">
-        <h2 style="color: var(--text-white); font-size: 2rem; font-weight: 800; letter-spacing: -0.01em;">Nos solutions par activité</h2>
-        <p style="color: var(--text-muted); font-size: 0.98rem; margin-top: 10px;">
-          Je cherche → je comprends → je suis accompagné → je peux avancer.
-        </p>
-      </div>
+  /* Identité Marque Mère : NeutralEase */
+  --brand-primary: #3b82f6;
+  --brand-glow: rgba(59, 130, 246, 0.25);
 
-      <div class="grid-2" style="gap: 28px;">
-        
-        <!-- CARTE 1 : ECHOLEASE -->
-        <article class="card" style="border-top: 4px solid var(--accent-echolease);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-            <div style="font-size: 2rem;">🩻</div>
-            <span class="badge badge-echolease">EchoLease</span>
-          </div>
-          <h3 style="color: var(--text-white); font-size: 1.35rem; margin-bottom: 8px;">Votre prochaine solution d'imagerie.</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;">
-            Échographie, radiologie et équipements d'imagerie : découvrez les solutions adaptées à votre activité et à votre rythme de travail.
-          </p>
-          <a href="echolease/index.html" style="color: var(--accent-echolease); font-weight: 700; font-size: 0.9rem;">
-            Découvrir l'imagerie EchoLease ➔
-          </a>
-        </article>
+  /* Identités Marques Filles (Accentuations) */
+  --accent-echolease: #00e5ff;   /* Cyan Imagerie */
+  --accent-dentalease: #10b981;  /* Émeraude Dentaire */
+  --accent-diaglease: #a855f7;   /* Violet IA / PACS / Software */
+  --accent-recuplease: #f59e0b;  /* Ambre Support / Reprise / Maintenance */
 
-        <!-- CARTE 2 : DENTALEASE -->
-        <article class="card" style="border-top: 4px solid var(--accent-dentalease);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-            <div style="font-size: 2rem;">🦷</div>
-            <span class="badge badge-dentalease">Dentalease</span>
-          </div>
-          <h3 style="color: var(--text-white); font-size: 1.35rem; margin-bottom: 8px;">Équipez votre cabinet en toute simplicité.</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;">
-            Fauteuil, imagerie 3D, scanner intra-oral… Découvrez les équipements et les solutions de financement claires pour votre cabinet.
-          </p>
-          <a href="dentalease/index.html" style="color: var(--accent-dentalease); font-weight: 700; font-size: 0.9rem;">
-            Découvrir les équipements Dentalease ➔
-          </a>
-        </article>
+  /* Ombrages et transitions */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --transition-fast: all 0.2s ease;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
 
-        <!-- CARTE 3 : DIAGLEASE -->
-        <article class="card" style="border-top: 4px solid var(--accent-diaglease);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-            <div style="font-size: 2rem;">🧠</div>
-            <span class="badge badge-diaglease">DiagLease</span>
-          </div>
-          <h3 style="color: var(--text-white); font-size: 1.35rem; margin-bottom: 8px;">Les logiciels et l'IA qui font évoluer votre cabinet.</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;">
-            Passez à l'imagerie cloud, intégrez des aides au diagnostic fiables et sécurisez vos données de santé sans complexité technique.
-          </p>
-          <a href="diaglease/index.html" style="color: var(--accent-diaglease); font-weight: 700; font-size: 0.9rem;">
-            Découvrir les solutions DiagLease ➔
-          </a>
-        </article>
+/* --------------------------------------------------------------------------
+   2. RESET ET BASES TYPOGRAPHIQUES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        <!-- CARTE 4 : RECUPLEASE -->
-        <article class="card" style="border-top: 4px solid var(--accent-recuplease);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-            <div style="font-size: 2rem;">♻️</div>
-            <span class="badge badge-recuplease">RecupLease</span>
-          </div>
-          <h3 style="color: var(--text-white); font-size: 1.35rem; margin-bottom: 8px;">Une panne ? Un doute ? Un ancien équipement ?</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;">
-            Avant de réparer ou de remplacer à l'aveugle, parlons-en. Diagnostic rapide, estimation de reprise Trade-in et seconde vie RSE.
-          </p>
-          <a href="recuplease/index.html" style="color: var(--accent-recuplease); font-weight: 700; font-size: 0.9rem;">
-            Besoin d'aide avec RecupLease ➔
-          </a>
-        </article>
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-      </div>
-    </section>
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-    <!-- SECTION SCORYLEASE / FINANCEMENT -->
-    <section class="container" style="padding: 20px 20px 70px 20px;">
-      <article class="card" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid var(--border); padding: 40px; text-align: center; border-radius: var(--radius-lg);">
-        <span class="badge" style="background: rgba(37, 99, 235, 0.2); color: #60a5fa; margin-bottom: 16px;">Outil de simulation</span>
-        <h3 style="color: #ffffff; font-size: 1.7rem; font-weight: 800; margin-bottom: 12px;">Vous avez déjà votre projet ? Estimez simplement votre financement.</h3>
-        <p style="color: #94a3b8; font-size: 1rem; max-width: 600px; margin: 0 auto 24px auto;">
-          Calculez vos loyers en quelques clics avec ScoryLease et validez la viabilité financière de votre investissement.
-        </p>
-        <a href="scorylease.html" class="btn-primary" style="padding: 12px 28px;">
-          Faire une estimation sur ScoryLease ➔
-        </a>
-      </article>
-    </section>
-  </main>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  <!-- FOOTER UNIFIÉ NEUTRALEASE -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="logo" style="margin-bottom: 12px;">Neutral<span>Ease</span></div>
-          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6; max-width: 320px;">
-            Plateforme indépendante d'ingénierie, d'orientation et de financement pour les équipements professionnels de santé.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Piliers Métiers</h4>
-          <ul>
-            <li><a href="diaglease/index.html">DiagLease (IA & Software)</a></li>
-            <li><a href="echolease/index.html">EchoLease (Imagerie)</a></li>
-            <li><a href="dentalease/index.html">Dentalease (Dentaire)</a></li>
-            <li><a href="recuplease/index.html">RecupLease (Support & Reprise)</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services & Outils</h4>
-          <ul>
-            <li><a href="scorylease.html">ScoryLease (Simulation)</a></li>
-            <li><a href="financement/index.html">Financement Médical</a></li>
-            <li><a href="service/comment-ca-marche.html">Comment ça marche</a></li>
-            <li><a href="service/notre-independance.html">Charte d'impartialité</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Accompagnement</h4>
-          <ul>
-            <li><a href="contact.html">Présenter un projet</a></li>
-            <li><a href="service/partenaires-editeurs.html">Partenaires écosystème</a></li>
-            <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
-            <li><a href="legal/politique-confidentialite.html">Confidentialité</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>© 2026 NeutralEase. Tous droits réservés.</div>
-        <div>Estimations indicatives non contractuelles conditionnées à l'étude de dossier.</div>
-      </div>
-    </div>
-  </footer>
+ul {
+  list-style: none;
+}
 
-</body>
-</html>
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAVIGATION ET EN-TÊTE UNIFIÉ
+   -------------------------------------------------------------------------- */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  background: rgba(11, 15, 23, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--brand-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: var(--transition-fast);
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+  color: var(--text-white);
+}
+
+/* Menus Déroulants (Dropdowns) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-card);
+  min-width: 220px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  padding: 10px 18px;
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dropdown-content a:hover {
+  background-color: var(--bg-card-hover);
+  color: var(--text-white);
+}
+
+/* --------------------------------------------------------------------------
+   4. BOUTONS ET BADGES
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  background: var(--brand-primary);
+  color: #0b0f17;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px var(--brand-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+  background: var(--bg-card);
+  border-color: var(--text-muted);
+}
+
+/* Badges de Marques Filles */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-echolease { 
+  background: rgba(0, 229, 255, 0.12); 
+  color: var(--accent-echolease); 
+  border: 1px solid rgba(0, 229, 255, 0.3); 
+}
+
+.badge-dentalease { 
+  background: rgba(16, 185, 129, 0.12); 
+  color: var(--accent-dentalease); 
+  border: 1px solid rgba(16, 185, 129, 0.3); 
+}
+
+.badge-diaglease { 
+  background: rgba(168, 85, 247, 0.12); 
+  color: var(--accent-diaglease); 
+  border: 1px solid rgba(168, 85, 247, 0.3); 
+}
+
+.badge-recuplease { 
+  background: rgba(245, 158, 11, 0.12); 
+  color: var(--accent-recuplease); 
+  border: 1px solid rgba(245, 158, 11, 0.3); 
+}
+
+/* --------------------------------------------------------------------------
+   5. CARTES ET GRILLES DE CONTENU
+   -------------------------------------------------------------------------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  transition: var(--transition-fast);
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --------------------------------------------------------------------------
+   6. EMPLACEMENTS MÉDIAS NORMÉS (LOGOS & IMAGES)
+   -------------------------------------------------------------------------- */
+.img-placeholder-16-9 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f1520;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.logo-partner-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: var(--transition-fast);
+}
+
+.logo-partner-container:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* --------------------------------------------------------------------------
+   7. FORMULAIRES UNIFIÉS
+   -------------------------------------------------------------------------- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.form-input, 
+.form-select, 
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-white);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, 
+.form-select:focus, 
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--brand-glow);
+}
+
+/* --------------------------------------------------------------------------
+   8. PIED DE PAGE (FOOTER)
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 60px 0 30px 0;
+  background: #070a0f;
+  margin-top: 80px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h4 {
+  color: var(--text-white);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+  color: var(--text-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
