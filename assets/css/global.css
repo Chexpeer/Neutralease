@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION FINALE CORRIGÉE)
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION FINALE 2026 CORRIGÉE)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -37,7 +37,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. REZERO & BASE
+   2. RESET & BASE
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -60,6 +60,12 @@ a {
 
 ul {
   list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .container {
@@ -87,11 +93,11 @@ ul {
   align-items: center;
 }
 
-/* LOGO - CORRECTION AFFICHAGE EN LIGNE */
+/* LOGO PNG - AFFICHAGE GARANTI */
 .logo {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
-  text-decoration: none !important;
+  justify-content: flex-start !important;
   min-width: 44px;
   min-height: 44px;
 }
@@ -112,6 +118,8 @@ ul {
   color: var(--text-white);
   cursor: pointer;
   z-index: 9999;
+  background: none;
+  border: none;
 }
 
 /* LIENS DE NAVIGATION */
@@ -136,6 +144,12 @@ ul {
 /* DROPDOWN MENU */
 .dropdown {
   position: relative;
+}
+
+.dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .dropdown-content {
@@ -189,6 +203,25 @@ ul {
   transform: translateY(-1px);
 }
 
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
 /* --------------------------------------------------------------------------
    5. GRILLES & CARTES
    -------------------------------------------------------------------------- */
@@ -218,6 +251,39 @@ ul {
   box-shadow: var(--shadow-md);
 }
 
+/* BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.badge-echolease {
+  background: rgba(0,229,255,0.12);
+  color: var(--accent-echolease);
+}
+
+.badge-dentalease {
+  background: rgba(16,185,129,0.12);
+  color: var(--accent-dentalease);
+}
+
+.badge-diaglease {
+  background: rgba(168,85,247,0.12);
+  color: var(--accent-diaglease);
+}
+
+.badge-recuplease {
+  background: rgba(245,158,11,0.12);
+  color: var(--accent-recuplease);
+}
+
 /* --------------------------------------------------------------------------
    6. FOOTER
    -------------------------------------------------------------------------- */
@@ -235,6 +301,24 @@ ul {
   margin-bottom: 40px;
 }
 
+.footer-col h4 {
+  color: var(--text-white);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 6px;
+  transition: var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+  color: var(--text-white);
+}
+
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding-top: 24px;
@@ -245,7 +329,30 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   7. RESPONSIVE (ECRANS MOBILE ET TABLETTE <= 900PX)
+   7. FORMULAIRES
+   -------------------------------------------------------------------------- */
+input,
+select,
+textarea {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--text-main);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--border-focus);
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE (ECRANS MOBILE ET TABLETTE <= 900PX)
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
 

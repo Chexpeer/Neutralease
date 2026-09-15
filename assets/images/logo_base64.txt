@@ -1,0 +1,15 @@
+/* LOGO HEADER - BASE64 INTEGRATION */
+.logo {
+  display: inline-block !important;
+  width: 180px;
+  height: 44px;
+  background-image: url('data:image/jpeg;base64,TON_CODE_BASE64_ICI');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  text-indent: -9999px; /* Cache le texte alt tout en gardant l'accessibilité */
+}
+
+.logo img {
+  display: none !important; /* On masque la balise <img> classique qui cause le 404 */
+}
