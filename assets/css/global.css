@@ -87,15 +87,18 @@ ul {
   align-items: center;
 }
 
-/* LOGO SVG — VERSION FINALE */
+/* LOGO JPG — FORMAT CARRÉ AJUSTÉ */
 .logo {
   display: flex;
   align-items: center;
 }
 
 .logo img {
-  height: 50px;
+  height: 44px;
+  width: auto;
+  border-radius: var(--radius-sm);
   display: block;
+  object-fit: contain;
 }
 
 /* HAMBURGER */
@@ -238,12 +241,17 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   7. RESPONSIVE — VERSION FINALE
+   7. RESPONSIVE — NAVIGATION MOBILE
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
 
+  .nav-container {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
   .logo img {
-    height: 42px;
+    height: 38px;
   }
 
   .hamburger {
@@ -256,26 +264,33 @@ ul {
     background: var(--bg-card);
     padding: 20px;
     border-radius: var(--radius-md);
+    border: 1px solid var(--border);
     width: 100%;
     margin-top: 16px;
     gap: 14px;
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex !important;
+  }
+
+  .dropdown {
+    width: 100%;
   }
 
   .dropdown-content {
     position: static;
-    background: none;
+    background: rgba(7, 10, 15, 0.5);
     border: none;
     box-shadow: none;
     padding-left: 12px;
+    margin-top: 8px;
+    border-radius: var(--radius-sm);
     display: none;
   }
 
   .dropdown.open .dropdown-content {
-    display: block;
+    display: block !important;
   }
 
   .grid-2,
