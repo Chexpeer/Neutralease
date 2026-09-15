@@ -3,169 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeutralEase — Accueil</title>
-
-  <!-- CSS GLOBAL -->
-  <link rel="stylesheet" href="/assets/css/global.css">
-
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Neutralease - Courtage & Solutions de Leasing Équipement Médical</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- HEADER UNIVERSAL -->
-<header class="header">
-  <div class="container nav-container">
+  <!-- HEADER / NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="Neutralease Logo">
+      </a>
 
-    <a href="/index.html" class="logo">NeutralEase</a>
+      <!-- BOUTON HAMBURGER MOBILE -->
+      <div class="hamburger" id="hamburger-btn" aria-label="Menu principal">☰</div>
 
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-    <nav class="nav-links">
-
-      <a href="/index.html" class="active">Accueil</a>
-
-      <div class="dropdown">
-        <a href="/diaglease/index.html">Logiciels & IA ▾</a>
-        <div class="dropdown-content">
-          <a href="/diaglease/ia-medicale/cardiologie.html">IA Cardiologie</a>
-          <a href="/diaglease/ia-medicale/dermatologie.html">IA Dermatologie</a>
-          <a href="/diaglease/ia-medicale/radiologie.html">IA Radiologie</a>
-          <a href="/diaglease/logiciels-pacs-cloud/index.html">PACS Cloud</a>
-          <a href="/diaglease/maintenance-predictive/index.html">Maintenance Prédictive</a>
+      <nav class="nav-links" id="nav-menu">
+        <a href="index.html" class="active">Accueil</a>
+        
+        <div class="dropdown">
+          <a href="catalogue/index.html">Catalogue ▾</a>
+          <div class="dropdown-content">
+            <a href="echolease/index.html">EchoLease</a>
+            <a href="dentalease/index.html">DentalLease</a>
+            <a href="diaglease/index.html">DiagLease</a>
+            <a href="autres-equipements/index.html">Autres Équipements</a>
+          </div>
         </div>
+
+        <div class="dropdown">
+          <a href="financement/index.html">Financement ▾</a>
+          <div class="dropdown-content">
+            <a href="financement/leasing-medical.html">Leasing Médical</a>
+            <a href="financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
+            <a href="financement/location-financiere.html">Location Financière</a>
+          </div>
+        </div>
+
+        <a href="recuplease/index.html">RecupLease</a>
+        <a href="scorylease.html">ScoryLease</a>
+        <a href="contact.html" class="btn-primary" style="color: #0b0f17;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="container" style="padding: 60px 20px;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-white);">Solutions de financement & leasing médical neutres et indépendantes</h1>
+      <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 30px;">Neutralease accompagne les professionnels de santé dans l'acquisition, la gestion et le renouvellement de leurs équipements médicaux avec une indépendance totale vis-à-vis des éditeurs et constructeurs.</p>
+      
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="catalogue/index.html" class="btn-primary">Découvrir le Catalogue</a>
+        <a href="scorylease.html" style="border: 1px solid var(--border); padding: 12px 24px; border-radius: var(--radius-sm); color: var(--text-white);">Simuler avec ScoryLease</a>
+      </div>
+    </section>
+
+    <!-- ACCÈS RAPIDE DÉCLINAISONS -->
+    <section class="container grid-3" style="margin-top: 40px;">
+      <div class="card">
+        <h3 style="color: var(--accent-echolease); margin-bottom: 12px;">EchoLease</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Échographes fixes, portatifs et capteurs de haute précision.</p>
+        <a href="echolease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
 
-      <div class="dropdown">
-        <a href="/catalogue/index.html">Matériel médical ▾</a>
-        <div class="dropdown-content">
-          <a href="/echolease/index.html">EchoLease (Échographie)</a>
-          <a href="/dentalease/index.html">Dentalease (Dentaire)</a>
-          <a href="/autres-equipements/index.html">Autres matériels</a>
-        </div>
+      <div class="card">
+        <h3 style="color: var(--accent-dentalease); margin-bottom: 12px;">DentalLease</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Fauteuils, scanners intra-oraux, imagerie 3D et chaîne de stérilisation.</p>
+        <a href="dentalease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
 
-      <div class="dropdown">
-        <a href="/recuplease/index.html">Reprise & Panne ▾</a>
-        <div class="dropdown-content">
-          <a href="/recuplease/arbitrage/reparer-ou-renouveler.html">Arbitrage</a>
-          <a href="/recuplease/assistance-panne/hotline-diagnostic.html">Panne</a>
-          <a href="/recuplease/reprise-tradein/estimation-reprise.html">Reprise</a>
-          <a href="/recuplease/seconde-vie/reconditionnement-rse.html">Seconde Vie</a>
-        </div>
+      <div class="card">
+        <h3 style="color: var(--accent-diaglease); margin-bottom: 12px;">DiagLease</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">IA médicale, PACS cloud, cardiologie et radiologie avancée.</p>
+        <a href="diaglease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
+    </section>
+  </main>
 
-      <a href="/scorylease.html">Simulateur</a>
-
-      <div class="dropdown">
-        <a href="/diaglease/service/comment-ca-marche.html">Qui sommes-nous ? ▾</a>
-        <div class="dropdown-content">
-          <a href="/diaglease/service/comment-ca-marche.html">Comment ça marche</a>
-          <a href="/diaglease/service/notre-independance.html">Notre indépendance</a>
-          <a href="/diaglease/service/partenaires-editeurs.html">Nos partenaires</a>
-        </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4 style="color: var(--text-white); margin-bottom: 16px;">Neutralease</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Plateforme d'ingénierie financière et courtage spécialisé en équipements médicaux et de diagnostic.</p>
       </div>
-
-      <a href="/contact.html" class="btn-primary">Parler à un conseiller</a>
-
-    </nav>
-  </div>
-</header>
-
-<!-- SECTION HERO -->
-<section class="container" style="padding:80px 0;">
-  <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin-bottom:20px;">
-    NeutralEase — Votre partenaire indépendant en solutions médicales
-  </h1>
-
-  <p style="color:var(--text-muted); font-size:1.1rem; max-width:700px;">
-    Logiciels d’IA médicale, matériel d’imagerie, arbitrage panne, reprise, simulateur financier…
-    NeutralEase accompagne les professionnels de santé avec des solutions simples, transparentes et indépendantes.
-  </p>
-
-  <div style="margin-top:30px;">
-    <a href="/catalogue/index.html" class="btn-primary">Découvrir le matériel</a>
-  </div>
-</section>
-
-<!-- SECTIONS RAPIDES -->
-<section class="container" style="padding:40px 0;">
-  <div class="grid-3">
-
-    <div class="card">
-      <h3 style="color:#fff; margin-bottom:10px;">Logiciels & IA</h3>
-      <p style="color:var(--text-muted); margin-bottom:16px;">
-        IA médicale, PACS Cloud, maintenance prédictive… Découvrez nos solutions logicielles.
-      </p>
-      <a href="/diaglease/index.html" class="btn-outline">Explorer</a>
+      <div>
+        <h4 style="color: var(--text-white); margin-bottom: 16px;">Services</h4>
+        <p><a href="financement/index.html" style="color: var(--text-muted);">Financement</a></p>
+        <p><a href="scorylease.html" style="color: var(--text-muted);">ScoryLease</a></p>
+        <p><a href="recuplease/index.html" style="color: var(--text-muted);">RecupLease</a></p>
+      </div>
+      <div>
+        <h4 style="color: var(--text-white); margin-bottom: 16px;">Informations</h4>
+        <p><a href="contact.html" style="color: var(--text-muted);">Contact</a></p>
+        <p><a href="legal/mentions-legales.html" style="color: var(--text-muted);">Mentions Légales</a></p>
+        <p><a href="legal/politique-confidentialite.html" style="color: var(--text-muted);">Confidentialité</a></p>
+      </div>
     </div>
-
-    <div class="card">
-      <h3 style="color:#fff; margin-bottom:10px;">Matériel médical</h3>
-      <p style="color:var(--text-muted); margin-bottom:16px;">
-        Échographes, capteurs dentaires, imagerie, matériel reconditionné.
-      </p>
-      <a href="/catalogue/index.html" class="btn-outline">Catalogue</a>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Neutralease. Tous droits réservés.</span>
     </div>
+  </footer>
 
-    <div class="card">
-      <h3 style="color:#fff; margin-bottom:10px;">Reprise & Arbitrage</h3>
-      <p style="color:var(--text-muted); margin-bottom:16px;">
-        Estimation de reprise, arbitrage panne, seconde vie, diagnostic.
-      </p>
-      <a href="/recuplease/index.html" class="btn-outline">En savoir plus</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div>
-      <div class="logo">NeutralEase</div>
-      <p style="color:var(--text-muted); margin-top:8px;">
-        Conseil indépendant pour les professionnels de santé.
-      </p>
-    </div>
-
-    <div class="footer-col">
-      <h4>DiagLease</h4>
-      <ul>
-        <li><a href="/diaglease/ia-medicale/cardiologie.html">IA Cardiologie</a></li>
-        <li><a href="/diaglease/ia-medicale/dermatologie.html">IA Dermatologie</a></li>
-        <li><a href="/diaglease/ia-medicale/radiologie.html">IA Radiologie</a></li>
-        <li><a href="/diaglease/logiciels-pacs-cloud/index.html">PACS Cloud</a></li>
-        <li><a href="/diaglease/maintenance-predictive/index.html">Maintenance Prédictive</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Outils</h4>
-      <ul>
-        <li><a href="/scorylease.html">ScoryLease</a></li>
-        <li><a href="/catalogue/index.html">Catalogue</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="/contact.html">Présenter un projet</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 NeutralEase — Estimations indicatives non contractuelles.
-  </div>
-</footer>
-
-<!-- JS GLOBAL -->
-<script src="/assets/js/main.js"></script>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

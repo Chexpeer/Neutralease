@@ -1,125 +1,43 @@
-/**
- * NeutralEase — Scripts globaux et fonctions interactives
- * Version: 2026.3 — VERSION STABLE & FONCTIONNELLE
- */
+/* ==========================================================================
+   NEUTRALEASE - SCRIPT PRINCIPAL & GESTION MOBILE
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initMobileMenu();
-  initDropdownMobile();
-  initURLParamsPreFill();
-  initDynamicCalculators();
-});
+  const hamburger = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-/**
- * 1. MENU MOBILE — Fonctionne sur TOUTES les pages
- */
-function initMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const hamburger = document.querySelector('.hamburger');
-
-  if (!navLinks || !hamburger) return;
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-}
-
-/**
- * Fonction appelée par le HTML (sécurité + compatibilité)
- */
-function toggleMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  if (navLinks) {
-    navLinks.classList.toggle('active');
-  }
-}
-
-/**
- * 2. Dropdown mobile
- */
-function initDropdownMobile() {
-  document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', function (e) {
-      if (window.innerWidth <= 900) {
-        e.preventDefault();
-        this.parentElement.classList.toggle('open');
-      }
+  // 1. Bascule du menu mobile principal (Hamburger)
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
     });
-  });
-}
-
-/**
- * 3. Pré-remplissage des formulaires via URL
- */
-function initURLParamsPreFill() {
-  const urlParams = new URLSearchParams(window.location.search);
-
-  const serviceParam = urlParams.get('service');
-  const materielParam = urlParams.get('materiel');
-  const familleParam = urlParams.get('famille');
-
-  if (serviceParam) {
-    const serviceSelect =
-      document.getElementById('select-service') ||
-      document.querySelector('select[name="service"]');
-    if (serviceSelect) serviceSelect.value = serviceParam;
   }
 
-  if (materielParam) {
-    const materielInput =
-      document.getElementById('input-materiel') ||
-      document.querySelector('input[name="materiel"]');
-    if (materielInput) materielInput.value = decodeURIComponent(materielParam);
-  }
-
-  if (familleParam) {
-    const familleSelect =
-      document.getElementById('select-famille') ||
-      document.querySelector('select[name="famille"]');
-    if (familleSelect) familleSelect.value = familleParam;
-  }
-}
-
-/**
- * 4. Simulateur ScoryLease
- */
-function initDynamicCalculators() {
-  const simuForm = document.getElementById('scorylease-form');
-  if (!simuForm) return;
-
-  const inputMontant = document.getElementById('simu-montant');
-  const selectDuree = document.getElementById('simu-duree');
-  const displayMensualite = document.getElementById('simu-resultat-mensualite');
-
-  function calculerMensualite() {
-    if (!inputMontant || !selectDuree || !displayMensualite) return;
-
-    const montant = parseFloat(inputMontant.value) || 0;
-    const dureeMois = parseInt(selectDuree.value, 10) || 36;
-
-    if (montant <= 0) {
-      displayMensualalite.textContent = '0,00 €';
-      return;
+  // 2. Gestion du clic sur les menus déroulants en version mobile
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('a');
+    
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          // Empêche le saut de page immédiat si le lien est juste un conteneur de sous-menu
+          if (dropdown.querySelector('.dropdown-content')) {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+          }
+        }
+      });
     }
+  });
 
-    let tauxAnnuel = 0.045;
-    if (dureeMois >= 60) tauxAnnuel = 0.052;
-    if (dureeMois <= 24) tauxAnnuel = 0.038;
-
-    const tauxMensuel = tauxAnnuel / 12;
-
-    const mensualite =
-      (montant * tauxMensuel) /
-      (1 - Math.pow(1 + tauxMensuel, -dureeMois));
-
-    displayMensualite.textContent = new Intl.NumberFormat('fr-FR', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(mensualite);
-  }
-
-  inputMontant?.addEventListener('input', calculerMensualite);
-  selectDuree?.addEventListener('change', calculerMensualite);
-
-  calculerMensualite();
-}
+  // 3. Fermeture automatique du menu au clic à l'extérieur
+  document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('active')) {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
+    }
+  });
+});

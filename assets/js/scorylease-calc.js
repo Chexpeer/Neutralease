@@ -1,202 +1,94 @@
-/**
- * NeutralEase — Engine de Calcul & Scoring ScoryLease
- * Fichier: /assets/js/scorylease-calc.js
- * Version: 2026.1 — VERSION CORRIGÉE
- */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScoryLease - Calculateurs de Leasing Médical & Scoring</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-document.addEventListener('DOMContentLoaded', () => {
-  initScoryLeaseCalculator();
-});
+  <!-- HEADER / NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="Neutralease Logo">
+      </a>
 
-/**
- * Initialisation du simulateur ScoryLease
- */
-function initScoryLeaseCalculator() {
-  const form = document.getElementById('scorylease-advanced-form');
-  if (!form) return;
+      <div class="hamburger" id="hamburger-btn" aria-label="Menu principal">☰</div>
 
-  // Champs du formulaire
-  const inputMontant = document.getElementById('sl-montant');
-  const rangeMontant = document.getElementById('sl-montant-range');
-  const selectDuree = document.getElementById('sl-duree');
-  const selectStructure = document.getElementById('sl-structure');
-  const inputAnciennete = document.getElementById('sl-anciennete');
-  const checkReprise = document.getElementById('sl-reprise-check');
-  const inputValeurReprise = document.getElementById('sl-valeur-reprise');
-  const containerReprise = document.getElementById('sl-reprise-container');
+      <nav class="nav-links" id="nav-menu">
+        <a href="index.html">Accueil</a>
+        
+        <div class="dropdown">
+          <a href="catalogue/index.html">Catalogue ▾</a>
+          <div class="dropdown-content">
+            <a href="echolease/index.html">EchoLease</a>
+            <a href="dentalease/index.html">DentalLease</a>
+            <a href="diaglease/index.html">DiagLease</a>
+            <a href="autres-equipements/index.html">Autres Équipements</a>
+          </div>
+        </div>
 
-  // Résultats
-  const outputMensualite = document.getElementById('sl-result-mensualite');
-  const outputMontantNett = document.getElementById('sl-result-net');
-  const outputTauxAffiche = document.getElementById('sl-result-taux');
-  const outputScoreBadge = document.getElementById('sl-result-score-badge');
-  const outputScoreText = document.getElementById('sl-result-score-text');
+        <div class="dropdown">
+          <a href="financement/index.html">Financement ▾</a>
+          <div class="dropdown-content">
+            <a href="financement/leasing-medical.html">Leasing Médical</a>
+            <a href="financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
+            <a href="financement/location-financiere.html">Location Financière</a>
+          </div>
+        </div>
 
-  /**
-   * Synchronisation Slider ↔ Input Montant
-   */
-  if (inputMontant && rangeMontant) {
-    inputMontant.addEventListener('input', (e) => {
-      rangeMontant.value = e.target.value;
-      recalculer();
-    });
+        <a href="recuplease/index.html">RecupLease</a>
+        <a href="scorylease.html" class="active">ScoryLease</a>
+        <a href="contact.html" class="btn-primary" style="color: #0b0f17;">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    rangeMontant.addEventListener('input', (e) => {
-      inputMontant.value = e.target.value;
-      recalculer();
-    });
-  }
+  <main class="container" style="padding: 40px 20px;">
+    <h1 style="color: var(--text-white); margin-bottom: 10px;">ScoryLease</h1>
+    <p style="color: var(--text-muted); margin-bottom: 30px;">Outil d'évaluation financière et de simulation de loyers en temps réel pour vos projets d'équipement.</p>
 
-  /**
-   * Affichage dynamique du champ "Valeur de reprise"
-   */
-  if (checkReprise && containerReprise) {
-    checkReprise.addEventListener('change', (e) => {
-      containerReprise.style.display = e.target.checked ? 'block' : 'none';
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+      <h2 style="color: var(--brand-primary); margin-bottom: 20px; font-size: 1.4rem;">Simulateur de Loyer</h2>
+      
+      <form id="scorylease-form" style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Montant de l'équipement (€ HT)</label>
+          <input type="number" id="equipment-amount" placeholder="Ex: 50000" style="width: 100%; padding: 12px; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-main); border-radius: var(--radius-sm);" required>
+        </div>
 
-      if (!e.target.checked && inputValeurReprise) {
-        inputValeurReprise.value = 0;
-      }
+        <div>
+          <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Durée du contrat (Mois)</label>
+          <select id="lease-duration" style="width: 100%; padding: 12px; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-main); border-radius: var(--radius-sm);">
+            <option value="36">36 Mois (3 ans)</option>
+            <option value="48">48 Mois (4 ans)</option>
+            <option value="60" selected>60 Mois (5 ans)</option>
+            <option value="72">72 Mois (6 ans)</option>
+          </select>
+        </div>
 
-      recalculer();
-    });
-  }
+        <button type="button" id="calc-btn" class="btn-primary" style="margin-top: 10px; width: 100%;">Calculer l'estimation</button>
+      </form>
 
-  /**
-   * Écoute des changements sur tous les champs
-   */
-  [selectDuree, selectStructure, inputAnciennete, inputValeurReprise].forEach(el => {
-    el?.addEventListener('change', recalculer);
-    el?.addEventListener('input', recalculer);
-  });
+      <div id="result-box" style="margin-top: 24px; padding: 16px; background: var(--bg-dark); border-radius: var(--radius-sm); display: none;">
+        <span style="color: var(--text-muted); display: block; font-size: 0.9rem;">Estimation du loyer mensuel :</span>
+        <strong id="monthly-payment" style="color: var(--brand-primary); font-size: 1.8rem;">0 € HT / mois</strong>
+      </div>
+    </div>
+  </main>
 
-  /**
-   * Fonction principale de calcul
-   */
-  function recalculer() {
-    const montantBrut = parseFloat(inputMontant?.value) || 0;
-    const valeurReprise = checkReprise?.checked ? (parseFloat(inputValeurReprise?.value) || 0) : 0;
-    const montantNet = Math.max(0, montantBrut - valeurReprise);
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Neutralease. Tous droits réservés.</span>
+    </div>
+  </footer>
 
-    const dureeMois = parseInt(selectDuree?.value, 10) || 36;
-    const ancienneteAns = parseFloat(inputAnciennete?.value) || 0;
-    const structure = selectStructure?.value || 'liberal';
-
-    // Cas montant invalide
-    if (montantNet <= 0) {
-      updateUI({
-        mensualite: 0,
-        montantNet: 0,
-        taux: 0,
-        score: 'N/A',
-        scoreClass: 'badge-recuplease',
-        scoreMsg: 'Veuillez saisir un montant d’équipement valide.'
-      });
-      return;
-    }
-
-    /**
-     * 1. Détermination du taux annuel
-     */
-    let tauxAnnuelBase = 0.045; // 4.5% standard
-
-    if (dureeMois <= 24) tauxAnnuelBase = 0.039;
-    else if (dureeMois <= 48) tauxAnnuelBase = 0.044;
-    else if (dureeMois >= 60) tauxAnnuelBase = 0.051;
-
-    // Ajustement selon structure
-    if (structure === 'creation') tauxAnnuelBase += 0.008;
-    if (structure === 'chu_clinique') tauxAnnuelBase -= 0.004;
-
-    /**
-     * 2. Calcul de la mensualité (amortissement constant)
-     */
-    const tauxMensuel = tauxAnnuelBase / 12;
-
-    const mensualite =
-      (montantNet * tauxMensuel) /
-      (1 - Math.pow(1 + tauxMensuel, -dureeMois));
-
-    /**
-     * 3. Calcul du score ScoryLease (0 à 100)
-     */
-    let score = 70;
-
-    // Ancienneté
-    if (ancienneteAns >= 5) score += 15;
-    else if (ancienneteAns >= 2) score += 10;
-    else if (ancienneteAns < 1) score -= 15;
-
-    // Montant
-    if (montantNet < 30000) score += 10;
-    else if (montantNet > 150000) score -= 10;
-
-    // Structure
-    if (structure === 'chu_clinique' || structure === 'selarl') score += 10;
-    if (structure === 'creation') score -= 10;
-
-    // Bornage
-    score = Math.min(99, Math.max(15, score));
-
-    /**
-     * 4. Classification du score
-     */
-    let scoreClass = 'badge-dentalease';
-    let scoreMsg = 'Excellente éligibilité — Validation rapide sous 24h.';
-
-    if (score < 50) {
-      scoreClass = 'badge-recuplease';
-      scoreMsg = 'Dossier nécessitant une étude manuelle ou un apport complémentaire.';
-    } else if (score < 75) {
-      scoreClass = 'badge-echolease';
-      scoreMsg = 'Bonne éligibilité — Pièces justificatives standards requises.';
-    }
-
-    /**
-     * 5. Mise à jour de l’UI
-     */
-    updateUI({
-      mensualite,
-      montantNet,
-      taux: (tauxAnnuelBase * 100).toFixed(2),
-      score: `${score}/100`,
-      scoreClass,
-      scoreMsg
-    });
-  }
-
-  /**
-   * Mise à jour du DOM
-   */
-  function updateUI(data) {
-    if (outputMensualite) {
-      outputMensualite.textContent = new Intl.NumberFormat('fr-FR', {
-        style: 'currency',
-        currency: 'EUR'
-      }).format(data.mensualite);
-    }
-
-    if (outputMontantNett) {
-      outputMontantNett.textContent = new Intl.NumberFormat('fr-FR', {
-        style: 'currency',
-        currency: 'EUR'
-      }).format(data.montantNet);
-    }
-
-    if (outputTauxAffiche) {
-      outputTauxAffiche.textContent = `${data.taux} %`;
-    }
-
-    if (outputScoreBadge) {
-      outputScoreBadge.textContent = data.score;
-      outputScoreBadge.className = `badge ${data.scoreClass}`;
-    }
-
-    if (outputScoreText) {
-      outputScoreText.textContent = data.scoreMsg;
-    }
-  }
-
-  // Premier calcul au chargement
-  recalculer();
-}
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/scorylease-calc.js"></script>
+</body>
+</html>
