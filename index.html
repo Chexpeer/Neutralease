@@ -4,48 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neutralease - Courtage & Solutions de Leasing Équipement Médical</title>
-  <link rel="stylesheet" href="assets/css/global.css">
+
+  <!-- CHEMIN CSS CORRECT (OBLIGATOIRE) -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HEADER / NAVIGATION -->
+  <!-- HEADER / NAVIGATION (VERSION FINALE) -->
   <header class="header">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo.svg" alt="Neutralease Logo">
+
+      <!-- LOGO PNG -->
+      <a href="/index.html" class="logo">
+        <img src="/assets/images/logo.png" alt="NeutralEase">
       </a>
 
-      <!-- BOUTON HAMBURGER MOBILE -->
-      <div class="hamburger" id="hamburger-btn" aria-label="Menu principal">☰</div>
+      <!-- HAMBURGER MOBILE -->
+      <button class="hamburger" aria-label="Menu mobile">☰</button>
 
-      <nav class="nav-links" id="nav-menu">
-        <a href="index.html" class="active">Accueil</a>
-        
+      <nav class="nav-links">
+
+        <a href="/index.html" class="active">Accueil</a>
+
         <div class="dropdown">
-          <a href="catalogue/index.html">Catalogue ▾</a>
+          <a href="/catalogue/index.html">Catalogue ▾</a>
           <div class="dropdown-content">
-            <a href="echolease/index.html">EchoLease</a>
-            <a href="dentalease/index.html">DentalLease</a>
-            <a href="diaglease/index.html">DiagLease</a>
-            <a href="autres-equipements/index.html">Autres Équipements</a>
+            <a href="/echolease/index.html">EchoLease</a>
+            <a href="/dentalease/index.html">DentalLease</a>
+            <a href="/diaglease/index.html">DiagLease</a>
+            <a href="/autres-equipements/index.html">Autres Équipements</a>
           </div>
         </div>
 
         <div class="dropdown">
-          <a href="financement/index.html">Financement ▾</a>
+          <a href="/financement/index.html">Financement ▾</a>
           <div class="dropdown-content">
-            <a href="financement/leasing-medical.html">Leasing Médical</a>
-            <a href="financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
-            <a href="financement/location-financiere.html">Location Financière</a>
+            <a href="/financement/leasing-medical.html">Leasing Médical</a>
+            <a href="/financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
+            <a href="/financement/location-financiere.html">Location Financière</a>
           </div>
         </div>
 
-        <a href="recuplease/index.html">RecupLease</a>
-        <a href="scorylease.html">ScoryLease</a>
-        <a href="contact.html" class="btn-primary" style="color: #0b0f17;">Contact</a>
+        <a href="/recuplease/index.html">RecupLease</a>
+        <a href="/scorylease.html">ScoryLease</a>
+        <a href="/contact.html" class="btn-primary">Contact</a>
+
       </nav>
     </div>
   </header>
@@ -53,12 +60,17 @@
   <!-- HERO SECTION -->
   <main>
     <section class="container" style="padding: 60px 20px;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-white);">Solutions de financement & leasing médical neutres et indépendantes</h1>
-      <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 30px;">Neutralease accompagne les professionnels de santé dans l'acquisition, la gestion et le renouvellement de leurs équipements médicaux avec une indépendance totale vis-à-vis des éditeurs et constructeurs.</p>
-      
+      <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-white);">
+        Solutions de financement & leasing médical neutres et indépendantes
+      </h1>
+
+      <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 30px;">
+        Neutralease accompagne les professionnels de santé dans l'acquisition, la gestion et le renouvellement de leurs équipements médicaux avec une indépendance totale vis-à-vis des éditeurs et constructeurs.
+      </p>
+
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="catalogue/index.html" class="btn-primary">Découvrir le Catalogue</a>
-        <a href="scorylease.html" style="border: 1px solid var(--border); padding: 12px 24px; border-radius: var(--radius-sm); color: var(--text-white);">Simuler avec ScoryLease</a>
+        <a href="/catalogue/index.html" class="btn-primary">Découvrir le Catalogue</a>
+        <a href="/scorylease.html" class="btn-outline">Simuler avec ScoryLease</a>
       </div>
     </section>
 
@@ -67,19 +79,19 @@
       <div class="card">
         <h3 style="color: var(--accent-echolease); margin-bottom: 12px;">EchoLease</h3>
         <p style="color: var(--text-muted); margin-bottom: 16px;">Échographes fixes, portatifs et capteurs de haute précision.</p>
-        <a href="echolease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        <a href="/echolease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
 
       <div class="card">
         <h3 style="color: var(--accent-dentalease); margin-bottom: 12px;">DentalLease</h3>
         <p style="color: var(--text-muted); margin-bottom: 16px;">Fauteuils, scanners intra-oraux, imagerie 3D et chaîne de stérilisation.</p>
-        <a href="dentalease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        <a href="/dentalease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
 
       <div class="card">
         <h3 style="color: var(--accent-diaglease); margin-bottom: 12px;">DiagLease</h3>
         <p style="color: var(--text-muted); margin-bottom: 16px;">IA médicale, PACS cloud, cardiologie et radiologie avancée.</p>
-        <a href="diaglease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        <a href="/diaglease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
       </div>
     </section>
   </main>
@@ -87,28 +99,43 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
+
       <div>
-        <h4 style="color: var(--text-white); margin-bottom: 16px;">Neutralease</h4>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Plateforme d'ingénierie financière et courtage spécialisé en équipements médicaux et de diagnostic.</p>
+        <a href="/index.html" class="logo">
+          <img src="/assets/images/logo.png" alt="NeutralEase">
+        </a>
+        <p style="color: var(--text-muted); margin-top: 8px;">
+          Plateforme d'ingénierie financière et courtage spécialisé en équipements médicaux et de diagnostic.
+        </p>
       </div>
-      <div>
-        <h4 style="color: var(--text-white); margin-bottom: 16px;">Services</h4>
-        <p><a href="financement/index.html" style="color: var(--text-muted);">Financement</a></p>
-        <p><a href="scorylease.html" style="color: var(--text-muted);">ScoryLease</a></p>
-        <p><a href="recuplease/index.html" style="color: var(--text-muted);">RecupLease</a></p>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/financement/index.html">Financement</a></li>
+          <li><a href="/scorylease.html">ScoryLease</a></li>
+          <li><a href="/recuplease/index.html">RecupLease</a></li>
+        </ul>
       </div>
-      <div>
-        <h4 style="color: var(--text-white); margin-bottom: 16px;">Informations</h4>
-        <p><a href="contact.html" style="color: var(--text-muted);">Contact</a></p>
-        <p><a href="legal/mentions-legales.html" style="color: var(--text-muted);">Mentions Légales</a></p>
-        <p><a href="legal/politique-confidentialite.html" style="color: var(--text-muted);">Confidentialité</a></p>
+
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/legal/mentions-legales.html">Mentions Légales</a></li>
+          <li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li>
+        </ul>
       </div>
+
     </div>
-    <div class="container footer-bottom">
-      <span>&copy; 2026 Neutralease. Tous droits réservés.</span>
+
+    <div class="footer-bottom">
+      © 2026 Neutralease — Tous droits réservés.
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <!-- JS GLOBAL -->
+  <script src="/assets/js/main.js"></script>
+
 </body>
 </html>
