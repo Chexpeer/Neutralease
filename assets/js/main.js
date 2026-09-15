@@ -1,6 +1,6 @@
 /**
  * NeutralEase — Scripts globaux et fonctions interactives
- * Version: 2026.1 — VERSION CORRIGÉE
+ * Version: 2026.2 — VERSION STABLE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,22 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1. Gestion du menu mobile (Toggle Responsive)
  */
 function initMobileMenu() {
-  const navContainer = document.querySelector('.nav-container');
   const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger');
 
-  if (!navContainer || !navLinks) return;
+  if (!navLinks || !hamburger) return;
 
-  // Bouton burger standardisé (compatible avec ton global.css)
-  if (!document.querySelector('.hamburger')) {
-    const btn = document.createElement('div');
-    btn.className = 'hamburger';
-    btn.innerHTML = '☰';
+  // Le hamburger existe déjà dans le HTML → on lui ajoute l’action
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
 
-    btn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    navContainer.appendChild(btn);
+/**
+ * Fonction appelée par le HTML (sécurité + compatibilité)
+ */
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.classList.toggle('active');
   }
 }
 
@@ -49,7 +51,6 @@ function initDropdownMobile() {
 
 /**
  * 3. Pré-remplissage automatique des formulaires via les paramètres d'URL
- * Exemple : contact.html?service=echolease&materiel=Echographe+Portable
  */
 function initURLParamsPreFill() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -58,30 +59,24 @@ function initURLParamsPreFill() {
   const materielParam = urlParams.get('materiel');
   const familleParam = urlParams.get('famille');
 
-  // Champ Service / Pilier
   if (serviceParam) {
     const serviceSelect =
       document.getElementById('select-service') ||
       document.querySelector('select[name="service"]');
-
     if (serviceSelect) serviceSelect.value = serviceParam;
   }
 
-  // Champ Matériel
   if (materielParam) {
     const materielInput =
       document.getElementById('input-materiel') ||
       document.querySelector('input[name="materiel"]');
-
     if (materielInput) materielInput.value = decodeURIComponent(materielParam);
   }
 
-  // Champ Famille
   if (familleParam) {
     const familleSelect =
       document.getElementById('select-famille') ||
       document.querySelector('select[name="famille"]');
-
     if (familleSelect) familleSelect.value = familleParam;
   }
 }
@@ -108,8 +103,7 @@ function initDynamicCalculators() {
       return;
     }
 
-    // Taux indicatif (ajusté selon la durée)
-    let tauxAnnuel = 0.045; // 4.5%
+    let tauxAnnuel = 0.045;
     if (dureeMois >= 60) tauxAnnuel = 0.052;
     if (dureeMois <= 24) tauxAnnuel = 0.038;
 
@@ -128,5 +122,5 @@ function initDynamicCalculators() {
   inputMontant?.addEventListener('input', calculerMensualite);
   selectDuree?.addEventListener('change', calculerMensualite);
 
-  calculerMensualite(); // Premier calcul
+  calculerMensualite();
 }
