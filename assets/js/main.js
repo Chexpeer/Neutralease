@@ -1,6 +1,6 @@
 /**
  * NeutralEase — Scripts globaux et fonctions interactives
- * Version: 2026.2 — VERSION STABLE
+ * Version: 2026.3 — VERSION STABLE & FONCTIONNELLE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Gestion du menu mobile (Toggle Responsive)
+ * 1. MENU MOBILE — Fonctionne sur TOUTES les pages
  */
 function initMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -19,7 +19,7 @@ function initMobileMenu() {
 
   if (!navLinks || !hamburger) return;
 
-  // Le hamburger existe déjà dans le HTML → on lui ajoute l’action
+  // Activation du menu mobile
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
@@ -36,7 +36,7 @@ function toggleMenu() {
 }
 
 /**
- * 2. Dropdown mobile (ouvrir les sous‑menus sur mobile)
+ * 2. Dropdown mobile
  */
 function initDropdownMobile() {
   document.querySelectorAll('.dropdown > a').forEach(link => {
@@ -50,7 +50,7 @@ function initDropdownMobile() {
 }
 
 /**
- * 3. Pré-remplissage automatique des formulaires via les paramètres d'URL
+ * 3. Pré-remplissage des formulaires via URL
  */
 function initURLParamsPreFill() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -82,7 +82,7 @@ function initURLParamsPreFill() {
 }
 
 /**
- * 4. Simulateur ScoryLease — Calculateur dynamique
+ * 4. Simulateur ScoryLease
  */
 function initDynamicCalculators() {
   const simuForm = document.getElementById('scorylease-form');
