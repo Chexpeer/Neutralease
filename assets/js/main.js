@@ -1,10 +1,11 @@
 /**
  * NeutralEase — Scripts globaux et fonctions interactives
- * Version: 2026.1
+ * Version: 2026.1 — VERSION CORRIGÉE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
+  initDropdownMobile();
   initURLParamsPreFill();
   initDynamicCalculators();
 });
@@ -18,21 +19,14 @@ function initMobileMenu() {
 
   if (!navContainer || !navLinks) return;
 
-  // Création du bouton burger s'il n'existe pas
-  if (!document.querySelector('.mobile-menu-btn')) {
-    const btn = document.createElement('button');
-    btn.className = 'mobile-menu-btn';
-    btn.setAttribute('aria-label', 'Afficher le menu');
-    btn.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    `;
-    
+  // Bouton burger standardisé (compatible avec ton global.css)
+  if (!document.querySelector('.hamburger')) {
+    const btn = document.createElement('div');
+    btn.className = 'hamburger';
+    btn.innerHTML = '☰';
+
     btn.addEventListener('click', () => {
-      navLinks.classList.toggle('nav-open');
+      navLinks.classList.toggle('active');
     });
 
     navContainer.appendChild(btn);
@@ -40,42 +34,60 @@ function initMobileMenu() {
 }
 
 /**
- * 2. Pré-remplissage automatique des formulaires de contact via les paramètres d'URL
+ * 2. Dropdown mobile (ouvrir les sous‑menus sur mobile)
+ */
+function initDropdownMobile() {
+  document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        this.parentElement.classList.toggle('open');
+      }
+    });
+  });
+}
+
+/**
+ * 3. Pré-remplissage automatique des formulaires via les paramètres d'URL
  * Exemple : contact.html?service=echolease&materiel=Echographe+Portable
  */
 function initURLParamsPreFill() {
   const urlParams = new URLSearchParams(window.location.search);
+
   const serviceParam = urlParams.get('service');
   const materielParam = urlParams.get('materiel');
   const familleParam = urlParams.get('famille');
 
-  // Remplissage du champ Service / Pilier
+  // Champ Service / Pilier
   if (serviceParam) {
-    const serviceSelect = document.getElementById('select-service') || document.querySelector('select[name="service"]');
-    if (serviceSelect) {
-      serviceSelect.value = serviceParam;
-    }
+    const serviceSelect =
+      document.getElementById('select-service') ||
+      document.querySelector('select[name="service"]');
+
+    if (serviceSelect) serviceSelect.value = serviceParam;
   }
 
-  // Remplissage du champ Équipement / Matériel
+  // Champ Matériel
   if (materielParam) {
-    const materielInput = document.getElementById('input-materiel') || document.querySelector('input[name="materiel"]');
-    if (materielInput) {
-      materielInput.value = decodeURIComponent(materielParam);
-    }
+    const materielInput =
+      document.getElementById('input-materiel') ||
+      document.querySelector('input[name="materiel"]');
+
+    if (materielInput) materielInput.value = decodeURIComponent(materielParam);
   }
 
-  // Remplissage de la catégorie / famille
+  // Champ Famille
   if (familleParam) {
-    const familleSelect = document.getElementById('select-famille') || document.querySelector('select[name="famille"]');
-    if (familleSelect) {
-      familleSelect.value = familleParam;
-    }
+    const familleSelect =
+      document.getElementById('select-famille') ||
+      document.querySelector('select[name="famille"]');
+
+    if (familleSelect) familleSelect.value = familleParam;
   }
 }
 
 /**
- * 3. Simulateur de financement rapide (Utilitaires & Calculs ScoryLease)
+ * 4. Simulateur ScoryLease — Calculateur dynamique
  */
 function initDynamicCalculators() {
   const simuForm = document.getElementById('scorylease-form');
@@ -96,13 +108,16 @@ function initDynamicCalculators() {
       return;
     }
 
-    // Taux indicatif de souscription de bail médical (ajusté selon la durée)
-    let tauxAnnuel = 0.045; // 4.5% par défaut
+    // Taux indicatif (ajusté selon la durée)
+    let tauxAnnuel = 0.045; // 4.5%
     if (dureeMois >= 60) tauxAnnuel = 0.052;
     if (dureeMois <= 24) tauxAnnuel = 0.038;
 
     const tauxMensuel = tauxAnnuel / 12;
-    const mensualite = (montant * tauxMensuel) / (1 - Math.pow(1 + tauxMensuel, -dureeMois));
+
+    const mensualite =
+      (montant * tauxMensuel) /
+      (1 - Math.pow(1 + tauxMensuel, -dureeMois));
 
     displayMensualite.textContent = new Intl.NumberFormat('fr-FR', {
       style: 'currency',
@@ -113,6 +128,5 @@ function initDynamicCalculators() {
   inputMontant?.addEventListener('input', calculerMensualite);
   selectDuree?.addEventListener('change', calculerMensualite);
 
-  // Premier calcul au chargement
-  calculerMensualite();
+  calculerMensualite(); // Premier calcul
 }
