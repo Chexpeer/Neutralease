@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEUTRALEASE - SCRIPT PRINCIPAL & GESTION MOBILE
+   NEUTRALEASE - SCRIPT PRINCIPAL & GESTION MOBILE (VERSION FINALE)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Gestion du clic sur les menus déroulants en version mobile
   dropdowns.forEach(dropdown => {
-    const trigger = dropdown.querySelector('a');
+    const trigger = dropdown.querySelector(':scope > a');
     
     if (trigger) {
       trigger.addEventListener('click', (e) => {
         if (window.innerWidth <= 900) {
-          // Empêche le saut de page immédiat si le lien est juste un conteneur de sous-menu
-          if (dropdown.querySelector('.dropdown-content')) {
+          const subMenu = dropdown.querySelector('.dropdown-content');
+          if (subMenu) {
             e.preventDefault();
             dropdown.classList.toggle('open');
           }
@@ -32,7 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Fermeture automatique du menu au clic à l'extérieur
+  // 3. Fermeture du menu lors du clic sur un lien final de sous-menu
+  const subMenuLinks = document.querySelectorAll('.dropdown-content a');
+  subMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu && window.innerWidth <= 900) {
+        navMenu.classList.remove('active');
+      }
+    });
+  });
+
+  // 4. Fermeture automatique du menu au clic à l'extérieur
   document.addEventListener('click', (e) => {
     if (navMenu && navMenu.classList.contains('active')) {
       if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
