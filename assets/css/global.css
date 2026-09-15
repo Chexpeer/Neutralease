@@ -1,9 +1,9 @@
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION FINALE 2026)
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION FINALE CORRIGÉE)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES
+   1. VARIABLES GLOBALES
    -------------------------------------------------------------------------- */
 :root {
   --bg-dark: #0b0f17;
@@ -37,7 +37,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. BASE
+   2. REZERO & BASE
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -87,21 +87,25 @@ ul {
   align-items: center;
 }
 
-/* LOGO JPG — FORMAT CARRÉ AJUSTÉ */
+/* LOGO - CORRECTION AFFICHAGE EN LIGNE */
 .logo {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .logo img {
-  height: 44px;
-  width: auto;
+  height: 44px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  display: block !important;
+  object-fit: contain !important;
   border-radius: var(--radius-sm);
-  display: block;
-  object-fit: contain;
 }
 
-/* HAMBURGER */
+/* HAMBURGER MOBILE */
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -110,7 +114,7 @@ ul {
   z-index: 9999;
 }
 
-/* NAV LINKS */
+/* LIENS DE NAVIGATION */
 .nav-links {
   display: flex;
   gap: 22px;
@@ -129,7 +133,7 @@ ul {
   color: var(--text-white);
 }
 
-/* DROPDOWN */
+/* DROPDOWN MENU */
 .dropdown {
   position: relative;
 }
@@ -165,7 +169,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOUTONS
+   4. BOUTONS & ACTIONS
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
@@ -241,7 +245,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   7. RESPONSIVE — NAVIGATION MOBILE
+   7. RESPONSIVE (ECRANS MOBILE ET TABLETTE <= 900PX)
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
 
@@ -251,7 +255,7 @@ ul {
   }
 
   .logo img {
-    height: 38px;
+    height: 38px !important;
   }
 
   .hamburger {
