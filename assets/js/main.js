@@ -19,7 +19,6 @@ function initMobileMenu() {
 
   if (!navLinks || !hamburger) return;
 
-  // Activation du menu mobile
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
@@ -99,7 +98,7 @@ function initDynamicCalculators() {
     const dureeMois = parseInt(selectDuree.value, 10) || 36;
 
     if (montant <= 0) {
-      displayMensualite.textContent = '0,00 €';
+      displayMensualalite.textContent = '0,00 €';
       return;
     }
 
