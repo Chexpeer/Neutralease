@@ -87,12 +87,15 @@ ul {
   align-items: center;
 }
 
-/* LOGO TEXTE */
+/* LOGO SVG — VERSION FINALE */
 .logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-white);
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  display: block;
 }
 
 /* HAMBURGER */
@@ -239,9 +242,8 @@ ul {
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
 
-  .logo {
-    font-size: 1.3rem;
-    font-weight: 800;
+  .logo img {
+    height: 42px;
   }
 
   .hamburger {
