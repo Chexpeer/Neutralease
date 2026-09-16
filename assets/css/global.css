@@ -1,70 +1,78 @@
+```css
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION TECH PREMIUM 2026)
+   NEUTRALEASE - GLOBAL.CSS (VERSION TECH IA PREMIUM 2026)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES THÉMATIQUES ET CHARTE GRAPHIQUE
+   1. VARIABLES
    -------------------------------------------------------------------------- */
 :root {
-  /* Couleurs de fond et structures */
-  --bg-dark: #0b0f17;
-  --bg-card: #151c28;
-  --bg-card-hover: #1c2636;
-  --bg-input: #070a0f;
-  --border: #232d3f;
-  --border-focus: #3b82f6;
+  /* Fond général */
+  --bg-dark: #05070c;
+  --bg-surface: #0c111b;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
 
-  /* Typographie */
-  --text-main: #f3f4f6;
+  /* Typo */
+  --text-main: #e5e7eb;
   --text-muted: #9ca3af;
   --text-white: #ffffff;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Identité Marque Mère : NeutralEase */
+  /* Marque */
   --brand-primary: #3b82f6;
-  --brand-glow: rgba(59, 130, 246, 0.25);
+  --brand-glow: rgba(59, 130, 246, 0.35);
 
-  /* Identités Marques Filles (Accentuations) */
+  /* Accents */
   --accent-echolease: #00e5ff;
   --accent-dentalease: #10b981;
   --accent-diaglease: #a855f7;
   --accent-recuplease: #f59e0b;
 
   /* Header vert froid violacé équilibré */
-  --header-base: #1a3b3f; /* vert froid désaturé */
-  --header-violet: #2d1f3f; /* nuance violette tech */
-  --header-mix: linear-gradient(
+  --header-base: #1a3b3f;
+  --header-violet: #2d1f3f;
+  --header-gradient: linear-gradient(
     180deg,
-    rgba(26, 59, 63, 0.92) 0%,
-    rgba(45, 31, 63, 0.94) 60%,
-    rgba(26, 59, 63, 0.96) 100%
+    rgba(26, 59, 63, 0.94) 0%,
+    rgba(45, 31, 63, 0.96) 55%,
+    rgba(26, 59, 63, 0.98) 100%
   );
 
-  /* Effets lumineux tech */
-  --header-glow: rgba(168, 85, 247, 0.25);
-  --header-spark: rgba(255, 255, 255, 0.18);
+  /* Effets lumineux */
+  --violet-neon: #a855f7;
+  --violet-neon-glow: rgba(168, 85, 247, 0.35);
+  --violet-neon-halo-very-discreet: rgba(168, 85, 247, 0.12);
 
-  /* Ombrages et transitions */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
-  --transition-fast: all 0.2s ease;
-  --radius-sm: 6px;
-  --radius-md: 12px; /* angles modérés tech */
-  --radius-lg: 16px;
+  /* Ombres / radius / transitions */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.65);
+  --shadow-lg: 0 18px 60px rgba(0, 0, 0, 0.85);
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 20px; /* capsules accueil */
+  --radius-xl: 26px;
+
+  --transition-fast: all 0.18s ease-out;
+  --transition-med: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET ET BASES TYPOGRAPHIQUES
+   2. RESET / BASE
    -------------------------------------------------------------------------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -80,14 +88,14 @@ a {
   text-decoration: none;
 }
 
-ul {
-  list-style: none;
-}
-
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+ul {
+  list-style: none;
 }
 
 .container {
@@ -97,104 +105,142 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   3. HEADER TECH PREMIUM (3D + BRILLANT MODÉRÉ)
+   3. HEADER FUTURISTE PREMIUM
    -------------------------------------------------------------------------- */
 .header {
   padding: 12px 0;
-  background: var(--header-mix);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: var(--header-gradient);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
 
-  /* Effet 3D */
   box-shadow:
-    inset 0 -2px 6px rgba(0,0,0,0.45),
-    inset 0 2px 4px rgba(255,255,255,0.08),
-    0 4px 12px rgba(0,0,0,0.35);
+    inset 0 -2px 6px rgba(0, 0, 0, 0.55),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.65);
 
-  /* Brillant modéré */
   background-blend-mode: overlay;
 }
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .logo img {
   height: 42px;
-  display: block;
 }
 
 /* --------------------------------------------------------------------------
-   4. MENUS 3D TECH PREMIUM (ANGLES MODÉRÉS + BRILLANT)
+   4. NAV PRINCIPALE (BANDEAU) AVEC ICÔNES FUTURISTES
    -------------------------------------------------------------------------- */
 .nav-links {
   display: flex;
-  gap: 18px;
   align-items: center;
+  gap: 18px;
 }
 
-.nav-links a {
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 14px;
   border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-
-  /* Alternance subtile premium */
   color: var(--text-white);
-  background: rgba(255,255,255,0.04);
 
-  /* Effet 3D */
+  background: rgba(255, 255, 255, 0.04);
   box-shadow:
-    inset 0 -1px 3px rgba(0,0,0,0.45),
-    inset 0 1px 2px rgba(255,255,255,0.08);
+    inset 0 -1px 3px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.08);
 
   transition: var(--transition-fast);
 }
 
-.nav-links a:nth-child(1) { color: var(--brand-primary); }
-.nav-links a:nth-child(2) { color: var(--accent-diaglease); }
-.nav-links a:nth-child(3) { color: var(--accent-echolease); }
-.nav-links a:nth-child(4) { color: var(--accent-dentalease); }
-.nav-links a:nth-child(5) { color: var(--accent-recuplease); }
-.nav-links a:nth-child(6) { color: var(--text-muted); }
+/* alternance subtile premium */
+.nav-item:nth-child(1) { color: var(--brand-primary); }
+.nav-item:nth-child(2) { color: var(--accent-diaglease); }
+.nav-item:nth-child(3) { color: var(--accent-echolease); }
+.nav-item:nth-child(4) { color: var(--accent-dentalease); }
+.nav-item:nth-child(5) { color: var(--accent-recuplease); }
+.nav-item:nth-child(6) { color: var(--text-muted); }
 
-.nav-links a:hover {
-  background: rgba(255,255,255,0.08);
+/* icône futuriste linéaire fine */
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow:
-    inset 0 -2px 4px rgba(0,0,0,0.55),
-    inset 0 2px 3px rgba(255,255,255,0.12),
-    0 0 6px var(--header-glow);
+    0 0 0 1px var(--violet-neon-halo-very-discreet),
+    0 0 10px rgba(168, 85, 247, 0.18);
+}
 
-  /* Étincelle tech */
-  border: 1px solid var(--header-spark);
+/* tracé linéaire fin (pseudo fractal / abstrait) */
+.nav-icon-line {
+  width: 70%;
+  height: 70%;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 0 6px rgba(168, 85, 247, 0.35);
+}
+
+/* hover bandeau */
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 -2px 4px rgba(0, 0, 0, 0.65),
+    inset 0 2px 3px rgba(255, 255, 255, 0.12),
+    0 0 12px var(--violet-neon-glow);
+}
+
+/* vibration / tremblement de terre au clic */
+.nav-item:active {
+  animation: quake-click 0.14s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* --------------------------------------------------------------------------
-   5. DROPDOWN (3D + ANGLES MODÉRÉS)
+   5. DROPDOWN
    -------------------------------------------------------------------------- */
 .dropdown {
   position: relative;
 }
 
+.dropdown-toggle {
+  cursor: pointer;
+}
+
 .dropdown-content {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
-  padding: 8px 0;
   margin-top: 8px;
+  padding: 8px 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-md);
+  display: none;
   z-index: 1001;
 }
 
@@ -203,55 +249,66 @@ img {
 }
 
 .dropdown-content a {
-  padding: 10px 18px;
   display: block;
+  padding: 10px 18px;
   font-size: 0.85rem;
   color: var(--text-muted);
+  transition: var(--transition-fast);
 }
 
 .dropdown-content a:hover {
-  background-color: var(--bg-card-hover);
+  background: var(--bg-card-hover);
   color: var(--text-white);
 }
 
 /* --------------------------------------------------------------------------
-   6. BOUTONS
+   6. BOUTONS PREMIUM
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
-  color: #0b0f17;
+  color: #05070c;
   font-weight: 700;
   padding: 12px 24px;
   border-radius: var(--radius-md);
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: none;
   cursor: pointer;
-  transition: var(--transition-fast);
+  transition: var(--transition-med);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 30px rgba(59, 130, 246, 0.45);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 20px var(--brand-glow);
   transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 16px 40px rgba(59, 130, 246, 0.65);
+}
+
+.btn-primary:active {
+  animation: quake-click 0.14s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* --------------------------------------------------------------------------
-   7. CARTES
+   7. CARTES PREMIUM
    -------------------------------------------------------------------------- */
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 28px;
-  transition: var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-med);
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
@@ -262,9 +319,9 @@ img {
 .form-textarea {
   width: 100%;
   padding: 12px 16px;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #05070c;
   color: var(--text-white);
   font-size: 0.9rem;
   transition: var(--transition-fast);
@@ -273,7 +330,8 @@ img {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--border-focus);
+  outline: none;
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px var(--brand-glow);
 }
 
@@ -281,10 +339,10 @@ img {
    9. FOOTER
    -------------------------------------------------------------------------- */
 .footer {
-  border-top: 1px solid var(--border);
-  padding: 60px 0 30px 0;
-  background: #070a0f;
   margin-top: 80px;
+  padding: 60px 0 30px;
+  background: #05070c;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-grid {
@@ -295,28 +353,146 @@ img {
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   font-size: 0.8rem;
   color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE
+   10. MENUS ACCUEIL – CAPSULES TRANSLUCIDES VERRE BRILLANT
+   -------------------------------------------------------------------------- */
+.home-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home-menu-item {
+  position: relative;
+  padding: 12px 22px;
+  border-radius: var(--radius-lg); /* capsules */
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-white);
+
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.02)
+    );
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 0 0 1px var(--violet-neon-halo-very-discreet),
+    0 14px 40px rgba(0, 0, 0, 0.85),
+    inset 0 0 12px rgba(255, 255, 255, 0.18);
+
+  transition: var(--transition-med);
+}
+
+/* alternance subtile premium sur l’accueil */
+.home-menu-item:nth-child(1) { color: var(--brand-primary); }
+.home-menu-item:nth-child(2) { color: var(--accent-diaglease); }
+.home-menu-item:nth-child(3) { color: var(--accent-echolease); }
+.home-menu-item:nth-child(4) { color: var(--accent-dentalease); }
+.home-menu-item:nth-child(5) { color: var(--accent-recuplease); }
+
+.home-menu-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 20% 0%,
+    rgba(255, 255, 255, 0.35),
+    transparent 55%
+  );
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* hover capsules verre brillant */
+.home-menu-item:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 18px 60px rgba(0, 0, 0, 0.95),
+    inset 0 0 18px rgba(255, 255, 255, 0.26);
+  transform: translateY(-2px);
+}
+
+/* clic – tremblement de terre */
+.home-menu-item:active {
+  animation: quake-click 0.14s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   11. ANIMATIONS GLOBALES
+   -------------------------------------------------------------------------- */
+@keyframes quake-click {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(-1px, 0.5px) rotate(-0.6deg); }
+  40%  { transform: translate(1px, -0.5px) rotate(0.6deg); }
+  60%  { transform: translate(-0.5px, 1px) rotate(-0.4deg); }
+  80%  { transform: translate(0.5px, -1px) rotate(0.4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* apparition douce des éléments (optionnel, utilisé sur sections) */
+.fade-glow-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeGlowIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes fadeGlowIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    box-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.18);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .nav-links { display: none; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-menu {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
   }
+
+  .home-menu-item {
+    width: 100%;
+    text-align: center;
+  }
 }
+```
