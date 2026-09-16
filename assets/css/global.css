@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (CSS CENTRALISÉ)
+   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION TECH PREMIUM 2026)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -25,20 +25,31 @@
   --brand-glow: rgba(59, 130, 246, 0.25);
 
   /* Identités Marques Filles (Accentuations) */
-  --accent-echolease: #00e5ff;   /* Cyan Imagerie */
-  --accent-dentalease: #10b981;  /* Émeraude Dentaire */
-  --accent-diaglease: #a855f7;   /* Violet IA / PACS / Software */
-  --accent-recuplease: #f59e0b;  /* Ambre Support / Reprise / Maintenance */
+  --accent-echolease: #00e5ff;
+  --accent-dentalease: #10b981;
+  --accent-diaglease: #a855f7;
+  --accent-recuplease: #f59e0b;
 
-  /* Couleur demandée pour le HEADER */
-  --header-green: #10b981; /* VERT TECH MODERNE */
+  /* Header vert froid violacé équilibré */
+  --header-base: #1a3b3f; /* vert froid désaturé */
+  --header-violet: #2d1f3f; /* nuance violette tech */
+  --header-mix: linear-gradient(
+    180deg,
+    rgba(26, 59, 63, 0.92) 0%,
+    rgba(45, 31, 63, 0.94) 60%,
+    rgba(26, 59, 63, 0.96) 100%
+  );
+
+  /* Effets lumineux tech */
+  --header-glow: rgba(168, 85, 247, 0.25);
+  --header-spark: rgba(255, 255, 255, 0.18);
 
   /* Ombrages et transitions */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
   --transition-fast: all 0.2s ease;
   --radius-sm: 6px;
-  --radius-md: 10px;
+  --radius-md: 12px; /* angles modérés tech */
   --radius-lg: 16px;
 }
 
@@ -86,16 +97,25 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   3. NAVIGATION ET EN-TÊTE UNIFIÉ (ALIGNEMENT CORRIGÉ)
+   3. HEADER TECH PREMIUM (3D + BRILLANT MODÉRÉ)
    -------------------------------------------------------------------------- */
 .header {
-  border-bottom: 1px solid var(--border);
-  padding: 12px 0; /* bandeau réduit */
-  background: var(--header-green); /* >>>>>>>>>>>>> HEADER VERT <<<<<<<<<<<<< */
+  padding: 12px 0;
+  background: var(--header-mix);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+
+  /* Effet 3D */
+  box-shadow:
+    inset 0 -2px 6px rgba(0,0,0,0.45),
+    inset 0 2px 4px rgba(255,255,255,0.08),
+    0 4px 12px rgba(0,0,0,0.35);
+
+  /* Brillant modéré */
+  background-blend-mode: overlay;
 }
 
 .nav-container {
@@ -104,49 +124,63 @@ img {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-white);
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
-  height: 42px; /* logo visible */
+  height: 42px;
   display: block;
 }
 
-.logo span {
-  color: var(--text-white);
-}
-
+/* --------------------------------------------------------------------------
+   4. MENUS 3D TECH PREMIUM (ANGLES MODÉRÉS + BRILLANT)
+   -------------------------------------------------------------------------- */
 .nav-links {
   display: flex;
-  gap: 22px;
+  gap: 18px;
   align-items: center;
 }
 
 .nav-links a {
-  color: var(--text-white);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 0.88rem;
-  transition: var(--transition-fast);
   display: inline-flex;
   align-items: center;
+
+  /* Alternance subtile premium */
+  color: var(--text-white);
+  background: rgba(255,255,255,0.04);
+
+  /* Effet 3D */
+  box-shadow:
+    inset 0 -1px 3px rgba(0,0,0,0.45),
+    inset 0 1px 2px rgba(255,255,255,0.08);
+
+  transition: var(--transition-fast);
 }
 
-.nav-links a:hover, 
-.nav-links a.active {
-  opacity: 0.85;
+.nav-links a:nth-child(1) { color: var(--brand-primary); }
+.nav-links a:nth-child(2) { color: var(--accent-diaglease); }
+.nav-links a:nth-child(3) { color: var(--accent-echolease); }
+.nav-links a:nth-child(4) { color: var(--accent-dentalease); }
+.nav-links a:nth-child(5) { color: var(--accent-recuplease); }
+.nav-links a:nth-child(6) { color: var(--text-muted); }
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 -2px 4px rgba(0,0,0,0.55),
+    inset 0 2px 3px rgba(255,255,255,0.12),
+    0 0 6px var(--header-glow);
+
+  /* Étincelle tech */
+  border: 1px solid var(--header-spark);
 }
 
-/* Menus Déroulants (Dropdowns) */
+/* --------------------------------------------------------------------------
+   5. DROPDOWN (3D + ANGLES MODÉRÉS)
+   -------------------------------------------------------------------------- */
 .dropdown {
   position: relative;
-  display: inline-flex;
-  align-items: center;
 }
 
 .dropdown-content {
@@ -154,11 +188,11 @@ img {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--bg-card);
   min-width: 220px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
+  background: var(--bg-card);
   border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
   padding: 8px 0;
   margin-top: 8px;
   z-index: 1001;
@@ -181,14 +215,14 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   4. BOUTONS ET BADGES
+   6. BOUTONS
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--brand-primary);
   color: #0b0f17;
   font-weight: 700;
   padding: 12px 24px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -196,8 +230,6 @@ img {
   border: none;
   cursor: pointer;
   transition: var(--transition-fast);
-  font-size: 0.9rem;
-  line-height: 1;
 }
 
 .btn-primary:hover {
@@ -205,77 +237,9 @@ img {
   transform: translateY(-1px);
 }
 
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-white);
-  padding: 12px 24px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: var(--transition-fast);
-  font-size: 0.9rem;
-  line-height: 1;
-}
-
-.btn-outline:hover {
-  background: var(--bg-card);
-  border-color: var(--text-muted);
-}
-
-/* Badges de Marques Filles */
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.badge-echolease { 
-  background: rgba(0, 229, 255, 0.12); 
-  color: var(--accent-echolease); 
-  border: 1px solid rgba(0, 229, 255, 0.3); 
-}
-
-.badge-dentalease { 
-  background: rgba(16, 185, 129, 0.12); 
-  color: var(--accent-dentalease); 
-  border: 1px solid rgba(16, 185, 129, 0.3); 
-}
-
-.badge-diaglease { 
-  background: rgba(168, 85, 247, 0.12); 
-  color: var(--accent-diaglease); 
-  border: 1px solid rgba(168, 85, 247, 0.3); 
-}
-
-.badge-recuplease { 
-  background: rgba(245, 158, 11, 0.12); 
-  color: var(--accent-recuplease); 
-  border: 1px solid rgba(245, 158, 11, 0.3); 
-}
-
 /* --------------------------------------------------------------------------
-   5. CARTES ET GRILLES DE CONTENU
+   7. CARTES
    -------------------------------------------------------------------------- */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 32px;
-}
-
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -291,76 +255,30 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   6. EMPLACEMENTS MÉDIAS NORMÉS (LOGOS & IMAGES)
+   8. FORMULAIRES
    -------------------------------------------------------------------------- */
-.img-placeholder-16-9 {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #0f1520;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  overflow: hidden;
-}
-
-.logo-partner-container {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.75;
-  filter: grayscale(100%);
-  transition: var(--transition-fast);
-}
-
-.logo-partner-container:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-
-/* --------------------------------------------------------------------------
-   7. FORMULAIRES UNIFIÉS
-   -------------------------------------------------------------------------- */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-main);
-}
-
-.form-input, 
-.form-select, 
+.form-input,
+.form-select,
 .form-textarea {
   width: 100%;
   padding: 12px 16px;
   background: var(--bg-input);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   color: var(--text-white);
-  font-family: inherit;
   font-size: 0.9rem;
   transition: var(--transition-fast);
 }
 
-.form-input:focus, 
-.form-select:focus, 
+.form-input:focus,
+.form-select:focus,
 .form-textarea:focus {
-  outline: none;
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px var(--brand-glow);
 }
 
 /* --------------------------------------------------------------------------
-   8. PIED DE PAGE (FOOTER)
+   9. FOOTER
    -------------------------------------------------------------------------- */
 .footer {
   border-top: 1px solid var(--border);
@@ -376,27 +294,6 @@ img {
   margin-bottom: 40px;
 }
 
-.footer-col h4 {
-  color: var(--text-white);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-.footer-col ul li {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  transition: var(--transition-fast);
-}
-
-.footer-col ul li a:hover {
-  color: var(--text-white);
-}
-
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding-top: 24px;
@@ -408,27 +305,15 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   9. RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   10. RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
+  .nav-links { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  
+  .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
