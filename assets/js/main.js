@@ -7,7 +7,6 @@
    -------------------------------------------------------------------------- */
 function applyQuakeEffect(element) {
     element.classList.add("quake-active");
-
     setTimeout(() => {
         element.classList.remove("quake-active");
     }, 180);
@@ -78,7 +77,7 @@ function animateHeaderOnLoad() {
 }
 
 /* --------------------------------------------------------------------------
-   6. MENU MOBILE — VERSION IA (FIXÉ)
+   6. MENU MOBILE — VERSION IA DÉROULANTE (FIXE + FLUIDE)
    -------------------------------------------------------------------------- */
 function activateMobileMenu() {
     const hamburger = document.querySelector(".hamburger");
@@ -86,25 +85,27 @@ function activateMobileMenu() {
 
     if (!hamburger || !navLinks) return;
 
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+    // Préparation du menu déroulant
+    navLinks.style.overflow = "hidden";
+    navLinks.style.maxHeight = "0px";
+    navLinks.style.transition = "max-height 0.35s ease";
 
-        // vibration IA sur le hamburger
+    hamburger.addEventListener("click", () => {
         applyQuakeEffect(hamburger);
 
-        // IMPORTANT : ne jamais utiliser transform ici
-        // sinon conflit avec hover IA + quake IA
         if (navLinks.classList.contains("active")) {
-            navLinks.style.display = "flex";
+            navLinks.classList.remove("active");
+            navLinks.style.maxHeight = "0px";
         } else {
-            navLinks.style.display = "";
+            navLinks.classList.add("active");
+            navLinks.style.maxHeight = navLinks.scrollHeight + "px";
         }
     });
 
     document.addEventListener("click", (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove("active");
-            navLinks.style.display = "";
+            navLinks.style.maxHeight = "0px";
         }
     });
 }
