@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mobileDropdowns.forEach(drop => {
     const btn = drop.querySelector("button");
+    if (!btn) return;
     btn.addEventListener("click", () => {
       drop.classList.toggle("open");
     });

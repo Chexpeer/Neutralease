@@ -5,7 +5,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #1b1f2b;
+  background: #0b0f17;
   color: #f3f4f6;
   padding: 22px;
 }
@@ -14,16 +14,19 @@ body {
    WRAPPER PREMIUM
 =========================== */
 .page-wrapper {
-  background: #0b0f17;
+  background: #070b14;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  padding: 32px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* ===========================
    HEADER PREMIUM
 =========================== */
 .header {
-  background: linear-gradient(180deg, #1a3b3f 0%, #2d1f3f 60%, #1a3b3f 100%);
+  background: radial-gradient(circle at 0% 0%, #1f3b5f 0%, #1a2438 35%, #120b1f 70%, #1a3b3f 100%);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
@@ -35,10 +38,12 @@ body {
   display: flex;
   align-items: center;
   padding: 14px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo img {
-  height: 42px;
+  height: 40px;
 }
 
 /* ===========================
@@ -48,21 +53,31 @@ body {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
 }
 
 .nav-links a {
   color: #e5e9ff;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.95rem;
   text-decoration: none;
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(120, 130, 200, 0.18);
+  box-shadow: 0 0 0 1px rgba(120, 130, 200, 0.35);
 }
 
 .nav-links a.active {
   color: #00e5ff;
+  background: linear-gradient(135deg, #2f3fbf, #00e5ff);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
 }
 
+/* DROPDOWN DESKTOP */
 .dropdown {
   position: relative;
 }
@@ -80,13 +95,19 @@ body {
   padding: 12px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  min-width: 180px;
+  min-width: 200px;
 }
 
 .dropdown-content a {
   display: block;
   padding: 8px 10px;
   color: #c7cbe8;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background: rgba(120, 130, 200, 0.18);
 }
 
 .dropdown:hover .dropdown-content {
@@ -99,7 +120,7 @@ body {
 .hamburger {
   display: none;
   margin-left: auto;
-  font-size: 28px;
+  font-size: 26px;
   background: none;
   border: none;
   color: #e5e9ff;
@@ -121,8 +142,8 @@ body {
 .mobile-menu a,
 .mobile-menu button {
   color: #e5e9ff;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
   background: none;
   border: none;
@@ -167,6 +188,50 @@ body {
 }
 
 /* ===========================
+   HERO ACCUEIL
+=========================== */
+.hero {
+  padding: 10px 0 26px;
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.hero-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #f9fafb;
+}
+
+.hero-subtitle {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #c7cbe8;
+}
+
+/* ===========================
+   SECTIONS ACCUEIL
+=========================== */
+.section-intro {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #e5e9ff;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: #c7cbe8;
+  margin-bottom: 18px;
+}
+
+/* ===========================
    CARDS PREMIUM
 =========================== */
 .grid-3 {
@@ -177,38 +242,72 @@ body {
 
 .card {
   background: #151c28;
-  padding: 22px;
+  padding: 18px 18px 20px;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #e5e9ff;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #c7cbe8;
+  margin-bottom: 12px;
+}
+
+.card-link {
+  font-size: 0.9rem;
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card-link:hover {
+  text-decoration: underline;
 }
 
 /* ===========================
    FOOTER PREMIUM
 =========================== */
 .footer {
-  padding: 40px 20px;
+  padding: 32px 20px 24px;
   background: #070a0f;
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-col h4 {
   color: #e5e9ff;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
 
+.footer-col p,
 .footer-col a {
   color: #c7cbe8;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
 .footer-bottom {
-  margin-top: 30px;
+  margin-top: 22px;
   text-align: center;
   color: #9ca3af;
   font-size: 0.85rem;
