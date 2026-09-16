@@ -1,72 +1,37 @@
-/* ===========================
-   VARIABLES
-=========================== */
-:root {
-  --bg-dark: #0b0f17;
-  --bg-card: #151c28;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --text-white: #ffffff;
-  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  --brand-primary: #3b82f6;
-  --accent-diaglease: #a855f7;
-  --accent-echolease: #00e5ff;
-  --accent-dentalease: #10b981;
-  --accent-recuplease: #f59e0b;
-
-  --header-mix: linear-gradient(
-    180deg,
-    rgba(26, 59, 63, 0.92) 0%,
-    rgba(45, 31, 63, 0.94) 60%,
-    rgba(26, 59, 63, 0.96) 100%
-  );
-
-  --border: #232d3f;
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
-}
-
-/* ===========================
-   RESET
-=========================== */
+/* RESET */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-family);
-  background-color: #1b1f2b;
-  color: var(--text-main);
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #1b1f2b;
+  color: #f3f4f6;
   padding: 22px;
 }
-.page-wrapper {
-  background: var(--bg-dark);
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
-}
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* ===========================
-   HEADER
-=========================== */
+.page-wrapper {
+  background: #0b0f17;
+  border-radius: 16px;
+}
+
+/* HEADER */
 .ne-header {
-  padding: 12px 0;
-  background: var(--header-mix);
+  background: linear-gradient(180deg, #1a3b3f 0%, #2d1f3f 60%, #1a3b3f 100%);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(14px);
 }
+
 .ne-header-inner {
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 12px 20px;
 }
+
 .ne-logo {
   font-weight: 700;
-  color: var(--text-white);
+  color: #ffffff;
 }
 
 /* NAV DESKTOP */
@@ -74,28 +39,15 @@ img { max-width: 100%; display: block; }
   margin-left: auto;
   display: flex;
   gap: 18px;
-  align-items: center;
 }
+
 .ne-nav-link {
   padding: 8px 14px;
   border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   background: rgba(255,255,255,0.04);
-  color: var(--text-white);
-}
-.ne-nav-link:nth-child(1) { color: var(--brand-primary); }
-.ne-nav-link:nth-child(2) { color: var(--accent-diaglease); }
-.ne-nav-link:nth-child(3) { color: var(--accent-echolease); }
-.ne-nav-link:nth-child(4) { color: var(--accent-dentalease); }
-.ne-nav-link:nth-child(5) { color: var(--accent-recuplease); }
-.ne-nav-link:nth-child(6),
-.ne-nav-link:nth-child(7) { color: var(--text-muted); }
-.ne-nav-link:hover {
-  background: rgba(255,255,255,0.08);
+  color: #ffffff;
 }
 
 /* HAMBURGER */
@@ -108,6 +60,7 @@ img { max-width: 100%; display: block; }
   border: none;
   cursor: pointer;
 }
+
 .ne-hamburger span {
   width: 22px;
   height: 2px;
@@ -124,58 +77,31 @@ img { max-width: 100%; display: block; }
   background: rgba(7, 10, 20, 0.95);
   border-top: 1px solid rgba(120, 130, 180, 0.35);
 }
+
 .ne-mobile-nav.open {
   display: flex;
 }
+
 .ne-mobile-link {
-  text-decoration: none;
   font-size: 0.95rem;
   color: #c7cbe8;
 }
+
 .ne-mobile-link:visited {
   color: #c7cbe8;
 }
+
 .ne-mobile-link:nth-child(even) {
   color: #9fe3ff;
 }
+
 .ne-mobile-link-active {
   color: #ffffff;
   font-weight: 600;
 }
 
-/* ===========================
-   MAIN + FOOTER
-=========================== */
-.ne-main {
-  padding: 40px 0;
-}
-.ne-hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.ne-hero p {
-  color: var(--text-muted);
-}
-.ne-footer {
-  border-top: 1px solid var(--border);
-  padding: 20px 0;
-  margin-top: 40px;
-  background: #070a0f;
-}
-.ne-footer p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .ne-nav {
-    display: none;
-  }
-  .ne-hamburger {
-    display: flex;
-    margin-left: auto;
-  }
+  .ne-nav { display: none; }
+  .ne-hamburger { display: flex; margin-left: auto; }
 }
