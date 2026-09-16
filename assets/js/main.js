@@ -10,7 +10,7 @@ function applyQuakeEffect(element) {
 
     setTimeout(() => {
         element.classList.remove("quake-active");
-    }, 180); // durée cohérente avec le CSS
+    }, 180);
 }
 
 /* --------------------------------------------------------------------------
@@ -21,18 +21,11 @@ function applyHoverEffects() {
 
     links.forEach(link => {
         link.addEventListener("mouseenter", () => {
-            link.style.transform = "translateY(-2px)";
-            link.style.boxShadow =
-                "inset 0 -2px 4px rgba(0,0,0,0.55)," +
-                "inset 0 2px 3px rgba(255,255,255,0.12)," +
-                "0 0 8px rgba(168, 85, 247, 0.35)";
+            link.classList.add("ia-hover");
         });
 
         link.addEventListener("mouseleave", () => {
-            link.style.transform = "translateY(0)";
-            link.style.boxShadow =
-                "inset 0 -1px 3px rgba(0,0,0,0.45)," +
-                "inset 0 1px 2px rgba(255,255,255,0.08)";
+            link.classList.remove("ia-hover");
         });
     });
 }
@@ -58,19 +51,11 @@ function activateHexagonPulse() {
 
     hexIcons.forEach(icon => {
         icon.addEventListener("mouseenter", () => {
-            icon.style.transform = "scale(1.15)";
-            icon.style.boxShadow =
-                "inset 0 -2px 4px rgba(0,0,0,0.55)," +
-                "inset 0 2px 3px rgba(255,255,255,0.12)," +
-                "0 0 10px rgba(168, 85, 247, 0.45)";
+            icon.classList.add("hex-pulse");
         });
 
         icon.addEventListener("mouseleave", () => {
-            icon.style.transform = "scale(1)";
-            icon.style.boxShadow =
-                "inset 0 -1px 3px rgba(0,0,0,0.45)," +
-                "inset 0 1px 2px rgba(255,255,255,0.08)," +
-                "0 0 6px rgba(168, 85, 247, 0.25)";
+            icon.classList.remove("hex-pulse");
         });
     });
 }
@@ -80,7 +65,6 @@ function activateHexagonPulse() {
    -------------------------------------------------------------------------- */
 function animateHeaderOnLoad() {
     const header = document.querySelector(".header");
-
     if (!header) return;
 
     header.style.opacity = "0";
@@ -94,7 +78,7 @@ function animateHeaderOnLoad() {
 }
 
 /* --------------------------------------------------------------------------
-   6. DROPDOWN MOBILE (SI NÉCESSAIRE)
+   6. MENU MOBILE — VERSION IA (FIXÉ)
    -------------------------------------------------------------------------- */
 function activateMobileMenu() {
     const hamburger = document.querySelector(".hamburger");
@@ -104,12 +88,23 @@ function activateMobileMenu() {
 
     hamburger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
+
+        // vibration IA sur le hamburger
         applyQuakeEffect(hamburger);
+
+        // IMPORTANT : ne jamais utiliser transform ici
+        // sinon conflit avec hover IA + quake IA
+        if (navLinks.classList.contains("active")) {
+            navLinks.style.display = "flex";
+        } else {
+            navLinks.style.display = "";
+        }
     });
 
     document.addEventListener("click", (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove("active");
+            navLinks.style.display = "";
         }
     });
 }
