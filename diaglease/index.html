@@ -5,37 +5,45 @@
   <meta charset="UTF-8" />
   <title>NeutralEase - DiagLease</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/global.css" />
-  <script defer src="js/main.js"></script>
+
+  <!-- CHEMINS CORRIGÉS -->
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <script defer src="/assets/js/main.js"></script>
 </head>
+
 <body class="site-wrapper">
 
-  <!-- HEADER IDENTIQUE À L’ACCUEIL -->
+  <!-- HEADER NEUTRALEASE (TON VRAI HEADER, SANS MODIFICATION) -->
   <header class="ne-header">
     <div class="ne-header-inner">
+
       <div class="ne-logo">NeutralEase</div>
+
       <nav class="ne-nav">
-        <a href="index.html" class="ne-nav-link">Accueil</a>
-        <a href="diaglease.html" class="ne-nav-link ne-nav-link-active">DiagLease</a>
-        <a href="echolease.html" class="ne-nav-link">EchoLease</a>
-        <a href="dentalease.html" class="ne-nav-link">DentalLease</a>
-        <a href="recuplease.html" class="ne-nav-link">RecupLease</a>
+        <a href="/index.html" class="ne-nav-link">Accueil</a>
+        <a href="/diaglease.html" class="ne-nav-link ne-nav-link-active">DiagLease</a>
+        <a href="/echolease.html" class="ne-nav-link">EchoLease</a>
+        <a href="/dentalease.html" class="ne-nav-link">DentalLease</a>
+        <a href="/recuplease.html" class="ne-nav-link">RecupLease</a>
       </nav>
 
       <!-- HAMBURGER MOBILE -->
       <button class="ne-hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
       <nav class="ne-mobile-nav">
-        <a href="index.html" class="ne-mobile-link">Accueil</a>
-        <a href="diaglease.html" class="ne-mobile-link ne-mobile-link-active">DiagLease</a>
-        <a href="echolease.html" class="ne-mobile-link">EchoLease</a>
-        <a href="dentalease.html" class="ne-mobile-link">DentalLease</a>
-        <a href="recuplease.html" class="ne-mobile-link">RecupLease</a>
+        <a href="/index.html" class="ne-mobile-link">Accueil</a>
+        <a href="/diaglease.html" class="ne-mobile-link ne-mobile-link-active">DiagLease</a>
+        <a href="/echolease.html" class="ne-mobile-link">EchoLease</a>
+        <a href="/dentalease.html" class="ne-mobile-link">DentalLease</a>
+        <a href="/recuplease.html" class="ne-mobile-link">RecupLease</a>
       </nav>
+
     </div>
   </header>
 
+  <!-- CONTENU PRINCIPAL -->
   <main class="ne-main">
 
     <!-- INTRO DIAGLEASE -->
@@ -52,9 +60,11 @@
       </div>
     </section>
 
-    <!-- SECTION DÉDIÉE ASSISTANT IA (APRES INTRO) -->
+    <!-- SECTION ASSISTANT IA -->
     <section id="assistant-ia" class="assistant-ia-section">
       <div class="assistant-ia-wrapper">
+
+        <!-- HEADER ASSISTANT IA -->
         <div class="assistant-ia-header">
           <div class="assistant-ia-icon-hex">
             <span class="hex-shape"></span>
@@ -73,7 +83,7 @@
         <div class="assistant-ia-card" data-step="1">
           <div class="assistant-ia-card-inner">
 
-            <!-- ÉTAPE 1 : SYMPTÔMES / CONTEXTE -->
+            <!-- ÉTAPE 1 -->
             <div class="assistant-step assistant-step-1">
               <div class="assistant-step-header">
                 <span class="assistant-step-label">Étape 1</span>
@@ -82,41 +92,43 @@
               <p class="assistant-step-desc">
                 Indiquez les symptômes, la durée, l’intensité, le contexte et la spécialité concernée.
               </p>
+
               <textarea
                 class="assistant-input"
                 id="assistantSymptoms"
                 placeholder="Exemple : Douleur thoracique depuis 2 jours, irradiant dans le bras gauche, fatigue, essoufflement, patient de 58 ans, suivi en cardiologie."
               ></textarea>
+
               <button class="assistant-btn primary" id="assistantAnalyzeBtn">
                 Analyser le contexte
               </button>
             </div>
 
-            <!-- ÉTAPE 2 : EXAMENS RECOMMANDÉS -->
+            <!-- ÉTAPE 2 -->
             <div class="assistant-step assistant-step-2">
               <div class="assistant-step-header">
                 <span class="assistant-step-label">Étape 2</span>
                 <h3 class="assistant-step-title">Examens recommandés</h3>
               </div>
-              <div class="assistant-step-content" id="assistantExamsContent">
-                <!-- Contenu généré en JS (ton pédagogique) -->
-              </div>
+
+              <div class="assistant-step-content" id="assistantExamsContent"></div>
+
               <button class="assistant-btn primary" id="assistantNextEquipBtn">
                 Continuer vers les équipements
               </button>
             </div>
 
-            <!-- ÉTAPE 3 : ÉQUIPEMENTS ASSOCIÉS -->
+            <!-- ÉTAPE 3 -->
             <div class="assistant-step assistant-step-3">
               <div class="assistant-step-header">
                 <span class="assistant-step-label">Étape 3</span>
                 <h3 class="assistant-step-title">Équipements et solutions de leasing</h3>
               </div>
-              <div class="assistant-step-content" id="assistantEquipContent">
-                <!-- Contenu généré en JS (ton pédagogique + liens) -->
-              </div>
+
+              <div class="assistant-step-content" id="assistantEquipContent"></div>
+
               <div class="assistant-step-actions">
-                <a href="diaglease.html" class="assistant-btn secondary">
+                <a href="/diaglease.html" class="assistant-btn secondary">
                   Voir toutes les solutions DiagLease
                 </a>
               </div>
@@ -124,6 +136,7 @@
 
           </div>
         </div>
+
       </div>
     </section>
 
@@ -131,7 +144,7 @@
 
   </main>
 
-  <!-- BOUTON FLOTTANT ASSISTANT IA (DIAGLEASE) -->
+  <!-- BOUTON FLOTTANT ASSISTANT IA -->
   <button
     class="assistant-float-btn"
     data-target-page="diaglease.html"
