@@ -5,7 +5,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #0b0f17;
+  background: #05070d;
   color: #f3f4f6;
   padding: 22px;
 }
@@ -16,22 +16,27 @@ body {
 .page-wrapper {
   background: #070b14;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.75);
   padding: 32px 24px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* ===========================
-   HEADER PREMIUM
+   HEADER PREMIUM (VIOLET / VERT / GRIS + 3D)
 =========================== */
 .header {
-  background: radial-gradient(circle at 0% 0%, #1f3b5f 0%, #1a2438 35%, #120b1f 70%, #1a3b3f 100%);
+  background:
+    linear-gradient(135deg, rgba(0, 229, 143, 0.18), rgba(75, 63, 114, 0.35)),
+    radial-gradient(circle at 0% 0%, #243b6a 0%, #1a2438 35%, #120b1f 70%, #0b101a 100%);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .nav-container {
@@ -63,18 +68,19 @@ body {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .nav-links a:hover {
   background: rgba(120, 130, 200, 0.18);
   box-shadow: 0 0 0 1px rgba(120, 130, 200, 0.35);
+  transform: translateY(-1px);
 }
 
 .nav-links a.active {
   color: #00e5ff;
-  background: linear-gradient(135deg, #2f3fbf, #00e5ff);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+  background: linear-gradient(135deg, #4b3f72, #00e58f);
+  box-shadow: 0 0 14px rgba(0, 229, 143, 0.55);
 }
 
 /* DROPDOWN DESKTOP */
@@ -94,8 +100,9 @@ body {
   background: #151c28;
   padding: 12px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  min-width: 200px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  min-width: 220px;
+  border: 1px solid rgba(120,130,200,0.35);
 }
 
 .dropdown-content a {
@@ -128,15 +135,17 @@ body {
 }
 
 /* ===========================
-   MENU MOBILE PREMIUM
+   MENU MOBILE PREMIUM (DÉROULANT)
 =========================== */
 .mobile-menu {
   display: none;
   flex-direction: column;
   gap: 14px;
   padding: 20px;
-  background: rgba(7, 10, 20, 0.95);
+  background: rgba(7, 10, 20, 0.97);
   border-top: 1px solid rgba(120, 130, 180, 0.35);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.8);
+  animation: slideDown 0.18s ease-out;
 }
 
 .mobile-menu a,
@@ -167,6 +176,12 @@ body {
 
 .mobile-dropdown.open .mobile-dropdown-content {
   display: flex;
+}
+
+/* ANIMATION MENU MOBILE */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===========================
@@ -244,7 +259,7 @@ body {
   background: #151c28;
   padding: 18px 18px 20px;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
 .card-title {
