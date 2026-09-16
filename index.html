@@ -12,121 +12,132 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="container nav-container">
+  <!-- WRAPPER POUR HALO 3D + MARGE EXTÉRIEURE GLOBALE -->
+  <div class="page-wrapper">
 
-      <a href="/index.html" class="logo">
-        <img src="/assets/images/logo.png" alt="NeutralEase">
-      </a>
+    <header class="header">
+      <div class="container nav-container">
 
-      <button class="hamburger" aria-label="Menu mobile">☰</button>
-
-      <nav class="nav-links">
-
-        <a href="/index.html" class="active">Accueil</a>
-
-        <div class="dropdown">
-          <a href="/catalogue/index.html">Catalogue ▾</a>
-          <div class="dropdown-content">
-            <a href="/echolease/index.html">EchoLease</a>
-            <a href="/dentalease/index.html">DentalLease</a>
-            <a href="/diaglease/index.html">DiagLease</a>
-            <a href="/autres-equipements/index.html">Autres Équipements</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <a href="/financement/index.html">Financement ▾</a>
-          <div class="dropdown-content">
-            <a href="/financement/leasing-medical.html">Leasing Médical</a>
-            <a href="/financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
-            <a href="/financement/location-financiere.html">Location Financière</a>
-          </div>
-        </div>
-
-        <a href="/recuplease/index.html">RecupLease</a>
-        <a href="/scorylease.html">ScoryLease</a>
-        <a href="/contact.html" class="btn-primary">Contact</a>
-
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="container" style="padding: 60px 20px;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-white);">
-        Solutions de financement & leasing médical neutres et indépendantes
-      </h1>
-
-      <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 30px;">
-        Neutralease accompagne les professionnels de santé dans l'acquisition, la gestion et le renouvellement de leurs équipements médicaux avec une indépendance totale vis-à-vis des éditeurs et constructeurs.
-      </p>
-
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="/catalogue/index.html" class="btn-primary">Découvrir le Catalogue</a>
-        <a href="/scorylease.html" class="btn-outline">Simuler avec ScoryLease</a>
-      </div>
-    </section>
-
-    <section class="container grid-3" style="margin-top: 40px;">
-      <div class="card">
-        <h3 style="color: var(--accent-echolease); margin-bottom: 12px;">EchoLease</h3>
-        <p style="color: var(--text-muted); margin-bottom: 16px;">Échographes fixes, portatifs et capteurs de haute précision.</p>
-        <a href="/echolease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
-      </div>
-
-      <div class="card">
-        <h3 style="color: var(--accent-dentalease); margin-bottom: 12px;">DentalLease</h3>
-        <p style="color: var(--text-muted); margin-bottom: 16px;">Fauteuils, scanners intra-oraux, imagerie 3D et chaîne de stérilisation.</p>
-        <a href="/dentalease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
-      </div>
-
-      <div class="card">
-        <h3 style="color: var(--accent-diaglease); margin-bottom: 12px;">DiagLease</h3>
-        <p style="color: var(--text-muted); margin-bottom: 16px;">IA médicale, PACS cloud, cardiologie et radiologie avancée.</p>
-        <a href="/diaglease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-
-      <div>
+        <!-- LOGO À GAUCHE -->
         <a href="/index.html" class="logo">
           <img src="/assets/images/logo.png" alt="NeutralEase">
         </a>
-        <p style="color: var(--text-muted); margin-top: 8px;">
-          Plateforme d'ingénierie financière et courtage spécialisé en équipements médicaux et de diagnostic.
+
+        <!-- HAMBURGER SEULEMENT EN MOBILE + À DROITE -->
+        <button class="hamburger" aria-label="Menu mobile">☰</button>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-links">
+
+          <a href="/index.html" class="active">Accueil</a>
+
+          <div class="dropdown">
+            <a href="/catalogue/index.html">Catalogue ▾</a>
+            <div class="dropdown-content">
+              <a href="/echolease/index.html">EchoLease</a>
+              <a href="/dentalease/index.html">DentalLease</a>
+              <a href="/diaglease/index.html">DiagLease</a>
+              <a href="/autres-equipements/index.html">Autres Équipements</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="/financement/index.html">Financement ▾</a>
+            <div class="dropdown-content">
+              <a href="/financement/leasing-medical.html">Leasing Médical</a>
+              <a href="/financement/credit-bail-professionnel.html">Crédit-Bail Professionnel</a>
+              <a href="/financement/location-financiere.html">Location Financière</a>
+            </div>
+          </div>
+
+          <a href="/recuplease/index.html">RecupLease</a>
+          <a href="/scorylease.html">ScoryLease</a>
+          <a href="/contact.html" class="btn-primary">Contact</a>
+
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="container" style="padding: 60px 20px;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-white);">
+          Solutions de financement & leasing médical neutres et indépendantes
+        </h1>
+
+        <p style="color: var(--text-muted); max-width: 700px; margin-bottom: 30px;">
+          Neutralease accompagne les professionnels de santé dans l'acquisition, la gestion et le renouvellement de leurs équipements médicaux avec une indépendance totale vis-à-vis des éditeurs et constructeurs.
         </p>
+
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="/catalogue/index.html" class="btn-primary">Découvrir le Catalogue</a>
+          <a href="/scorylease.html" class="btn-outline">Simuler avec ScoryLease</a>
+        </div>
+      </section>
+
+      <section class="container grid-3" style="margin-top: 40px;">
+        <div class="card">
+          <h3 style="color: var(--accent-echolease); margin-bottom: 12px;">EchoLease</h3>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">Échographes fixes, portatifs et capteurs de haute précision.</p>
+          <a href="/echolease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-dentalease); margin-bottom: 12px;">DentalLease</h3>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">Fauteuils, scanners intra-oraux, imagerie 3D et chaîne de stérilisation.</p>
+          <a href="/dentalease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-diaglease); margin-bottom: 12px;">DiagLease</h3>
+          <p style="color: var(--text-muted); margin-bottom: 16px;">IA médicale, PACS cloud, cardiologie et radiologie avancée.</p>
+          <a href="/diaglease/index.html" style="color: var(--brand-primary); font-weight: 600;">En savoir plus →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+
+        <div>
+          <a href="/index.html" class="logo">
+            <img src="/assets/images/logo.png" alt="NeutralEase">
+          </a>
+          <p style="color: var(--text-muted); margin-top: 8px;">
+            Plateforme d'ingénierie financière et courtage spécialisé en équipements médicaux et de diagnostic.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/financement/index.html">Financement</a></li>
+            <li><a href="/scorylease.html">ScoryLease</a></li>
+            <li><a href="/recuplease/index.html">RecupLease</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/legal/mentions-legales.html">Mentions Légales</a></li>
+            <li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/financement/index.html">Financement</a></li>
-          <li><a href="/scorylease.html">ScoryLease</a></li>
-          <li><a href="/recuplease/index.html">RecupLease</a></li>
-        </ul>
+      <div class="footer-bottom">
+        © 2026 Neutralease — Tous droits réservés.
       </div>
+    </footer>
 
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/legal/mentions-legales.html">Mentions Légales</a></li>
-          <li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      © 2026 Neutralease — Tous droits réservés.
-    </div>
-  </footer>
+  </div> <!-- FIN WRAPPER -->
 
   <script src="/assets/js/main.js"></script>
 
