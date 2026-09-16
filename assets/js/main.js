@@ -1,6 +1,22 @@
 // main.js – Moteur JS "Ultra" NeutralEase
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ==========================
+  // 0. INCLUDES HTML (HEADER / FOOTER)
+  // ==========================
+
+  document.querySelectorAll("[data-include]").forEach(async (el) => {
+    const file = el.getAttribute("data-include");
+    try {
+      const response = await fetch(file);
+      const html = await response.text();
+      el.outerHTML = html;
+    } catch (e) {
+      console.warn("Include impossible :", file, e);
+    }
+  });
+
   // ==========================
   // 1. NAVIGATION & HEADER
   // ==========================
