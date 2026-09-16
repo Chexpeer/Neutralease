@@ -87,7 +87,6 @@ function activateMobileMenu() {
 
     hamburger.addEventListener("click", () => {
         applyQuakeEffect(hamburger);
-
         navLinks.classList.toggle("active");
     });
 
