@@ -1,38 +1,20 @@
-/* ==========================================================================
-   NEUTRALEASE - FEUILLE DE STYLE GLOBALE (VERSION TECH PREMIUM 2026)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. VARIABLES THÉMATIQUES ET CHARTE GRAPHIQUE
-   -------------------------------------------------------------------------- */
+/* ===========================
+   VARIABLES
+=========================== */
 :root {
   --bg-dark: #0b0f17;
   --bg-card: #151c28;
-  --bg-card-hover: #1c2636;
-  --bg-input: #070a0f;
-  --border: #232d3f;
-  --border-focus: #3b82f6;
-
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
   --text-white: #ffffff;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --brand-primary: #3b82f6;
-  --brand-glow: rgba(59, 130, 246, 0.25);
-
+  --accent-diaglease: #a855f7;
   --accent-echolease: #00e5ff;
   --accent-dentalease: #10b981;
-  --accent-diaglease: #a855f7;
   --accent-recuplease: #f59e0b;
 
-  /* Fond violet/gris tech */
-  --bg-tech: #1b1f2b;
-  --bg-tech-light: #232738;
-
-  /* Header vert froid violacé équilibré */
-  --header-base: #1a3b3f;
-  --header-violet: #2d1f3f;
   --header-mix: linear-gradient(
     180deg,
     rgba(26, 59, 63, 0.92) 0%,
@@ -40,58 +22,35 @@
     rgba(26, 59, 63, 0.96) 100%
   );
 
-  --header-glow: rgba(168, 85, 247, 0.25);
-  --header-spark: rgba(255, 255, 255, 0.18);
-
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+  --border: #232d3f;
   --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
-  --shadow-3d: 0 0 22px rgba(168, 85, 247, 0.35);
-
-  --transition-fast: all 0.2s ease;
-
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
 }
 
-/* --------------------------------------------------------------------------
-   2. RESET + MARGE EXTÉRIEURE GLOBALE + HALO 3D
-   -------------------------------------------------------------------------- */
+/* ===========================
+   RESET
+=========================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-tech);
+  background-color: #1b1f2b;
   color: var(--text-main);
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-
-  /* MARGE EXTÉRIEURE GLOBALE */
   padding: 22px;
-
-  /* CARTE 3D AVEC HALO LUMINEUX MOYEN */
-  background: var(--bg-tech);
 }
-
 .page-wrapper {
   background: var(--bg-dark);
-  border-radius: var(--radius-lg);
-  box-shadow:
-    var(--shadow-md),
-    0 0 22px rgba(168, 85, 247, 0.35); /* halo lumineux moyen */
-  padding: 0;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
 }
-
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* --------------------------------------------------------------------------
-   3. HEADER TECH PREMIUM
-   -------------------------------------------------------------------------- */
-.header {
+/* ===========================
+   HEADER
+=========================== */
+.ne-header {
   padding: 12px 0;
   background: var(--header-mix);
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -99,243 +58,124 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(14px);
-  box-shadow:
-    inset 0 -2px 6px rgba(0,0,0,0.45),
-    inset 0 2px 4px rgba(255,255,255,0.08),
-    0 4px 12px rgba(0,0,0,0.35);
-  background-blend-mode: overlay;
 }
-
-.nav-container {
+.ne-header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+}
+.ne-logo {
+  font-weight: 700;
+  color: var(--text-white);
 }
 
-.logo img { height: 42px; }
-
-/* --------------------------------------------------------------------------
-   4. MENUS + ICÔNES HEXAGONALES IA
-   -------------------------------------------------------------------------- */
-.nav-links {
+/* NAV DESKTOP */
+.ne-nav {
+  margin-left: auto;
   display: flex;
   gap: 18px;
   align-items: center;
 }
-
-.nav-links a {
+.ne-nav-link {
   padding: 8px 14px;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   background: rgba(255,255,255,0.04);
   color: var(--text-white);
-
-  box-shadow:
-    inset 0 -1px 3px rgba(0,0,0,0.45),
-    inset 0 1px 2px rgba(255,255,255,0.08);
-
-  transition: var(--transition-fast);
 }
-
-/* Couleurs premium */
-.nav-links a:nth-child(1) { color: var(--brand-primary); }
-.nav-links a:nth-child(2) { color: var(--accent-diaglease); }
-.nav-links a:nth-child(3) { color: var(--accent-echolease); }
-.nav-links a:nth-child(4) { color: var(--accent-dentalease); }
-.nav-links a:nth-child(5) { color: var(--accent-recuplease); }
-.nav-links a:nth-child(6) { color: var(--text-muted); }
-
-/* ICÔNES HEXAGONALES PLEINES (HUD IA) */
-.hex-icon {
-  width: 18px;
-  height: 18px;
-  background: currentColor;
-  clip-path: polygon(
-    25% 0%, 75% 0%,
-    100% 50%,
-    75% 100%, 25% 100%,
-    0% 50%
-  );
-  border-radius: 4px;
-  box-shadow:
-    inset 0 -2px 4px rgba(0,0,0,0.55),
-    inset 0 2px 3px rgba(255,255,255,0.12),
-    0 0 6px var(--header-glow);
-  transition: var(--transition-fast);
-}
-
-/* HOVER MENUS */
-.nav-links a:hover {
+.ne-nav-link:nth-child(1) { color: var(--brand-primary); }
+.ne-nav-link:nth-child(2) { color: var(--accent-diaglease); }
+.ne-nav-link:nth-child(3) { color: var(--accent-echolease); }
+.ne-nav-link:nth-child(4) { color: var(--accent-dentalease); }
+.ne-nav-link:nth-child(5) { color: var(--accent-recuplease); }
+.ne-nav-link:nth-child(6),
+.ne-nav-link:nth-child(7) { color: var(--text-muted); }
+.ne-nav-link:hover {
   background: rgba(255,255,255,0.08);
-  box-shadow:
-    inset 0 -2px 4px rgba(0,0,0,0.55),
-    inset 0 2px 3px rgba(255,255,255,0.12),
-    0 0 6px var(--header-glow);
-  border: 1px solid var(--header-spark);
 }
 
-/* --------------------------------------------------------------------------
-   5. DROPDOWN
-   -------------------------------------------------------------------------- */
-.dropdown { position: relative; }
-.dropdown-content {
+/* HAMBURGER */
+.ne-hamburger {
+  margin-left: 1rem;
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
-  padding: 8px 0;
-  margin-top: 8px;
-  z-index: 1001;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-.dropdown:hover .dropdown-content { display: block; }
-.dropdown-content a {
-  padding: 10px 18px;
-  display: block;
+.ne-hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #e5e9ff;
+  border-radius: 999px;
+}
+
+/* NAV MOBILE */
+.ne-mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem 1rem;
+  background: rgba(7, 10, 20, 0.95);
+  border-top: 1px solid rgba(120, 130, 180, 0.35);
+}
+.ne-mobile-nav.open {
+  display: flex;
+}
+.ne-mobile-link {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #c7cbe8;
+}
+.ne-mobile-link:visited {
+  color: #c7cbe8;
+}
+.ne-mobile-link:nth-child(even) {
+  color: #9fe3ff;
+}
+.ne-mobile-link-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===========================
+   MAIN + FOOTER
+=========================== */
+.ne-main {
+  padding: 40px 0;
+}
+.ne-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.ne-hero p {
+  color: var(--text-muted);
+}
+.ne-footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  margin-top: 40px;
+  background: #070a0f;
+}
+.ne-footer p {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
-.dropdown-content a:hover {
-  background-color: var(--bg-card-hover);
-  color: var(--text-white);
-}
 
-/* --------------------------------------------------------------------------
-   6. BOUTONS
-   -------------------------------------------------------------------------- */
-.btn-primary {
-  background: var(--brand-primary);
-  color: #0b0f17;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: var(--radius-md);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-.btn-primary:hover {
-  box-shadow: 0 0 20px var(--brand-glow);
-  transform: translateY(-1px);
-}
-
-/* --------------------------------------------------------------------------
-   7. CARTES
-   -------------------------------------------------------------------------- */
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 28px;
-  transition: var(--transition-fast);
-}
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* --------------------------------------------------------------------------
-   8. FORMULAIRES
-   -------------------------------------------------------------------------- */
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--text-white);
-  font-size: 0.9rem;
-  transition: var(--transition-fast);
-}
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px var(--brand-glow);
-}
-
-/* --------------------------------------------------------------------------
-   9. FOOTER
-   -------------------------------------------------------------------------- */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 60px 0 30px 0;
-  background: #070a0f;
-  margin-top: 80px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: 40px;
-  margin-bottom: 40px;
-}
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* --------------------------------------------------------------------------
-   10. RESPONSIVE + MENU DÉROULANT IA + HAMBURGER MOBILE À DROITE
-   -------------------------------------------------------------------------- */
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 900px) {
-
-  .nav-links {
-    display: block !important;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-    padding-top: 10px;
+  .ne-nav {
+    display: none;
   }
-
-  .nav-links.active {
-    max-height: 600px;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 14px 20px;
-    margin-bottom: 6px;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    font-size: 28px;
-    background: none;
-    border: none;
-    color: var(--text-white);
-    margin-left: auto; /* À DROITE */
-  }
-
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 600px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
+  .ne-hamburger {
+    display: flex;
+    margin-left: auto;
   }
 }
