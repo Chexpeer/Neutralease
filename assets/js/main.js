@@ -1,10 +1,11 @@
+
 /* ==========================================================================
-   NEUTRALEASE - SCRIPT PRINCIPAL & GESTION MOBILE (VERSION FINALE)
+   NEUTRALEASE - SCRIPT PRINCIPAL & GESTION MOBILE (VERSION CORRIGÉE)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-links');
   const dropdowns = document.querySelectorAll('.dropdown');
 
   // 1. Bascule du menu mobile principal (Hamburger)
