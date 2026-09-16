@@ -1,159 +1,149 @@
+<!-- diaglease.html (PAGE DIAGLEASE + ASSISTANT IA) -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DiagLease : Logiciels & IA Médicale expliqués simplement | NeutralEase</title>
-  <meta name="description" content="Découvrez les logiciels médicaux, l'IA, le PACS cloud et la maintenance prédictive expliqués simplement pour les professionnels de santé.">
-  <link rel="stylesheet" href="../assets/css/global.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>NeutralEase - DiagLease</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/global.css" />
+  <script defer src="js/main.js"></script>
 </head>
-<body>
+<body class="site-wrapper">
 
-<header class="header">
-  <div class="container nav-container">
+  <!-- HEADER IDENTIQUE À L’ACCUEIL -->
+  <header class="ne-header">
+    <div class="ne-header-inner">
+      <div class="ne-logo">NeutralEase</div>
+      <nav class="ne-nav">
+        <a href="index.html" class="ne-nav-link">Accueil</a>
+        <a href="diaglease.html" class="ne-nav-link ne-nav-link-active">DiagLease</a>
+        <a href="echolease.html" class="ne-nav-link">EchoLease</a>
+        <a href="dentalease.html" class="ne-nav-link">DentalLease</a>
+        <a href="recuplease.html" class="ne-nav-link">RecupLease</a>
+      </nav>
 
-    <a href="../index.html" class="logo">NeutralEase</a>
+      <!-- HAMBURGER MOBILE -->
+      <button class="ne-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="ne-mobile-nav">
+        <a href="index.html" class="ne-mobile-link">Accueil</a>
+        <a href="diaglease.html" class="ne-mobile-link ne-mobile-link-active">DiagLease</a>
+        <a href="echolease.html" class="ne-mobile-link">EchoLease</a>
+        <a href="dentalease.html" class="ne-mobile-link">DentalLease</a>
+        <a href="recuplease.html" class="ne-mobile-link">RecupLease</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="nav-links">
+  <main class="ne-main">
 
-      <a href="../index.html">Accueil</a>
+    <!-- INTRO DIAGLEASE -->
+    <section class="diaglease-intro">
+      <div class="diaglease-intro-inner">
+        <h1 class="diaglease-title">DiagLease</h1>
+        <p class="diaglease-subtitle">
+          Solutions de leasing pour équipements de diagnostic médical, intégrées à une IA d’aide à la décision.
+        </p>
+        <p class="diaglease-text">
+          DiagLease accompagne les praticiens dans le choix d’équipements de diagnostic adaptés à leur pratique,
+          en combinant leasing flexible et outils d’analyse intelligents.
+        </p>
+      </div>
+    </section>
 
-      <!-- ÉQUIPEMENTS -->
-      <div class="dropdown">
-        <a href="../catalogue/index.html">Équipements ▾</a>
-        <div class="dropdown-content">
-          <a href="../echolease/index.html">EchoLease (Imagerie)</a>
-          <a href="../dentalease/index.html">Dentalease (Dentaire)</a>
-          <a href="../autres-equipements/index.html">Autres Équipements</a>
+    <!-- SECTION DÉDIÉE ASSISTANT IA (APRES INTRO) -->
+    <section id="assistant-ia" class="assistant-ia-section">
+      <div class="assistant-ia-wrapper">
+        <div class="assistant-ia-header">
+          <div class="assistant-ia-icon-hex">
+            <span class="hex-shape"></span>
+            <span class="hex-inner-glow"></span>
+          </div>
+          <div class="assistant-ia-header-text">
+            <h2 class="assistant-ia-title">Assistant IA d’aide à la décision</h2>
+            <p class="assistant-ia-subtitle">
+              Décrivez un contexte clinique, l’IA vous suggère des examens et les équipements associés.
+              Ton pédagogique, sans diagnostic médical.
+            </p>
+          </div>
+        </div>
+
+        <!-- CARTE DYNAMIQUE -->
+        <div class="assistant-ia-card" data-step="1">
+          <div class="assistant-ia-card-inner">
+
+            <!-- ÉTAPE 1 : SYMPTÔMES / CONTEXTE -->
+            <div class="assistant-step assistant-step-1">
+              <div class="assistant-step-header">
+                <span class="assistant-step-label">Étape 1</span>
+                <h3 class="assistant-step-title">Décrire le contexte clinique</h3>
+              </div>
+              <p class="assistant-step-desc">
+                Indiquez les symptômes, la durée, l’intensité, le contexte et la spécialité concernée.
+              </p>
+              <textarea
+                class="assistant-input"
+                id="assistantSymptoms"
+                placeholder="Exemple : Douleur thoracique depuis 2 jours, irradiant dans le bras gauche, fatigue, essoufflement, patient de 58 ans, suivi en cardiologie."
+              ></textarea>
+              <button class="assistant-btn primary" id="assistantAnalyzeBtn">
+                Analyser le contexte
+              </button>
+            </div>
+
+            <!-- ÉTAPE 2 : EXAMENS RECOMMANDÉS -->
+            <div class="assistant-step assistant-step-2">
+              <div class="assistant-step-header">
+                <span class="assistant-step-label">Étape 2</span>
+                <h3 class="assistant-step-title">Examens recommandés</h3>
+              </div>
+              <div class="assistant-step-content" id="assistantExamsContent">
+                <!-- Contenu généré en JS (ton pédagogique) -->
+              </div>
+              <button class="assistant-btn primary" id="assistantNextEquipBtn">
+                Continuer vers les équipements
+              </button>
+            </div>
+
+            <!-- ÉTAPE 3 : ÉQUIPEMENTS ASSOCIÉS -->
+            <div class="assistant-step assistant-step-3">
+              <div class="assistant-step-header">
+                <span class="assistant-step-label">Étape 3</span>
+                <h3 class="assistant-step-title">Équipements et solutions de leasing</h3>
+              </div>
+              <div class="assistant-step-content" id="assistantEquipContent">
+                <!-- Contenu généré en JS (ton pédagogique + liens) -->
+              </div>
+              <div class="assistant-step-actions">
+                <a href="diaglease.html" class="assistant-btn secondary">
+                  Voir toutes les solutions DiagLease
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- DIAGLEASE -->
-      <div class="dropdown">
-        <a href="index.html" class="active">DiagLease ▾</a>
-        <div class="dropdown-content">
-          <a href="ia-medicale/cardiologie.html">IA Cardiologie</a>
-          <a href="ia-medicale/dermatologie.html">IA Dermatologie</a>
-          <a href="ia-medicale/radiologie.html">IA Radiologie</a>
-          <a href="logiciels-pacs-cloud/index.html">PACS Cloud</a>
-          <a href="maintenance-predictive/index.html">Maintenance Prédictive</a>
-        </div>
-      </div>
+    <!-- AUTRES SECTIONS DIAGLEASE ICI -->
 
-      <!-- RECUPLEASE -->
-      <div class="dropdown">
-        <a href="../recuplease/index.html">RecupLease ▾</a>
-        <div class="dropdown-content">
-          <a href="../recuplease/arbitrage.html">Arbitrage</a>
-          <a href="../recuplease/panne.html">Panne</a>
-          <a href="../recuplease/reprise.html">Reprise</a>
-          <a href="../recuplease/seconde-vie.html">Seconde Vie</a>
-        </div>
-      </div>
+  </main>
 
-      <!-- SERVICE -->
-      <div class="dropdown">
-        <a href="../service/comment-ca-marche.html">Le Service ▾</a>
-        <div class="dropdown-content">
-          <a href="../service/comment-ca-marche.html">Comment ça marche</a>
-          <a href="../service/notre-accompagnement.html">Notre accompagnement</a>
-          <a href="../service/notre-independance.html">Notre indépendance</a>
-          <a href="../service/partenaires-editeurs.html">Partenaires</a>
-        </div>
-      </div>
-
-      <a href="../scorylease.html">ScoryLease</a>
-
-      <a href="../contact.html" class="btn-primary">Présenter mon projet</a>
-
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<section style="padding:60px 0 40px; background:linear-gradient(180deg, rgba(59,130,246,0.12), rgba(11,15,23,0)); border-bottom:1px solid var(--border);">
-  <div class="container" style="max-width:900px;">
-    <h1 style="color:#fff; font-size:2.2rem; font-weight:800;">DiagLease : Logiciels & IA Médicale expliqués simplement</h1>
-    <p style="color:var(--text-muted); font-size:1.05rem;">
-      Les logiciels médicaux, l’IA, le PACS cloud et la maintenance prédictive peuvent sembler complexes. Ici, nous les expliquons simplement, sans jargon, pour que vous puissiez choisir sereinement.
-    </p>
-  </div>
-</section>
-
-<section class="container" style="padding:50px 20px;">
-  <h2 style="color:#fff; text-align:center; margin-bottom:32px;">Les univers DiagLease</h2>
-
-  <div class="grid-3" style="gap:24px;">
-
-    <div class="card" style="border-top:3px solid #38bdf8;">
-      <h3 style="color:#fff;">IA Médicale</h3>
-      <p style="color:var(--text-muted);">
-        L’IA analyse vos images ou vos données pour vous donner des indications simples. Elle ne remplace pas votre expertise : elle vous aide au quotidien.
-      </p>
-      <a href="ia-medicale/cardiologie.html" style="color:#38bdf8; font-weight:700;">Découvrir ➔</a>
-    </div>
-
-    <div class="card" style="border-top:3px solid #10b981;">
-      <h3 style="color:#fff;">PACS Cloud</h3>
-      <p style="color:var(--text-muted);">
-        Stocker, partager et consulter vos images médicales en ligne, simplement et en toute sécurité.
-      </p>
-      <a href="logiciels-pacs-cloud/index.html" style="color:#10b981; font-weight:700;">Découvrir ➔</a>
-    </div>
-
-    <div class="card" style="border-top:3px solid #f59e0b;">
-      <h3 style="color:#fff;">Maintenance Prédictive</h3>
-      <p style="color:var(--text-muted);">
-        Anticiper les pannes grâce à des alertes simples basées sur l’usage réel de vos appareils.
-      </p>
-      <a href="maintenance-predictive/index.html" style="color:#f59e0b; font-weight:700;">Découvrir ➔</a>
-    </div>
-
-  </div>
-</section>
-
-<section class="container" style="padding-bottom:60px; text-align:center;">
-  <h2 style="color:#fff;">Envie d’être accompagné ?</h2>
-  <p style="color:var(--text-muted); margin-bottom:24px;">Présentez simplement votre projet.</p>
-  <a href="../contact.html" class="btn-primary">Parler à un conseiller</a>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="logo">NeutralEase</div>
-        <p style="color:var(--text-muted);">Conseil indépendant pour les professionnels de santé.</p>
-      </div>
-      <div class="footer-col">
-        <h4>DiagLease</h4>
-        <ul>
-          <li><a href="ia-medicale/cardiologie.html">IA Médicale</a></li>
-          <li><a href="logiciels-pacs-cloud/index.html">PACS Cloud</a></li>
-          <li><a href="maintenance-predictive/index.html">Maintenance Prédictive</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Outils</h4>
-        <ul>
-          <li><a href="../scorylease.html">ScoryLease</a></li>
-          <li><a href="../catalogue/index.html">Catalogue</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="../contact.html">Présenter un projet</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2026 NeutralEase</div>
-  </div>
-</footer>
+  <!-- BOUTON FLOTTANT ASSISTANT IA (DIAGLEASE) -->
+  <button
+    class="assistant-float-btn"
+    data-target-page="diaglease.html"
+    data-target-anchor="#assistant-ia"
+    aria-label="Assistant IA médical"
+  >
+    <span class="assistant-float-icon">
+      <span class="brain-part brain-1"></span>
+      <span class="brain-part brain-2"></span>
+      <span class="brain-part brain-3"></span>
+    </span>
+  </button>
 
 </body>
 </html>
