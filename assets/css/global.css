@@ -26,6 +26,10 @@
   --accent-diaglease: #a855f7;
   --accent-recuplease: #f59e0b;
 
+  /* Fond violet/gris tech */
+  --bg-tech: #1b1f2b;
+  --bg-tech-light: #232738;
+
   /* Header vert froid violacé équilibré */
   --header-base: #1a3b3f;
   --header-violet: #2d1f3f;
@@ -41,6 +45,8 @@
 
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-3d: 0 0 22px rgba(168, 85, 247, 0.35);
+
   --transition-fast: all 0.2s ease;
 
   --radius-sm: 6px;
@@ -49,17 +55,34 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET
+   2. RESET + MARGE EXTÉRIEURE GLOBALE + HALO 3D
    -------------------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
 body {
   font-family: var(--font-family);
-  background-color: --bg-dark;
+  background-color: var(--bg-tech);
   color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+  /* MARGE EXTÉRIEURE GLOBALE */
+  padding: 22px;
+
+  /* CARTE 3D AVEC HALO LUMINEUX MOYEN */
+  background: var(--bg-tech);
 }
+
+.page-wrapper {
+  background: var(--bg-dark);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    var(--shadow-md),
+    0 0 22px rgba(168, 85, 247, 0.35); /* halo lumineux moyen */
+  padding: 0;
+}
+
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
@@ -272,7 +295,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE + MENU DÉROULANT IA
+   10. RESPONSIVE + MENU DÉROULANT IA + HAMBURGER MOBILE À DROITE
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
 
@@ -298,6 +321,11 @@ img { max-width: 100%; display: block; }
   .hamburger {
     display: block;
     cursor: pointer;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    margin-left: auto; /* À DROITE */
   }
 
   .footer-grid { grid-template-columns: 1fr 1fr; }
