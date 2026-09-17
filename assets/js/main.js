@@ -1,5 +1,5 @@
 // ======================================================
-// CLINILEASE — IA CLINIQUE NIVEAU 4 (MOTEUR LOCAL)
+// CLINILEASE — IA CLINIQUE NIVEAU 4 + BOUTONS CONTEXTUELS
 // ======================================================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // --------- MOTEUR DE RÈGLES ---------
+    // --------- MOTEUR IA ---------
     const findings = [];
     const examsPrimary = [];
     const examsSecondary = [];
@@ -48,14 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
       addExamPrimary("Radiographie thoracique");
       addExamSecondary("Scanner thoracique");
     }
-    if (text.includes("saturation") || text.includes("hypoxie")) {
-      addFinding("Atteinte respiratoire potentielle");
-      severityScore += 2;
-      addExamPrimary("Oxymétrie / Gaz du sang");
-    }
 
     // CARDIO
-    if (text.includes("douleur thoracique") || text.includes("thorax") || text.includes("palpitation")) {
+    if (text.includes("douleur thoracique") || text.includes("palpitation") || text.includes("thorax")) {
       addSpeciality("Cardiologie");
       addFinding("Douleur thoracique / suspicion cardio");
       addExamPrimary("ECG");
@@ -64,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // TRAUMA
-    if (text.includes("chute") || text.includes("trauma") || text.includes("fracture") || text.includes("douleur osseuse")) {
+    if (text.includes("chute") || text.includes("trauma") || text.includes("fracture")) {
       addSpeciality("Traumatologie");
       addFinding("Traumatisme / suspicion lésion osseuse");
       addExamPrimary("Radiographie du segment concerné");
@@ -72,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ABDOMEN
-    if (text.includes("douleur abdominale") || text.includes("abdomen") || text.includes("nausée") || text.includes("vomissement")) {
+    if (text.includes("douleur abdominale") || text.includes("abdomen") || text.includes("nausée")) {
       addSpeciality("Digestif / Abdomen");
       addFinding("Symptomatologie abdominale");
       addExamPrimary("Échographie abdominale");
@@ -80,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // NEURO
-    if (text.includes("céphalée") || text.includes("vertige") || text.includes("perte de connaissance") || text.includes("neurologique")) {
+    if (text.includes("céphalée") || text.includes("vertige") || text.includes("perte de connaissance")) {
       addSpeciality("Neurologie");
       addFinding("Symptômes neurologiques");
       addExamPrimary("Scanner cérébral");
@@ -104,28 +99,79 @@ document.addEventListener("DOMContentLoaded", () => {
       addExamSecondary("Imagerie ciblée selon localisation");
     }
 
-    // --------- SCORE DE GRAVITÉ (DÉMO) ---------
+    // SCORE DE GRAVITÉ
     let severityLabel = "Faible";
     if (severityScore >= 3 && severityScore < 6) severityLabel = "Modérée";
     if (severityScore >= 6) severityLabel = "Potentiellement élevée";
 
-    // --------- RENDU STRUCTURÉ ---------
+    // --------- BOUTONS CONTEXTUELS ---------
+    let buttons = "";
+
+    if (speciality.includes("Pneumologie")) {
+      buttons += `
+        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Cardiologie")) {
+      buttons += `
+        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Traumatologie")) {
+      buttons += `
+        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Digestif / Abdomen")) {
+      buttons += `
+        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Neurologie")) {
+      buttons += `
+        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Infectiologie")) {
+      buttons += `
+        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+      `;
+    }
+
+    if (speciality.includes("Général / Indéterminé")) {
+      buttons += `
+        <a href="index.html" class="btn-3d-compact btn-diag-bg">CliniLease →</a><br><br>
+      `;
+    }
+
+    // --------- RENDU FINAL ---------
     examsOutput.innerHTML = `
       <p><strong>Analyse IA (démo locale) :</strong></p>
       <p><strong>Spécialités impliquées :</strong> ${speciality.join(" / ")}</p>
+
       <p><strong>Contexte clinique détecté :</strong></p>
-      <ul>
-        ${findings.map(f => `<li>${f}</li>`).join("")}
-      </ul>
+      <ul>${findings.map(f => `<li>${f}</li>`).join("")}</ul>
+
       <p><strong>Examens prioritaires :</strong></p>
-      <ul>
-        ${examsPrimary.map(e => `<li>${e}</li>`).join("")}
-      </ul>
-      <p><strong>Examens secondaires / complémentaires :</strong></p>
-      <ul>
-        ${examsSecondary.map(e => `<li>${e}</li>`).join("")}
-      </ul>
-      <p><strong>Niveau de gravité (démo) :</strong> ${severityLabel} (score ${severityScore})</p>
+      <ul>${examsPrimary.map(e => `<li>${e}</li>`).join("")}</ul>
+
+      <p><strong>Examens secondaires :</strong></p>
+      <ul>${examsSecondary.map(e => `<li>${e}</li>`).join("")}</ul>
+
+      <p><strong>Niveau de gravité :</strong> ${severityLabel} (score ${severityScore})</p>
+
+      <h3 style="margin-top:20px;">Modules recommandés :</h3>
+      ${buttons}
+
       <p style="color:var(--text-muted); margin-top:8px;">
         Moteur IA clinique local — démo. Ne remplace pas un avis médical.
       </p>
