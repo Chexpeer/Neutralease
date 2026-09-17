@@ -1,5 +1,5 @@
 // ======================================================
-// CLINILEASE — IA CLINIQUE NIVEAU 4 + BOUTONS CONTEXTUELS
+// CLINILEASE — IA CLINIQUE NIVEAU 4 + ARBORESCENCE DYNAMIQUE
 // ======================================================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,175 +7,152 @@ document.addEventListener("DOMContentLoaded", () => {
   const symptomsInput = document.getElementById("assistantSymptoms");
   const examsOutput = document.getElementById("assistantExamsContent");
 
+  let step = 1;
+  let speciality = "";
+  let collectedData = {};
+
   if (!analyzeBtn) return;
 
   analyzeBtn.addEventListener("click", () => {
-    const textRaw = symptomsInput.value.trim();
-    const text = textRaw.toLowerCase();
 
-    if (text.length < 10) {
+    const text = symptomsInput.value.trim().toLowerCase();
+
+    // -----------------------------
+    // ÉTAPE 1 — Analyse initiale
+    // -----------------------------
+    if (step === 1) {
+
+      if (text.length < 10) {
+        examsOutput.innerHTML = `<p style="color:#f87171;">Décrivez un contexte clinique plus détaillé.</p>`;
+        return;
+      }
+
+      // Détection de spécialité
+      if (text.includes("toux") || text.includes("dyspnée") || text.includes("respire mal")) speciality = "pneumo";
+      else if (text.includes("douleur thoracique") || text.includes("palpitation")) speciality = "cardio";
+      else if (text.includes("chute") || text.includes("fracture") || text.includes("trauma")) speciality = "trauma";
+      else if (text.includes("douleur abdominale") || text.includes("abdomen")) speciality = "abdo";
+      else if (text.includes("céphalée") || text.includes("vertige") || text.includes("perte de connaissance")) speciality = "neuro";
+      else speciality = "general";
+
+      collectedData.initial = text;
+
+      // Question ciblée selon spécialité
+      let question = "";
+
+      if (speciality === "pneumo") question = "La fièvre est-elle présente ?";
+      if (speciality === "cardio") question = "La douleur irradie-t-elle dans le bras ou la mâchoire ?";
+      if (speciality === "trauma") question = "Y a-t-il une incapacité à mobiliser le membre ?";
+      if (speciality === "abdo") question = "La douleur est-elle localisée à droite ou à gauche ?";
+      if (speciality === "neuro") question = "Y a-t-il des troubles de la vision ou de la parole ?";
+      if (speciality === "general") question = "Les symptômes sont-ils récents ou évolutifs ?";
+
       examsOutput.innerHTML = `
-        <p style="color:#f87171;">Veuillez décrire un contexte clinique plus détaillé.</p>
+        <p><strong>Analyse initiale :</strong></p>
+        <p>Spécialité probable : <strong>${speciality.toUpperCase()}</strong></p>
+        <p><strong>Question IA :</strong> ${question}</p>
+        <p style="color:var(--text-muted);">Répondez dans le champ ci-dessus puis cliquez à nouveau.</p>
       `;
+
+      symptomsInput.value = "";
+      step = 2;
       return;
     }
 
-    // --------- MOTEUR IA ---------
-    const findings = [];
-    const examsPrimary = [];
-    const examsSecondary = [];
-    let speciality = [];
-    let severityScore = 0;
+    // -----------------------------
+    // ÉTAPE 2 — Analyse de la réponse
+    // -----------------------------
+    if (step === 2) {
 
-    function addFinding(label, score = 1) {
-      findings.push(label);
-      severityScore += score;
-    }
-    function addExamPrimary(label) {
-      if (!examsPrimary.includes(label)) examsPrimary.push(label);
-    }
-    function addExamSecondary(label) {
-      if (!examsSecondary.includes(label)) examsSecondary.push(label);
-    }
-    function addSpeciality(label) {
-      if (!speciality.includes(label)) speciality.push(label);
-    }
+      collectedData.answer = text;
 
-    // RESPIRATOIRE
-    if (text.includes("toux") || text.includes("dyspnée") || text.includes("respire mal") || text.includes("opacité")) {
-      addSpeciality("Pneumologie");
-      addFinding("Symptomatologie respiratoire");
-      addExamPrimary("Radiographie thoracique");
-      addExamSecondary("Scanner thoracique");
-    }
+      let examsPrimary = [];
+      let examsSecondary = [];
+      let modules = "";
 
-    // CARDIO
-    if (text.includes("douleur thoracique") || text.includes("palpitation") || text.includes("thorax")) {
-      addSpeciality("Cardiologie");
-      addFinding("Douleur thoracique / suspicion cardio");
-      addExamPrimary("ECG");
-      addExamPrimary("Troponines");
-      addExamSecondary("Échographie cardiaque");
-    }
+      // Pneumo
+      if (speciality === "pneumo") {
+        if (text.includes("oui")) examsPrimary.push("Radiographie thoracique", "CRP", "NFS");
+        else examsPrimary.push("Radiographie thoracique");
+        examsSecondary.push("Scanner thoracique");
+        modules = `
+          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a>
+        `;
+      }
 
-    // TRAUMA
-    if (text.includes("chute") || text.includes("trauma") || text.includes("fracture")) {
-      addSpeciality("Traumatologie");
-      addFinding("Traumatisme / suspicion lésion osseuse");
-      addExamPrimary("Radiographie du segment concerné");
-      addExamSecondary("Scanner si fracture complexe");
-    }
+      // Cardio
+      if (speciality === "cardio") {
+        examsPrimary.push("ECG", "Troponines");
+        if (text.includes("oui")) examsSecondary.push("Scanner coronarien");
+        modules = `
+          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
+        `;
+      }
 
-    // ABDOMEN
-    if (text.includes("douleur abdominale") || text.includes("abdomen") || text.includes("nausée")) {
-      addSpeciality("Digestif / Abdomen");
-      addFinding("Symptomatologie abdominale");
-      addExamPrimary("Échographie abdominale");
-      addExamSecondary("Scanner abdomino‑pelvien");
-    }
+      // Trauma
+      if (speciality === "trauma") {
+        examsPrimary.push("Radiographie du segment concerné");
+        if (text.includes("oui")) examsSecondary.push("Scanner", "IRM");
+        modules = `
+          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
+        `;
+      }
 
-    // NEURO
-    if (text.includes("céphalée") || text.includes("vertige") || text.includes("perte de connaissance")) {
-      addSpeciality("Neurologie");
-      addFinding("Symptômes neurologiques");
-      addExamPrimary("Scanner cérébral");
-      addExamSecondary("IRM cérébrale");
-    }
+      // Abdomen
+      if (speciality === "abdo") {
+        examsPrimary.push("Échographie abdominale");
+        if (text.includes("droite")) examsSecondary.push("Scanner abdomino‑pelvien");
+        modules = `
+          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a>
+        `;
+      }
 
-    // INFECTIEUX
-    if (text.includes("fièvre") || text.includes("infection") || text.includes("frisson")) {
-      addSpeciality("Infectiologie");
-      addFinding("Contexte infectieux probable");
-      addExamPrimary("NFS");
-      addExamPrimary("CRP");
-      addExamSecondary("Hémocultures");
-    }
+      // Neuro
+      if (speciality === "neuro") {
+        examsPrimary.push("Scanner cérébral");
+        if (text.includes("oui")) examsSecondary.push("IRM cérébrale");
+        modules = `
+          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
+        `;
+      }
 
-    // SI RIEN DE CLAIR
-    if (findings.length === 0) {
-      addSpeciality("Général / Indéterminé");
-      addFinding("Contexte clinique non spécifique");
-      addExamPrimary("Bilan sanguin standard");
-      addExamSecondary("Imagerie ciblée selon localisation");
-    }
+      // Général
+      if (speciality === "general") {
+        examsPrimary.push("Bilan sanguin standard");
+        examsSecondary.push("Imagerie ciblée selon localisation");
+        modules = `
+          <a href="index.html" class="btn-3d-compact btn-diag-bg">CliniLease →</a>
+        `;
+      }
 
-    // SCORE DE GRAVITÉ
-    let severityLabel = "Faible";
-    if (severityScore >= 3 && severityScore < 6) severityLabel = "Modérée";
-    if (severityScore >= 6) severityLabel = "Potentiellement élevée";
+      // Rendu final
+      examsOutput.innerHTML = `
+        <p><strong>Analyse IA complète :</strong></p>
 
-    // --------- BOUTONS CONTEXTUELS ---------
-    let buttons = "";
+        <p><strong>Spécialité :</strong> ${speciality.toUpperCase()}</p>
 
-    if (speciality.includes("Pneumologie")) {
-      buttons += `
-        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+        <p><strong>Examens prioritaires :</strong></p>
+        <ul>${examsPrimary.map(e => `<li>${e}</li>`).join("")}</ul>
+
+        <p><strong>Examens secondaires :</strong></p>
+        <ul>${examsSecondary.map(e => `<li>${e}</li>`).join("")}</ul>
+
+        <h3 style="margin-top:20px;">Modules recommandés :</h3>
+        ${modules}
+
+        <p style="color:var(--text-muted); margin-top:8px;">
+          IA clinique dynamique — démo locale.
+        </p>
       `;
+
+      step = 3;
+      return;
     }
 
-    if (speciality.includes("Cardiologie")) {
-      buttons += `
-        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
-        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
-      `;
-    }
-
-    if (speciality.includes("Traumatologie")) {
-      buttons += `
-        <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
-        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
-      `;
-    }
-
-    if (speciality.includes("Digestif / Abdomen")) {
-      buttons += `
-        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-      `;
-    }
-
-    if (speciality.includes("Neurologie")) {
-      buttons += `
-        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-        <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a><br><br>
-      `;
-    }
-
-    if (speciality.includes("Infectiologie")) {
-      buttons += `
-        <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-      `;
-    }
-
-    if (speciality.includes("Général / Indéterminé")) {
-      buttons += `
-        <a href="index.html" class="btn-3d-compact btn-diag-bg">CliniLease →</a><br><br>
-      `;
-    }
-
-    // --------- RENDU FINAL ---------
-    examsOutput.innerHTML = `
-      <p><strong>Analyse IA (démo locale) :</strong></p>
-      <p><strong>Spécialités impliquées :</strong> ${speciality.join(" / ")}</p>
-
-      <p><strong>Contexte clinique détecté :</strong></p>
-      <ul>${findings.map(f => `<li>${f}</li>`).join("")}</ul>
-
-      <p><strong>Examens prioritaires :</strong></p>
-      <ul>${examsPrimary.map(e => `<li>${e}</li>`).join("")}</ul>
-
-      <p><strong>Examens secondaires :</strong></p>
-      <ul>${examsSecondary.map(e => `<li>${e}</li>`).join("")}</ul>
-
-      <p><strong>Niveau de gravité :</strong> ${severityLabel} (score ${severityScore})</p>
-
-      <h3 style="margin-top:20px;">Modules recommandés :</h3>
-      ${buttons}
-
-      <p style="color:var(--text-muted); margin-top:8px;">
-        Moteur IA clinique local — démo. Ne remplace pas un avis médical.
-      </p>
-    `;
   });
 
 });
