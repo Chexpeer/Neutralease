@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Projets — NeutralEase</title>
+  <meta name="description" content="Contactez l'équipe NeutralEase pour étudier votre projet d'équipement médical, une demande de reprise ou une opportunité de partenariat.">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER UNIFIÉ -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      </a>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../catalogue/index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../financement/index.html" class="nav-link">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="../scorylease/index.html">ScoryLease (Comparateur)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos/index.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION HERO CONTACT -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge-tag">TIERS DE CONFIANCE INDÉPENDANT</span>
+      <h1>Parlez-nous de votre projet</h1>
+      <p class="hero-subtitle">
+        Une question technique, une recherche d'équipement, un besoin de financement ou une reprise de matériel ? Nos conseillers vous répondent sous 24 à 48 heures.
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOC FORMULAIRE & COORDONNÉES -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid" style="grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+        
+        <!-- FORMULAIRE PRINCIPAL -->
+        <div class="feature-card" style="padding: 30px;">
+          <h3 style="margin-bottom: 20px;">Formulaire de contact</h3>
+          <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Prénom *</label>
+                <input type="text" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+              </div>
+              <div>
+                <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Nom *</label>
+                <input type="text" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">E-mail professionnel *</label>
+                <input type="email" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+              </div>
+              <div>
+                <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Téléphone *</label>
+                <input type="tel" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+              </div>
+            </div>
+
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Sujet principal *</label>
+              <select required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+                <option value="">-- Sélectionnez l'objet de votre demande --</option>
+                <option value="equipement">Projet d'acquisition matériel (Neuvis/Occasion)</option>
+                <option value="financement">Étude de financement / Comparateur ScoryLease</option>
+                <option value="reprise">Reprise & Valorisation d'ancien matériel (RecupLease)</option>
+                <option value="partenariat">Devenir fabricant ou distributeur partenaire</option>
+                <option value="autre">Autre demande</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Détails de votre demande *</label>
+              <textarea rows="5" required placeholder="Précisez votre spécialité, le type de matériel recherché ou la nature de votre projet..." style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="align-self: start; margin-top: 10px; cursor: pointer;">
+              Envoyer mon message →
+            </button>
+          </form>
+        </div>
+
+        <!-- BLOC INFORMATIONS COMPLÉMENTAIRES -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Réactivité garantie</h3>
+            <p>Toutes les demandes font l'objet d'une analyse préliminaire sous 24h ouvrées par un conseiller dédié.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Indépendance totale</h3>
+            <p>NeutralEase vous conseille en toute neutralité sans parti pris constructeur ou organisme financier.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Réseau Partenaires</h3>
+            <p>Vous êtes fabricant ou bailleur ? Rendez-vous sur notre <a href="../partenaires/index.html" style="color: var(--color-fin);">espace partenaires</a> dédié.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER UNIFIÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="../catalogue/index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="../clinilease/index.html">CliniLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="../scorylease/index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos/index.html">À propos</a></li>
+            <li><a href="index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

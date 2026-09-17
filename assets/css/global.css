@@ -3,20 +3,19 @@
 ========================================================= */
 
 :root {
-  --bg-dark: #070b14;           /* Fond global nuit très profond */
-  --bg-card: #0d1322;           /* Fond de carte sombre */
+  --bg-dark: #070b14;
+  --bg-card: #0d1322;
   --panel-border: rgba(255, 255, 255, 0.08);
   
   --text-main: #ffffff;
   --text-muted: #cbd5e1;
   --text-soft: #64748b;
   
-  /* ACCENTS COULEURS UNIVERSELES */
-  --color-diag: #f59e0b;      /* CliniLease - Ambre */
-  --color-echo: #10b981;      /* EchoLease - Émeraude */
-  --color-scory: #a855f7;     /* ScoryLease - Violet */
-  --color-fin: #3b82f6;       /* Financement - Bleu */
-  --color-dental: #06b6d4;    /* DentalLease - Cyan */
+  --color-diag: #f59e0b;
+  --color-echo: #10b981;
+  --color-scory: #a855f7;
+  --color-fin: #3b82f6;
+  --color-dental: #06b6d4;
 }
 
 * {
@@ -60,6 +59,7 @@ body {
 .brand-logo img {
   height: 36px;
   width: auto;
+  display: block;
 }
 
 .nav-menu {
@@ -86,7 +86,7 @@ body {
   background: linear-gradient(180deg, #182238 0%, #0d1322 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 2px 0 #030712;
-  transition: transform 0.1s ease, background 0.2s ease;
+  transition: transform 0.1s ease;
 }
 
 .nav-link:hover { transform: translateY(-1px); }
@@ -177,9 +177,7 @@ body {
   margin-bottom: 30px;
 }
 
-.hero-highlights span {
-  color: #ffffff;
-}
+.hero-highlights span { color: #ffffff; }
 
 .hero-actions {
   display: flex;
@@ -234,7 +232,6 @@ body {
   margin: 0;
 }
 
-/* BLOC POURQUOI NEUTRALEASE */
 .features-section {
   padding: 50px 0;
   border-bottom: 1px solid var(--panel-border);
@@ -271,7 +268,6 @@ body {
   margin: 0;
 }
 
-/* BLOC UNIVERS CARDS */
 .univers-section {
   padding: 50px 0;
   background: #090e1a;
@@ -330,10 +326,7 @@ body {
 
 .card-link:hover { text-decoration: underline; }
 
-/* BLOC PARCOURS / STEPS */
-.process-section {
-  padding: 50px 0;
-}
+.process-section { padding: 50px 0; }
 
 .process-steps {
   display: grid;
@@ -347,7 +340,6 @@ body {
   padding: 20px;
   border-radius: 8px;
   border: 1px solid var(--panel-border);
-  position: relative;
 }
 
 .step-number {

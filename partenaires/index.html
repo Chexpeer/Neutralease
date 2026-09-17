@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Partenaires — NeutralEase</title>
+  <meta name="description" content="Rejoignez le réseau NeutralEase. Fabricants, distributeurs et bailleurs financiers : developpez vos ventes d'équipements médicaux grâce à notre tiers de confiance.">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER UNIFIÉ -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      </a>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../catalogue/index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../financement/index.html" class="nav-link">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="../scorylease/index.html">ScoryLease (Comparateur)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos/index.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION HERO PARTENAIRES -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge-tag">RÉSEAU CONSTRUCTEURS & BAILLEURS</span>
+      <h1>Devenez partenaire NeutralEase</h1>
+      <p class="hero-subtitle">
+        Fabricants, distributeurs et sociétés de financement : appuyez-vous sur notre rôle de tiers de confiance pour accélérer vos projets d'équipement médical.
+      </p>
+    </div>
+  </section>
+
+  <!-- AVANTAGES PARTENAIRES -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Un canal de distribution neutre et qualifié</h2>
+        <p>NeutralEase facilite le rapprochement entre professionnels de santé et acteurs du marché médical.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏬</div>
+          <h3>Fabricants & Distributeurs</h3>
+          <p>Présentez vos matériels auprès d'un réseau de professionnels de santé qualifiés en quête d'équipements récents ou reconditionnés.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏦</div>
+          <h3>Bailleurs & Financeurs</h3>
+          <p>Intégrez vos offres de crédit-bail et location financière à notre outil d'analyse ScoryLease pour capter des dossiers solvables.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♻️</div>
+          <h3>Acteurs du Reconditionné</h3>
+          <p>Accédez à un flux régulier d'équipements médicaux issus de renouvellements de parc pour vos canaux d'exportation ou de reprise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE DE CANDIDATURE PARTENAIRE -->
+  <section class="process-section" style="background: #090e1a; padding: 50px 0; border-top: 1px solid var(--panel-border); border-bottom: 1px solid var(--panel-border);">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-title">
+        <h2>Rejoindre le réseau</h2>
+        <p>Remplissez ce formulaire pour qu'un responsable partenariat étudie votre demande d'affiliation.</p>
+      </div>
+      <div class="feature-card" style="padding: 30px;">
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Nom de l'entreprise *</label>
+              <input type="text" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+            </div>
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Typologie d'activité *</label>
+              <select required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+                <option value="">-- Sélectionner --</option>
+                <option value="fabricant">Fabricant d'équipements médicaux</option>
+                <option value="distributeur">Distributeur / Revendeur</option>
+                <option value="financeur">Société de financement / Bailleur</option>
+                <option value="reprise">Acteur de la reprise / Export</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Nom du contact *</label>
+              <input type="text" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+            </div>
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Fonction *</label>
+              <input type="text" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">E-mail professionnel *</label>
+              <input type="email" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+            </div>
+            <div>
+              <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Téléphone *</label>
+              <input type="tel" required style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit;">
+            </div>
+          </div>
+
+          <div>
+            <label style="display:block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-muted);">Présentation de votre offre et synergies souhaitées *</label>
+            <textarea rows="4" required placeholder="Décrivez vos produits, vos zones de couverture ou vos attentes d'intégration..." style="width:100%; padding: 10px; background: #070b14; border: 1px solid var(--panel-border); border-radius: 6px; color: #fff; font-family: inherit; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self: start; margin-top: 10px; cursor: pointer;">
+            Soumettre notre candidature →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER UNIFIÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="../catalogue/index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="../clinilease/index.html">CliniLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="../scorylease/index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos/index.html">À propos</a></li>
+            <li><a href="../contact/index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

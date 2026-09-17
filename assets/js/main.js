@@ -1,5 +1,5 @@
 /* =========================================================
-   NEUTRALEASE - NAVIGATION MOBILE & AUDITEUR DE BUGS (DEBUG)
+   NEUTRALEASE - SCRIPT PRINCIPAL & AUDITEUR DE BUGS
 ========================================================= */
 
 // 1. Navigation Mobile & Menu Hamburger
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Lancement du diagnostic automatique si ?debug=1 est présent dans l'URL ou en local
+  // 2. Diagnostic automatique (s'active avec ?debug=1 ou en local)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('debug') || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     runNeutralEaseHealthCheck();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function runNeutralEaseHealthCheck() {
   const report = [];
 
-  // A. Détection des liens obsolètes ou cassés
+  // Détection des liens obsolètes ou vides
   const links = document.querySelectorAll('a[href]');
   links.forEach(a => {
     const href = a.getAttribute('href');
@@ -52,11 +52,11 @@ function runNeutralEaseHealthCheck() {
       report.push(`❌ Lien obsolète détecté : "${href}" (remplacer par clinilease)`);
     }
     if (href === '#' && !a.onclick) {
-      report.push(`⚠️ Lien vide ou non attribué : "${a.textContent.trim()}"`);
+      report.push(`⚠️ Lien vide non attribué sur : "${a.textContent.trim()}"`);
     }
   });
 
-  // B. Détection des images manquantes
+  // Détection des images manquantes
   const images = document.querySelectorAll('img');
   images.forEach(img => {
     if (!img.complete || img.naturalWidth === 0) {
@@ -64,23 +64,22 @@ function runNeutralEaseHealthCheck() {
     }
   });
 
-  // C. Détection des éléments structurels essentiels
+  // Détection des structures requises
   if (!document.getElementById('navMenu')) report.push('🚫 Élément manquant : #navMenu');
   if (!document.querySelector('.header')) report.push('🚫 Élément manquant : .header');
 
-  // Affichage du rapport dans la console et sur la page si des erreurs existent
+  // Rapport dans la console et badge écran
   if (report.length > 0) {
     console.group('🔍 [NeutralEase Health Check Report]');
     report.forEach(err => console.warn(err));
     console.groupEnd();
 
-    // Insertion d'un badge discret en bas à droite de l'écran
     const badge = document.createElement('div');
     badge.style.cssText = 'position:fixed; bottom:10px; right:10px; background:#7f1d1d; color:#fff; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:bold; z-index:99999; box-shadow:0 4px 12px rgba(0,0,0,0.5); cursor:pointer;';
-    badge.innerHTML = `⚠️ Debug : ${report.length} anomalie(s) (Voir Console)`;
+    badge.innerHTML = `⚠️ Debug : ${report.length} anomalie(s) (Cliquer)`;
     badge.onclick = () => alert(report.join('\n\n'));
     document.body.appendChild(badge);
   } else {
-    console.log('✅ [NeutralEase Health Check] Aucun problème structurel détecté sur cette page.');
+    console.log('✅ [NeutralEase Health Check] Aucun problème détecté sur cette page.');
   }
 }
