@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScoryLease — Comparateur & Simulation de Financement — NeutralEase</title>
+  <meta name="description" content="Simulez vos mensualités de crédit-bail et location financière pour vos équipements médicaux avec ScoryLease par NeutralEase.">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER UNIFIÉ -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      </a>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../catalogue/index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../financement/index.html" class="nav-link active">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html">ScoryLease (Comparateur)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos/index.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION HERO SCORYLEASE -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge-tag">SIMULATEUR DE FINANCEMENT</span>
+      <h1>ScoryLease : Calculez votre investissement</h1>
+      <p class="hero-subtitle">
+        Estimez rapidement vos mensualités indicatives de crédit-bail ou location financière en fonction de la durée et de la valeur de votre projet.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION SIMULATEUR INTERACTIF -->
+  <section class="univers-section">
+    <div class="container">
+      
+      <div class="feature-card" style="max-width: 800px; margin: 0 auto; padding: 35px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
+        <h2 style="margin-bottom: 25px; text-align: center;">Simulateur de Mensualités</h2>
+
+        <form id="scorySimForm" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- MONTANT DE L'ÉQUIPEMENT -->
+          <div>
+            <label for="montantInput" style="display: block; font-weight: 600; margin-bottom: 8px;">
+              Montant estimé de l'équipement (€ HT) :
+            </label>
+            <input type="number" id="montantInput" value="30000" min="2000" max="250000" step="1000" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1.1rem;" oninput="calculerSimulation()">
+          </div>
+
+          <!-- DURÉE DE FINANCEMENT -->
+          <div>
+            <label for="dureeSelect" style="display: block; font-weight: 600; margin-bottom: 8px;">
+              Durée du contrat :
+            </label>
+            <select id="dureeSelect" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1rem;" onchange="calculerSimulation()">
+              <option value="36">36 mois (3 ans)</option>
+              <option value="48">48 mois (4 ans)</option>
+              <option value="60" selected>60 mois (5 ans)</option>
+              <option value="72">72 mois (6 ans)</option>
+            </select>
+          </div>
+
+          <!-- TYPOLOGIE DU FINANCEMENT -->
+          <div>
+            <label for="optionSelect" style="display: block; font-weight: 600; margin-bottom: 8px;">
+              Formule souhaitée :
+            </label>
+            <select id="optionSelect" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1rem;" onchange="calculerSimulation()">
+              <option value="loa">Crédit-Bail (LOA) avec option de rachat finale</option>
+              <option value="loc">Location Financière Évolutive</option>
+            </select>
+          </div>
+
+          <!-- RÉSULTAT DE LA SIMULATION -->
+          <div style="margin-top: 15px; padding: 25px; background: rgba(15, 23, 42, 0.9); border-radius: 8px; text-align: center; border: 1px solid var(--color-fin);">
+            <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+              Estimation de la mensualité HT
+            </div>
+            <div id="resultatMensualite" style="font-size: 2.8rem; font-weight: 800; color: #38bdf8; margin: 10px 0;">
+              564 € HT / mois
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">
+              * Simulation indicative sans valeur contractuelle. Sous réserve d'acceptation de votre dossier par un organisme partenaire.
+            </div>
+          </div>
+
+          <!-- CTA VALIDATION -->
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="../contact/index.html" class="btn btn-primary" style="width: 100%;">Valider cette simulation avec un conseiller →</a>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AVANTAGES COMPARATEUR -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Comment fonctionne le scoring ScoryLease ?</h2>
+        <p>Une mise en concurrence automatisée auprès de nos bailleurs partenaires spécialisés dans le secteur médical.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Analyse Comparative</h3>
+          <p>Nous interrogeons plusieurs établissements pour identifier la meilleure offre de taux et de flexibilité contractuelle.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Réponse Rapide</h3>
+          <p>Dossier numérisé pour un accord de principe généralement délivré sous 24h à 48h ouvrées.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Accompagnement Indépendant</h3>
+          <p>ScoryLease agit de manière totalement neutre pour vous recommander la solution la plus équilibrée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER UNIFIÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="../catalogue/index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="../clinilease/index.html">CliniLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos/index.html">À propos</a></li>
+            <li><a href="../contact/index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT SIMULATION SCRIPT -->
+  <script style="display:none;">
+    function calculerSimulation() {
+      const montant = parseFloat(document.getElementById('montantInput').value) || 0;
+      const duree = parseInt(document.getElementById('dureeSelect').value, 10);
+      
+      // Facteur d'estimation simplifié (taux moyen + amortissement)
+      let coefficient = 0.0188; // Base 60 mois
+      if (duree === 36) coefficient = 0.0298;
+      if (duree === 48) coefficient = 0.0230;
+      if (duree === 72) coefficient = 0.0162;
+
+      const mensualite = Math.round(montant * coefficient);
+      document.getElementById('resultatMensualite').innerText = mensualite.toLocaleString('fr-FR') + ' € HT / mois';
+    }
+  </script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

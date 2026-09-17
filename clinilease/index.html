@@ -2,67 +2,202 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>CliniLease — Outils de Diagnostic Clinique</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CliniLease — Diagnostic & IA Médicale — NeutralEase</title>
+  <meta name="description" content="Découvrez CliniLease par NeutralEase : dispositifs de diagnostic connecté, modules d'IA médicale, ECG, Holters et logiciels cliniques avec solutions de financement.">
   <link rel="stylesheet" href="../assets/css/global.css">
-  <script defer src="../assets/js/main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+<body>
 
-<body class="site-wrapper">
+  <!-- HEADER UNIFIÉ -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      </a>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../catalogue/index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="index.html">CliniLease (Diagnostic & IA)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../financement/index.html" class="nav-link">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="../scorylease/index.html">ScoryLease (Comparateur)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos/index.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<header class="header">
-  <div class="nav-container">
-    <a href="../index.html" class="brand-logo"><span>NEUTRALEASE</span></a>
-    <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+  <!-- SECTION HERO CLINILEASE -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge-tag" style="color: var(--color-diag); background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);">UNIVERS DIAGNOSTIC & IA MÉDICALE</span>
+      <h1>CliniLease : L'innovation au service du diagnostic</h1>
+      <p class="hero-subtitle">
+        Équipements de diagnostic de pointe, solutions d'IA d'aide au diagnostic, cardiologie connectée et logiciels cliniques pour cabinets, cliniques et centres de santé.
+      </p>
+      <div class="hero-actions">
+        <a href="../contact/index.html" class="btn btn-primary" style="background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 100%); border-color: #8b5cf6; box-shadow: 0 3px 0 #4c1d95;">Demander une étude d'équipement</a>
+        <a href="../scorylease/index.html" class="btn btn-secondary">Simuler le financement</a>
+      </div>
+    </div>
+  </section>
 
-    <nav>
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item"><a href="../clinilease/index.html" class="nav-link highlight-diag">⚡ CliniLease</a></li>
-        <li class="nav-item"><a href="../echolease/index.html" class="nav-link">Équipements</a></li>
-        <li class="nav-item"><a href="../scorylease.html" class="nav-link">ScoryLease</a></li>
-        <li class="nav-item"><a href="../financement.html" class="nav-link">Financement</a></li>
-        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <!-- GAMME DIAGNOSTIC & IA -->
+  <section class="univers-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Les solutions CliniLease</h2>
+        <p>Des outils technologiques conçus pour accélérer le diagnostic et optimiser la prise en charge médicale.</p>
+      </div>
 
-<main style="max-width:1200px; margin:20px auto; padding:0 14px;">
+      <div class="univers-grid">
 
-  <div style="text-align:center; margin-bottom:20px;">
-    <h1 style="color:#fff; font-size:1.5rem;">CliniLease — Suite d’Outils de Diagnostic Clinique</h1>
-    <p style="color:var(--text-muted); font-size:0.9rem;">Assistant IA, PACS Cloud, IA de détection et stations 3D.</p>
-  </div>
+        <div class="univers-card card-clini">
+          <div>
+            <span class="univers-tag">AIDE AU DIAGNOSTIC</span>
+            <h3>IA Médicale & Algorithmes</h3>
+            <p>Solutions logicielles d'intelligence artificielle pour la détection précoce des anomalies en imagerie, radiologie et cardiologie.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <a href="../contact/index.html" class="card-link" style="color: var(--color-diag);">Découvrir les solutions IA →</a>
+          </div>
+        </div>
 
-  <div class="card-rubrique card-diag">
-    <h3>Assistant IA Clinique</h3>
-    <p>Analyse clinique instantanée et orientation des examens.</p>
-    <a href="assistant.html" class="btn-3d-compact btn-diag-bg">Accéder à l’Assistant IA →</a>
-  </div>
+        <div class="univers-card card-clini">
+          <div>
+            <span class="univers-tag">CARDIOLOGIE CONNECTÉE</span>
+            <h3>ECG & Holters de Nouvelle Génération</h3>
+            <p>Électrocardiographes 12 pistes, Holters tensionnels et ECG longue durée avec interprétation automatique et transmission sécurisée.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <a href="../contact/index.html" class="card-link" style="color: var(--color-diag);">Consulter les dispositifs →</a>
+          </div>
+        </div>
 
-  <div class="card-rubrique card-scory">
-    <h3>PACS Cloud & Serveurs DICOM</h3>
-    <p>Archivage HDS, visionneuse web, partage sécurisé.</p>
-    <a href="pacs-cloud.html" class="btn-3d-compact btn-scory-bg">Accéder au PACS Cloud →</a>
-  </div>
+        <div class="univers-card card-clini">
+          <div>
+            <span class="univers-tag">LOGICIELS & RACCORDEMENT</span>
+            <h3>PACS & Intégration DPI</h3>
+            <p>Plateformes de stockage et de partage d'imagerie clinique, totalement interopérables avec vos logiciels métiers et DPI.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <a href="../contact/index.html" class="card-link" style="color: var(--color-diag);">Demander une démonstration →</a>
+          </div>
+        </div>
 
-  <div class="card-rubrique card-diag">
-    <h3>IA d’Aide à la Détection</h3>
-    <p>Détection automatisée des nodules, fractures et anomalies RX.</p>
-    <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">Accéder aux Modules IA →</a>
-  </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="card-rubrique card-fin">
-    <h3>Stations de Post‑Traitement 3D</h3>
-    <p>Reconstruction 3D, segmentation et volumétrie.</p>
-    <a href="stations-3d.html" class="btn-3d-compact btn-fin-bg">Accéder aux Stations 3D →</a>
-  </div>
+  <!-- SERVICES INCLUS & OFFRE LEASING -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Pourquoi moderniser vos outils avec CliniLease ?</h2>
+        <p>Un accompagnement complet pour intégrer sereinement les nouvelles technologies dans votre pratique quotidienne.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Conformité RGPD & HDS</h3>
+          <p>Toutes nos solutions matérielles et logicielles respectent strictement les normes d'Hébergement de Données de Santé.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Mises à jour & Évolutivité</h3>
+          <p>Intégrez les briques d'IA et les évolutions logicielles au fil de votre contrat sans alourdir votre trésorerie.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Formation & Prise en Main</h3>
+          <p>Accompagnement de vos équipes médicales et paramédicales à l'utilisation des nouveaux outils de diagnostic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</main>
+  <!-- CALL TO ACTION -->
+  <section class="process-section" style="text-align: center; padding: 50px 0;">
+    <div class="container">
+      <h2>Prêt à équiper votre structure avec les dernières innovations ?</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 10px auto 30px auto;">
+        Nos consultants experts analysent votre parc actuel et vous proposent la solution la plus pertinente.
+      </p>
+      <a href="../contact/index.html" class="btn btn-primary" style="background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 100%); border-color: #8b5cf6; box-shadow: 0 3px 0 #4c1d95;">Configurer mon projet CliniLease →</a>
+    </div>
+  </section>
 
-<footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
-  © NeutralEase — Suite Clinique & Ingénierie Médicale.
-</footer>
+  <!-- FOOTER UNIFIÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="../catalogue/index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="index.html">CliniLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="../scorylease/index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos/index.html">À propos</a></li>
+            <li><a href="../contact/index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
 
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>

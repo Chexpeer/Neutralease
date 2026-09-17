@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Équipements Médicaux — NeutralEase</title>
+  <meta name="description" content="Explorez l'ensemble du catalogue d'équipements médicaux NeutralEase : imagerie, dentaire, diagnostic avancé et matériel reconditionné.">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER UNIFIÉ -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      </a>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../financement/index.html" class="nav-link">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="../scorylease/index.html">ScoryLease (Comparateur)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos/index.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION HERO CATALOGUE -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge-tag">OFFRE MULTI-CONSTRUCTEURS</span>
+      <h1>Catalogue Global Équipements</h1>
+      <p class="hero-subtitle">
+        Découvrez notre sélection de dispositifs médicaux neufs et reconditionnés, éligibles à nos solutions de financement et de reprise.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION CATALOGUE ET FILTRES -->
+  <section class="univers-section">
+    <div class="container">
+      
+      <!-- BARRE DE RECHERCHE / FILTRES SIMPLIFIÉS -->
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
+        <button class="btn btn-secondary" style="border-color: var(--color-fin);">Tous les équipements</button>
+        <a href="../echolease/index.html" class="btn btn-secondary" style="border-color: var(--color-echo);">Échographie (EchoLease)</a>
+        <a href="../dentalease/index.html" class="btn btn-secondary" style="border-color: var(--color-dental);">Dentaire (DentalLease)</a>
+        <a href="../clinilease/index.html" class="btn btn-secondary" style="border-color: var(--color-diag);">Diagnostic & IA (CliniLease)</a>
+      </div>
+
+      <!-- GRILLE DES ÉQUIPEMENTS -->
+      <div class="univers-grid">
+
+        <!-- CARTE 1 : ECHO CONSOLE -->
+        <div class="univers-card card-echo">
+          <div>
+            <span class="univers-tag">ÉCHOGRAPHIE · ECHOLEASE</span>
+            <h3>Échographe Console Pluridisciplinaire</h3>
+            <p>Système haut de gamme pour cardiologie, radiologie et médecine générale. Imagerie HD et doppler couleur avancé.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Disponible en neuf & reconditionné</div>
+            <a href="../echolease/index.html" class="card-link">Voir la gamme EchoLease →</a>
+          </div>
+        </div>
+
+        <!-- CARTE 2 : ECHO PORTABLE -->
+        <div class="univers-card card-echo">
+          <div>
+            <span class="univers-tag">ÉCHOGRAPHIE · ECHOLEASE</span>
+            <h3>Échographe Ultra-Portable POCUS</h3>
+            <p>Sonde ultra-compacte ou tablette ultra-mobile dédiée aux urgences, à la rhumatologie et aux consultations à domicile.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Éligible location / crédit-bail</div>
+            <a href="../echolease/index.html" class="card-link">Voir la gamme EchoLease →</a>
+          </div>
+        </div>
+
+        <!-- CARTE 3 : CBCT DENTAIRE -->
+        <div class="univers-card card-dental">
+          <div>
+            <span class="univers-tag">DENTAIRE · DENTALEASE</span>
+            <h3>Radio Panoramique & CBCT 3D</h3>
+            <p>Imagerie 3D haute définition à faible dose pour chirurgie d'implantologie, endodontie et diagnostic dentaire.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Option reprise ancien matériel</div>
+            <a href="../dentalease/index.html" class="card-link">Voir la gamme DentalLease →</a>
+          </div>
+        </div>
+
+        <!-- CARTE 4 : FAUTEUIL DE SOINS -->
+        <div class="univers-card card-dental">
+          <div>
+            <span class="univers-tag">DENTAIRE · DENTALEASE</span>
+            <h3>Unité de Soins Dentaires Ergonomique</h3>
+            <p>Fauteuil complet avec scialytique LED, instrumentation intégrée et désinfection automatisée pour cabinet moderne.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Financement sur mesure</div>
+            <a href="../dentalease/index.html" class="card-link">Voir la gamme DentalLease →</a>
+          </div>
+        </div>
+
+        <!-- CARTE 5 : DIAGNOSTIC IA -->
+        <div class="univers-card card-clini">
+          <div>
+            <span class="univers-tag">DIAGNOSTIC & IA · CLINILEASE</span>
+            <h3>Module d'Aide au Diagnostic par IA</h3>
+            <p>Algorithmes de détection automatique d'anomalies pour ECG, radiographie pulmonaire et imagerie rétinienne.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Licence SaaS ou intégrée</div>
+            <a href="../clinilease/index.html" class="card-link">Voir la gamme CliniLease →</a>
+          </div>
+        </div>
+
+        <!-- CARTE 6 : ECG & ECG EFFORT -->
+        <div class="univers-card card-clini">
+          <div>
+            <span class="univers-tag">DIAGNOSTIC · CLINILEASE</span>
+            <h3>Système d'Électrocardiographie Connecté</h3>
+            <p>Electrocardiographe 12 pistes numérique avec transfert automatique dans le dossier patient informatisé.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Installation et formation incluses</div>
+            <a href="../clinilease/index.html" class="card-link">Voir la gamme CliniLease →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BANDEAU BESOIN SPÉCIFIQUE -->
+      <div class="feature-card" style="margin-top: 40px; text-align: center; padding: 30px;">
+        <h3 style="margin-bottom: 10px;">Vous ne trouvez pas la référence exacte ?</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">NeutralEase recherche et qualifie gratuitement l'équipement de votre choix auprès de son réseau de fabricants et distributeurs partenaires.</p>
+        <a href="../contact/index.html" class="btn btn-primary">Faire une demande de recherche sur mesure →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER UNIFIÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="../clinilease/index.html">CliniLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="../scorylease/index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos/index.html">À propos</a></li>
+            <li><a href="../contact/index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
