@@ -1,158 +1,86 @@
-// ======================================================
-// CLINILEASE — IA CLINIQUE NIVEAU 4 + ARBORESCENCE DYNAMIQUE
-// ======================================================
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   NEUTRALEASE - NAVIGATION MOBILE & AUDITEUR DE BUGS (DEBUG)
+========================================================= */
 
-  const analyzeBtn = document.getElementById("assistantAnalyzeBtn");
-  const symptomsInput = document.getElementById("assistantSymptoms");
-  const examsOutput = document.getElementById("assistantExamsContent");
+// 1. Navigation Mobile & Menu Hamburger
+function toggleMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  if (navMenu) {
+    navMenu.classList.toggle('mobile-open');
+  } else {
+    console.error('[NeutralEase Debug] Erreur : L\'élément #navMenu est introuvable.');
+  }
+}
 
-  let step = 1;
-  let speciality = "";
-  let collectedData = {};
+document.addEventListener('DOMContentLoaded', () => {
+  // Gestion des sous-menus déroulants sur Mobile
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown-menu');
 
-  if (!analyzeBtn) return;
-
-  analyzeBtn.addEventListener("click", () => {
-
-    const text = symptomsInput.value.trim().toLowerCase();
-
-    // -----------------------------
-    // ÉTAPE 1 — Analyse initiale
-    // -----------------------------
-    if (step === 1) {
-
-      if (text.length < 10) {
-        examsOutput.innerHTML = `<p style="color:#f87171;">Décrivez un contexte clinique plus détaillé.</p>`;
-        return;
-      }
-
-      // Détection de spécialité
-      if (text.includes("toux") || text.includes("dyspnée") || text.includes("respire mal")) speciality = "pneumo";
-      else if (text.includes("douleur thoracique") || text.includes("palpitation")) speciality = "cardio";
-      else if (text.includes("chute") || text.includes("fracture") || text.includes("trauma")) speciality = "trauma";
-      else if (text.includes("douleur abdominale") || text.includes("abdomen")) speciality = "abdo";
-      else if (text.includes("céphalée") || text.includes("vertige") || text.includes("perte de connaissance")) speciality = "neuro";
-      else speciality = "general";
-
-      collectedData.initial = text;
-
-      // Question ciblée selon spécialité
-      let question = "";
-
-      if (speciality === "pneumo") question = "La fièvre est-elle présente ?";
-      if (speciality === "cardio") question = "La douleur irradie-t-elle dans le bras ou la mâchoire ?";
-      if (speciality === "trauma") question = "Y a-t-il une incapacité à mobiliser le membre ?";
-      if (speciality === "abdo") question = "La douleur est-elle localisée à droite ou à gauche ?";
-      if (speciality === "neuro") question = "Y a-t-il des troubles de la vision ou de la parole ?";
-      if (speciality === "general") question = "Les symptômes sont-ils récents ou évolutifs ?";
-
-      examsOutput.innerHTML = `
-        <p><strong>Analyse initiale :</strong></p>
-        <p>Spécialité probable : <strong>${speciality.toUpperCase()}</strong></p>
-        <p><strong>Question IA :</strong> ${question}</p>
-        <p style="color:var(--text-muted);">Répondez dans le champ ci-dessus puis cliquez à nouveau.</p>
-      `;
-
-      symptomsInput.value = "";
-      step = 2;
-      return;
+    if (dropdown && link) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          if (link.getAttribute('href') === '#' || link.getAttribute('href') === '') {
+            e.preventDefault();
+          }
+          item.classList.toggle('open');
+        }
+      });
     }
-
-    // -----------------------------
-    // ÉTAPE 2 — Analyse de la réponse
-    // -----------------------------
-    if (step === 2) {
-
-      collectedData.answer = text;
-
-      let examsPrimary = [];
-      let examsSecondary = [];
-      let modules = "";
-
-      // Pneumo
-      if (speciality === "pneumo") {
-        if (text.includes("oui")) examsPrimary.push("Radiographie thoracique", "CRP", "NFS");
-        else examsPrimary.push("Radiographie thoracique");
-        examsSecondary.push("Scanner thoracique");
-        modules = `
-          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a>
-        `;
-      }
-
-      // Cardio
-      if (speciality === "cardio") {
-        examsPrimary.push("ECG", "Troponines");
-        if (text.includes("oui")) examsSecondary.push("Scanner coronarien");
-        modules = `
-          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
-          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
-        `;
-      }
-
-      // Trauma
-      if (speciality === "trauma") {
-        examsPrimary.push("Radiographie du segment concerné");
-        if (text.includes("oui")) examsSecondary.push("Scanner", "IRM");
-        modules = `
-          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
-          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
-        `;
-      }
-
-      // Abdomen
-      if (speciality === "abdo") {
-        examsPrimary.push("Échographie abdominale");
-        if (text.includes("droite")) examsSecondary.push("Scanner abdomino‑pelvien");
-        modules = `
-          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a>
-        `;
-      }
-
-      // Neuro
-      if (speciality === "neuro") {
-        examsPrimary.push("Scanner cérébral");
-        if (text.includes("oui")) examsSecondary.push("IRM cérébrale");
-        modules = `
-          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
-          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
-        `;
-      }
-
-      // Général
-      if (speciality === "general") {
-        examsPrimary.push("Bilan sanguin standard");
-        examsSecondary.push("Imagerie ciblée selon localisation");
-        modules = `
-          <a href="index.html" class="btn-3d-compact btn-diag-bg">CliniLease →</a>
-        `;
-      }
-
-      // Rendu final
-      examsOutput.innerHTML = `
-        <p><strong>Analyse IA complète :</strong></p>
-
-        <p><strong>Spécialité :</strong> ${speciality.toUpperCase()}</p>
-
-        <p><strong>Examens prioritaires :</strong></p>
-        <ul>${examsPrimary.map(e => `<li>${e}</li>`).join("")}</ul>
-
-        <p><strong>Examens secondaires :</strong></p>
-        <ul>${examsSecondary.map(e => `<li>${e}</li>`).join("")}</ul>
-
-        <h3 style="margin-top:20px;">Modules recommandés :</h3>
-        ${modules}
-
-        <p style="color:var(--text-muted); margin-top:8px;">
-          IA clinique dynamique — démo locale.
-        </p>
-      `;
-
-      step = 3;
-      return;
-    }
-
   });
 
+  // 2. Lancement du diagnostic automatique si ?debug=1 est présent dans l'URL ou en local
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('debug') || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    runNeutralEaseHealthCheck();
+  }
 });
+
+/* =========================================================
+   MODULE DE DIAGNOSTIC AUTOMATIQUE (HEALTH CHECK)
+========================================================= */
+function runNeutralEaseHealthCheck() {
+  const report = [];
+
+  // A. Détection des liens obsolètes ou cassés
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(a => {
+    const href = a.getAttribute('href');
+    if (href.includes('diaglease')) {
+      report.push(`❌ Lien obsolète détecté : "${href}" (remplacer par clinilease)`);
+    }
+    if (href === '#' && !a.onclick) {
+      report.push(`⚠️ Lien vide ou non attribué : "${a.textContent.trim()}"`);
+    }
+  });
+
+  // B. Détection des images manquantes
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    if (!img.complete || img.naturalWidth === 0) {
+      report.push(`🖼️ Image potentiellement cassée : ${img.getAttribute('src')}`);
+    }
+  });
+
+  // C. Détection des éléments structurels essentiels
+  if (!document.getElementById('navMenu')) report.push('🚫 Élément manquant : #navMenu');
+  if (!document.querySelector('.header')) report.push('🚫 Élément manquant : .header');
+
+  // Affichage du rapport dans la console et sur la page si des erreurs existent
+  if (report.length > 0) {
+    console.group('🔍 [NeutralEase Health Check Report]');
+    report.forEach(err => console.warn(err));
+    console.groupEnd();
+
+    // Insertion d'un badge discret en bas à droite de l'écran
+    const badge = document.createElement('div');
+    badge.style.cssText = 'position:fixed; bottom:10px; right:10px; background:#7f1d1d; color:#fff; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:bold; z-index:99999; box-shadow:0 4px 12px rgba(0,0,0,0.5); cursor:pointer;';
+    badge.innerHTML = `⚠️ Debug : ${report.length} anomalie(s) (Voir Console)`;
+    badge.onclick = () => alert(report.join('\n\n'));
+    document.body.appendChild(badge);
+  } else {
+    console.log('✅ [NeutralEase Health Check] Aucun problème structurel détecté sur cette page.');
+  }
+}
