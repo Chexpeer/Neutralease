@@ -10,132 +10,54 @@
 
 <body class="site-wrapper">
 
-  <!-- HEADER COMPACT SOMBRE -->
-  <header class="header">
-    <div class="nav-container">
+<header class="header">
+  <div class="nav-container">
+    <a href="../index.html" class="brand-logo"><span>NEUTRALEASE</span></a>
+    <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
 
-      <a href="../index.html" class="brand-logo">
-        <span>NEUTRALEASE</span>
-      </a>
-
-      <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
-
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-
-          <li class="nav-item">
-            <a href="index.html" class="nav-link highlight-diag">
-              ⚡ CliniLease
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="../echolease/index.html" class="nav-link">Équipements</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="../scorylease.html" class="nav-link">ScoryLease</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="../financement.html" class="nav-link">Financement</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="../contact.html" class="nav-link">Contact</a>
-          </li>
-
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- MAIN COMPACT SOMBRE -->
-  <main style="max-width: 1200px; margin: 20px auto; padding: 0 14px;">
-
-    <!-- ACCROCHE -->
-    <div style="text-align:center; margin-bottom:20px;">
-      <h1 style="color:#fff; font-size:1.5rem; margin:0 0 6px 0;">
-        Assistant IA d’Orientation Clinique
-      </h1>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">
-        Analyse clinique instantanée, orientation des examens et suggestions d’imagerie.
-      </p>
-    </div>
-
-    <!-- BLOC 1 : INTRODUCTION -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Présentation</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        L’assistant IA CliniLease analyse un contexte clinique (symptômes, durée, intensité, antécédents)
-        et propose une orientation d’examens adaptée : échographie, radiographie, scanner, IRM ou imagerie spécialisée.
-      </p>
-      <p style="color:#cbd5e1; margin:0;">
-        Il ne remplace pas un diagnostic médical : il aide à structurer la décision et à choisir les bons outils.
-      </p>
-    </div>
-
-    <!-- BLOC 2 : FORMULAIRE IA -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Décrire le Contexte Clinique</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        Indiquez les symptômes, la durée, l’intensité, le contexte et la spécialité concernée.
-      </p>
-
-      <textarea
-        id="clinileaseInput"
-        placeholder="Exemple : Douleur thoracique depuis 48h, irradiant dans le bras gauche, fatigue, patient 58 ans, suivi en cardiologie."
-        style="width:100%; height:120px; border-radius:10px; padding:12px; background:#1e293b; color:#fff; border:1px solid rgba(255,255,255,0.15);">
-      </textarea>
-
-      <button
-        onclick="alert('Analyse IA en cours… (fonctionnalité à intégrer)')"
-        class="btn-3d-compact btn-diag-bg"
-        style="margin-top:12px;">
-        ⚡ Analyser le Contexte
-      </button>
-    </div>
-
-    <!-- BLOC 3 : EXEMPLES -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Exemples d’Analyses</h3>
-
-      <p style="color:#cbd5e1; margin:0 0 8px 0;">
-        <strong>Douleur abdominale aiguë :</strong> Échographie abdominale + bilan sanguin.
-      </p>
-
-      <p style="color:#cbd5e1; margin:0 0 8px 0;">
-        <strong>Traumatisme du poignet :</strong> Radiographie standard + éventuelle échographie tendineuse.
-      </p>
-
-      <p style="color:#cbd5e1; margin:0;">
-        <strong>Dyspnée progressive :</strong> Radiographie thoracique + échographie cardiaque.
-      </p>
-    </div>
-
-    <!-- BLOC 4 : LIENS OUTILS -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Modules CliniLease</h3>
-
-      <ul style="list-style:none; padding:0; margin:0;">
-        <li style="margin-bottom:8px;">
-          <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud & DICOM →</a>
-        </li>
-        <li style="margin-bottom:8px;">
-          <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA d’Aide à la Détection →</a>
-        </li>
-        <li>
-          <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
-        </li>
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="../clinilease/index.html" class="nav-link highlight-diag">⚡ CliniLease</a></li>
+        <li class="nav-item"><a href="../echolease/index.html" class="nav-link">Équipements</a></li>
+        <li class="nav-item"><a href="../scorylease.html" class="nav-link">ScoryLease</a></li>
+        <li class="nav-item"><a href="../financement.html" class="nav-link">Financement</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
       </ul>
-    </div>
+    </nav>
+  </div>
+</header>
 
-  </main>
+<main style="max-width:1200px; margin:20px auto; padding:0 14px;">
 
-  <footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
-    © NeutralEase — Outils Cliniques & Ingénierie Médicale.
-  </footer>
+  <div style="text-align:center; margin-bottom:20px;">
+    <h1 style="color:#fff;">Assistant IA d’Orientation Clinique</h1>
+    <p style="color:var(--text-muted);">Analyse clinique instantanée et suggestions d’imagerie.</p>
+  </div>
+
+  <div class="card-rubrique card-diag">
+    <h3>Présentation</h3>
+    <p>L’assistant IA analyse les symptômes, antécédents et contexte clinique pour proposer les examens adaptés.</p>
+  </div>
+
+  <div class="card-rubrique card-diag">
+    <h3>Décrire le Contexte Clinique</h3>
+    <textarea style="width:100%; height:120px; background:#1e293b; color:#fff; border-radius:10px; padding:12px;">
+    </textarea>
+    <button class="btn-3d-compact btn-diag-bg" style="margin-top:12px;">⚡ Analyser le Contexte</button>
+  </div>
+
+  <div class="card-rubrique card-diag">
+    <h3>Modules CliniLease</h3>
+    <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+    <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+    <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
+  </div>
+
+</main>
+
+<footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
+  © NeutralEase — IA Clinique & Ingénierie Médicale.
+</footer>
 
 </body>
 </html>

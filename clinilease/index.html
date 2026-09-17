@@ -10,99 +10,59 @@
 
 <body class="site-wrapper">
 
-  <!-- HEADER COMPACT SOMBRE -->
-  <header class="header">
-    <div class="nav-container">
+<header class="header">
+  <div class="nav-container">
+    <a href="../index.html" class="brand-logo"><span>NEUTRALEASE</span></a>
+    <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
 
-      <a href="../index.html" class="brand-logo">
-        <span>NEUTRALEASE</span>
-      </a>
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="../clinilease/index.html" class="nav-link highlight-diag">⚡ CliniLease</a></li>
+        <li class="nav-item"><a href="../echolease/index.html" class="nav-link">Équipements</a></li>
+        <li class="nav-item"><a href="../scorylease.html" class="nav-link">ScoryLease</a></li>
+        <li class="nav-item"><a href="../financement.html" class="nav-link">Financement</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+<main style="max-width:1200px; margin:20px auto; padding:0 14px;">
 
-      <nav>
-        <ul class="nav-menu" id="navMenu">
+  <div style="text-align:center; margin-bottom:20px;">
+    <h1 style="color:#fff; font-size:1.5rem;">CliniLease — Suite d’Outils de Diagnostic Clinique</h1>
+    <p style="color:var(--text-muted); font-size:0.9rem;">Assistant IA, PACS Cloud, IA de détection et stations 3D.</p>
+  </div>
 
-          <li class="nav-item">
-            <a href="index.html" class="nav-link highlight-diag">⚡ CliniLease</a>
-          </li>
+  <div class="card-rubrique card-diag">
+    <h3>Assistant IA Clinique</h3>
+    <p>Analyse clinique instantanée et orientation des examens.</p>
+    <a href="assistant.html" class="btn-3d-compact btn-diag-bg">Accéder à l’Assistant IA →</a>
+  </div>
 
-          <li class="nav-item">
-            <a href="../echolease/index.html" class="nav-link">Équipements</a>
-          </li>
+  <div class="card-rubrique card-scory">
+    <h3>PACS Cloud & Serveurs DICOM</h3>
+    <p>Archivage HDS, visionneuse web, partage sécurisé.</p>
+    <a href="pacs-cloud.html" class="btn-3d-compact btn-scory-bg">Accéder au PACS Cloud →</a>
+  </div>
 
-          <li class="nav-item">
-            <a href="../scorylease.html" class="nav-link">ScoryLease</a>
-          </li>
+  <div class="card-rubrique card-diag">
+    <h3>IA d’Aide à la Détection</h3>
+    <p>Détection automatisée des nodules, fractures et anomalies RX.</p>
+    <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">Accéder aux Modules IA →</a>
+  </div>
 
-          <li class="nav-item">
-            <a href="../financement.html" class="nav-link">Financement</a>
-          </li>
+  <div class="card-rubrique card-fin">
+    <h3>Stations de Post‑Traitement 3D</h3>
+    <p>Reconstruction 3D, segmentation et volumétrie.</p>
+    <a href="stations-3d.html" class="btn-3d-compact btn-fin-bg">Accéder aux Stations 3D →</a>
+  </div>
 
-          <li class="nav-item">
-            <a href="../contact.html" class="nav-link">Contact</a>
-          </li>
+</main>
 
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- MAIN COMPACT SOMBRE -->
-  <main style="max-width: 1200px; margin: 20px auto; padding: 0 14px;">
-
-    <!-- ACCROCHE -->
-    <div style="text-align:center; margin-bottom:20px;">
-      <h1 style="color:#fff; font-size:1.5rem; margin:0 0 6px 0;">
-        CliniLease — Outils de Diagnostic Clinique
-      </h1>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">
-        Assistant IA, PACS Cloud, IA de détection et stations de post‑traitement 3D.
-      </p>
-    </div>
-
-    <!-- 1. ASSISTANT IA CLINIQUE -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Assistant IA Clinique</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        Analyse clinique instantanée, orientation des examens et suggestions d’imagerie adaptées.
-      </p>
-      <a href="assistant.html" class="btn-3d-compact btn-diag-bg">⚡ Tester l’Assistant IA →</a>
-    </div>
-
-    <!-- 2. PACS CLOUD -->
-    <div class="card-rubrique card-scory">
-      <h3 style="color:#fff; margin:0 0 6px 0;">PACS Cloud & Serveurs DICOM</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        Archivage HDS, visionneuse web, partage sécurisé et compatibilité totale DICOM.
-      </p>
-      <a href="pacs-cloud.html" class="btn-3d-compact btn-scory-bg">PACS Cloud →</a>
-    </div>
-
-    <!-- 3. IA DE DÉTECTION -->
-    <div class="card-rubrique card-diag">
-      <h3 style="color:#fff; margin:0 0 6px 0;">IA d’Aide à la Détection</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        Détection automatisée des nodules, fractures, anomalies RX et pathologies courantes.
-      </p>
-      <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">Modules IA →</a>
-    </div>
-
-    <!-- 4. STATIONS 3D -->
-    <div class="card-rubrique card-fin">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Stations de Post‑Traitement 3D</h3>
-      <p style="color:#cbd5e1; margin:0 0 10px 0;">
-        Reconstruction 3D, segmentation, volumétrie et outils avancés de retravail.
-      </p>
-      <a href="stations-3d.html" class="btn-3d-compact btn-fin-bg">Stations 3D →</a>
-    </div>
-
-  </main>
-
-  <footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
-    © NeutralEase — Outils Cliniques & Ingénierie Médicale.
-  </footer>
+<footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
+  © NeutralEase — Suite Clinique & Ingénierie Médicale.
+</footer>
 
 </body>
 </html>
