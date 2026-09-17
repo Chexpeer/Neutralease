@@ -1,8 +1,0 @@
-Structure du dossier
-Le num‚ro de s‚rie du volume est A09D-9925
-C:.
-    arborescence.txt
-    global.css
-    
-Aucun sous-dossier existant 
-
