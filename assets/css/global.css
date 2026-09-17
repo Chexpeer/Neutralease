@@ -3,15 +3,14 @@
 ========================================================= */
 
 :root {
-  --bg-dark: #070b14;          /* Fond global nuit très profond */
+  --bg-dark: #070b14;
   --panel-border: rgba(255, 255, 255, 0.1);
-  
+
   --text-main: #ffffff;
   --text-muted: #b8c2d8;
   --text-soft: #64748b;
-  
-  /* ACCENTS COULEURS PERCUTANTES */
-  --color-diag: #f59e0b;      /* DiagLease - Ambre */
+
+  --color-diag: #f59e0b;      /* CliniLease - Ambre */
   --color-echo: #10b981;      /* EchoLease - Émeraude */
   --color-scory: #a855f7;     /* ScoryLease - Violet */
   --color-fin: #3b82f6;       /* Financement - Bleu */
@@ -26,14 +25,14 @@ body.site-wrapper {
   line-height: 1.4;
 }
 
-/* ================= HEADER COMPACT SOMBRE ================= */
+/* ================= HEADER COMPACT SOMBRE (CORRIGÉ) ================= */
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 9999;
   background: #0d1322 !important;
-  border-bottom: 2px solid #1e293b;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #1e293b;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .nav-container {
@@ -43,6 +42,8 @@ body.site-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 6px 16px;
+  position: relative;
+  z-index: 9999;
 }
 
 .brand-logo {
@@ -55,7 +56,7 @@ body.site-wrapper {
   font-size: 1.05rem;
 }
 
-/* ================= MENUS PETITES TOUCHES EXTRUDÉES ================= */
+/* ================= MENUS EXTRUDÉS ================= */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -68,6 +69,8 @@ body.site-wrapper {
 .nav-item { position: relative; }
 
 .nav-link {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -86,12 +89,14 @@ body.site-wrapper {
 .nav-link:hover { transform: translateY(-1px); }
 
 .nav-link.highlight-diag {
+  position: relative;
+  z-index: 2;
   background: linear-gradient(180deg, #b45309 0%, #78350f 100%);
   border-color: var(--color-diag);
   box-shadow: 0 2px 0 #451a03;
 }
 
-/* DÉROULANTS COMPACTS */
+/* ================= DROPDOWN ================= */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -104,8 +109,9 @@ body.site-wrapper {
   padding: 4px 0;
   box-shadow: 0 10px 25px rgba(0,0,0,0.8);
   list-style: none;
-  z-index: 1100;
+  z-index: 99999;
   margin-top: 4px;
+  pointer-events: auto;
 }
 
 .dropdown-menu a {
@@ -126,7 +132,7 @@ body.site-wrapper {
   .nav-item:hover .dropdown-menu { display: block; }
 }
 
-/* ================= CARTE SOMBRE COMPACTE PAR UNIVERS ================= */
+/* ================= CARTES SOMBRES EXTRUDÉES ================= */
 .card-rubrique {
   border-radius: 8px;
   padding: 14px 18px;
@@ -135,31 +141,28 @@ body.site-wrapper {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* 1. DIAGLEASE (AMBRE SOMBRE PROFOND) */
+/* UNIVERS */
 .card-diag {
   background: linear-gradient(180deg, #1a1204 0%, #0f0a03 100%);
   border-left: 4px solid var(--color-diag);
 }
 
-/* 2. ÉQUIPEMENTS (ÉMERAUDE SOMBRE PROFOND) */
 .card-equip {
   background: linear-gradient(180deg, #062e26 0%, #041f1a 100%);
   border-left: 4px solid var(--color-echo);
 }
 
-/* 3. SCORYLEASE (VIOLET SOMBRE PROFOND) */
 .card-scory {
   background: linear-gradient(180deg, #1a0f2e 0%, #120a20 100%);
   border-left: 4px solid var(--color-scory);
 }
 
-/* 4. FINANCEMENT (BLEU SOMBRE PROFOND) */
 .card-fin {
   background: linear-gradient(180deg, #0a1a2e 0%, #071322 100%);
   border-left: 4px solid var(--color-fin);
 }
 
-/* BOUTONS DENSE 3D EN RELIEF */
+/* ================= BOUTONS EXTRUDÉS ================= */
 .btn-3d-compact {
   display: inline-block;
   padding: 7px 12px;
@@ -178,6 +181,38 @@ body.site-wrapper {
 
 .btn-3d-compact:hover { transform: translateY(-1px); }
 
+.btn-3d-compact:active,
+.nav-link:active {
+  transform: translateY(2px) !important;
+  box-shadow: none !important;
+}
+
+/* ================= TYPOGRAPHIE ================= */
+.card-rubrique h3 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 2px 0 6px 0;
+  line-height: 1.25;
+}
+
+.card-rubrique p {
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.card-rubrique ul {
+  margin: 8px 0 0 0;
+  padding-left: 0;
+}
+
+.card-rubrique ul li {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+
 /* ================= NAVIGATION MOBILE ================= */
 .hamburger-btn {
   display: none;
@@ -194,7 +229,7 @@ body.site-wrapper {
   .hamburger-btn { display: block; }
 
   .nav-menu {
-    display: none !important;
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -206,11 +241,12 @@ body.site-wrapper {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
     gap: 6px;
     box-sizing: border-box;
+    z-index: 9999;
   }
 
   .nav-menu.mobile-open { display: flex !important; }
   .nav-item { width: 100%; }
-  .nav-link { width: 100%; justify-content: space-between; box-sizing: border-box; }
+  .nav-link { width: 100%; justify-content: space-between; }
 
   .dropdown-menu {
     position: static;
