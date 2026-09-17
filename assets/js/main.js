@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const text = symptomsInput.value.trim();
 
-      // Vérification du texte
       if (text.length < 10) {
         examsOutput.innerHTML = `
           <p style="color:#f87171;">Veuillez décrire un contexte clinique plus détaillé.</p>
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Analyse IA simplifiée (offline)
       examsOutput.innerHTML = `
         <p><strong>Examens recommandés :</strong></p>
         <ul>
@@ -49,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Scanner (selon suspicion)</li>
           <li>Bilan sanguin standard</li>
         </ul>
-
         <p style="color:var(--text-muted); margin-top:8px;">
           Analyse IA simplifiée — version locale.
         </p>
