@@ -1,73 +1,113 @@
-<ul style="list-style:none; padding:0; margin:0;">
-        <li style="margin-bottom:10px;">
-          <strong style="color:#fff;">Reconstruction Volumique (MPR / VRT)</strong>
-          <p style="color:#cbd5e1; margin:4px 0 0 0;">
-            Rendus 3D haute précision, coupes multiplanaires et projections d'intensité maximale.
-          </p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CliniLease — Stations de Post‑Traitement 3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+
+<body class="site-wrapper">
+
+<!-- HEADER HARMONISÉ -->
+<header class="header">
+  <div class="nav-container">
+
+    <a href="../index.html" class="brand-logo">
+      <span>NEUTRALEASE</span>
+    </a>
+
+    <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+
+        <li class="nav-item">
+          <a href="../clinilease/index.html" class="nav-link highlight-diag">
+            ⚡ CliniLease
+          </a>
         </li>
 
-        <li style="margin-bottom:10px;">
-          <strong style="color:#fff;">Segmentation Automatisée</strong>
-          <p style="color:#cbd5e1; margin:4px 0 0 0;">
-            Isolation des structures osseuses, vasculaires et des organes pour une analyse ciblée.
-          </p>
-        </li>
+        <li class="nav-item"><a href="../echolease/index.html" class="nav-link">Équipements</a></li>
+        <li class="nav-item"><a href="../scorylease.html" class="nav-link">ScoryLease</a></li>
+        <li class="nav-item"><a href="../financement.html" class="nav-link">Financement</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
 
-        <li style="margin-bottom:10px;">
-          <strong style="color:#fff;">Mesures Volumétriques & Cartographie</strong>
-          <p style="color:#cbd5e1; margin:4px 0 0 0;">
-            Calcul exact des volumes lésionnels, sténoses vasculaires et densimétrie osseuse.
-          </p>
-        </li>
-
-        <li>
-          <strong style="color:#fff;">Planification Chirurgicale & Implants</strong>
-          <p style="color:#cbd5e1; margin:4px 0 0 0;">
-            Simulation d'actes opératoires, positionnement de guides et export pour impression 3D.
-          </p>
-        </li>
       </ul>
-    </div>
+    </nav>
 
-    <!-- BLOC 3 : EXEMPLES -->
-    <div class="card-rubrique card-fin">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Exemples d’Utilisation</h3>
+  </div>
+</header>
 
-      <p style="color:#cbd5e1; margin:0 0 8px 0;">
-        <strong>Angio-Scanner :</strong> Cartographie 3D de l'arbre vasculaire et mesure de sténoses.
-      </p>
+<!-- MAIN -->
+<main style="max-width: 1200px; margin: 20px auto; padding: 0 14px;">
 
-      <p style="color:#cbd5e1; margin:0 0 8px 0;">
-        <strong>Orthopédie :</strong> Reconstruction articulaire complexe avant pose de prothèse.
-      </p>
+  <!-- ACCROCHE -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <h1 style="color:#fff; font-size:1.5rem; margin:0 0 6px 0;">
+      Stations de Post‑Traitement 3D
+    </h1>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">
+      Reconstruction 3D, segmentation, volumétrie et outils avancés de retravail d’imagerie.
+    </p>
+  </div>
 
-      <p style="color:#cbd5e1; margin:0;">
-        <strong>Oncologie :</strong> Suivi volumétrique de masse tumorale après traitement.
-      </p>
-    </div>
+  <!-- PRÉSENTATION -->
+  <div class="card-rubrique card-fin">
+    <h3>Présentation</h3>
+    <p>
+      Les stations 3D CliniLease permettent de reconstruire, segmenter et analyser des volumes
+      issus de scanner, IRM ou imagerie spécialisée. Elles offrent des outils avancés pour
+      l’étude anatomique, la planification opératoire et le suivi clinique.
+    </p>
+    <p>
+      Elles s’intègrent parfaitement avec les modules PACS Cloud et IA de détection.
+    </p>
+  </div>
 
-    <!-- BLOC 4 : LIENS OUTILS -->
-    <div class="card-rubrique card-fin">
-      <h3 style="color:#fff; margin:0 0 6px 0;">Modules CliniLease</h3>
+  <!-- FONCTIONNALITÉS -->
+  <div class="card-rubrique card-fin">
+    <h3>Fonctionnalités Principales</h3>
 
-      <ul style="list-style:none; padding:0; margin:0;">
-        <li style="margin-bottom:8px;">
-          <a href="assistant.html" class="btn-3d-compact btn-fin-bg">Assistant IA Clinique →</a>
-        </li>
-        <li style="margin-bottom:8px;">
-          <a href="pacs-cloud.html" class="btn-3d-compact btn-fin-bg">PACS Cloud & DICOM →</a>
-        </li>
-        <li>
-          <a href="ia-detection.html" class="btn-3d-compact btn-fin-bg">IA de Détection →</a>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li><strong style="color:#fff;">Reconstruction Volumique 3D</strong><br>
+        Génération de volumes haute définition à partir de coupes scanner ou IRM.</li>
 
-  </main>
+      <li style="margin-top:8px;"><strong style="color:#fff;">Segmentation Automatisée</strong><br>
+        Identification des structures anatomiques : organes, tissus, masses, lésions.</li>
 
-  <footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
-    © NeutralEase — Post-Traitement 3D & Ingénierie Médicale.
-  </footer>
+      <li style="margin-top:8px;"><strong style="color:#fff;">Mesures Volumétriques</strong><br>
+        Calcul de volumes, surfaces, distances et angles pour l’analyse clinique.</li>
+
+      <li style="margin-top:8px;"><strong style="color:#fff;">Planification Chirurgicale</strong><br>
+        Simulation pré‑opératoire pour orthopédie, cardio, ORL et imagerie générale.</li>
+    </ul>
+  </div>
+
+  <!-- EXEMPLES -->
+  <div class="card-rubrique card-fin">
+    <h3>Exemples d’Utilisation</h3>
+
+    <p><strong>Scanner thoracique :</strong> Reconstruction 3D du médiastin pour analyse des masses.</p>
+    <p><strong>IRM cérébrale :</strong> Segmentation automatique des ventricules et calcul volumétrique.</p>
+    <p><strong>Scanner orthopédique :</strong> Planification pré‑opératoire d’une prothèse de hanche.</p>
+  </div>
+
+  <!-- LIENS OUTILS -->
+  <div class="card-rubrique card-fin">
+    <h3>Modules CliniLease</h3>
+
+    <a href="assistant.html" class="btn-3d-compact btn-fin-bg">Assistant IA Clinique →</a><br><br>
+    <a href="pacs-cloud.html" class="btn-3d-compact btn-fin-bg">PACS Cloud →</a><br><br>
+    <a href="ia-detection.html" class="btn-3d-compact btn-fin-bg">IA de Détection →</a>
+  </div>
+
+</main>
+
+<footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
+  © NeutralEase — Stations 3D & Ingénierie Médicale.
+</footer>
 
 </body>
 </html>
