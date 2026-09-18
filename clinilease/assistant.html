@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CliniLease — Assistant IA Clinique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+
+<body class="site-wrapper">
+
+<!-- HEADER HARMONISÉ -->
+<header class="header">
+  <div class="nav-container">
+
+    <a href="../index.html" class="brand-logo">
+      <span>NEUTRALEASE</span>
+    </a>
+
+    <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+
+        <li class="nav-item">
+          <a href="../clinilease/index.html" class="nav-link highlight-diag">
+            ⚡ CliniLease
+          </a>
+        </li>
+
+        <li class="nav-item"><a href="../echolease/index.html" class="nav-link">Équipements</a></li>
+        <li class="nav-item"><a href="../scorylease.html" class="nav-link">ScoryLease</a></li>
+        <li class="nav-item"><a href="../financement.html" class="nav-link">Financement</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MAIN -->
+<main style="max-width:1200px; margin:20px auto; padding:0 14px;">
+
+  <!-- ACCROCHE -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <h1 style="color:#fff;">Assistant IA d’Orientation Clinique</h1>
+    <p style="color:var(--text-muted);">Analyse clinique instantanée et suggestions d’imagerie.</p>
+  </div>
+
+  <!-- BLOC ASSISTANT IA (VERSION FONCTIONNELLE) -->
+  <div class="card-rubrique card-diag">
+    <h3>Décrire le Contexte Clinique</h3>
+
+    <textarea id="assistantSymptoms"
+              style="width:100%; height:120px; background:#1e293b; color:#fff; border-radius:10px; padding:12px;"></textarea>
+
+    <button class="btn-3d-compact btn-diag-bg" id="assistantAnalyzeBtn" style="margin-top:12px;">
+      ⚡ Analyser le Contexte
+    </button>
+
+    <div id="assistantExamsContent" style="margin-top:12px;"></div>
+  </div>
+
+  <!-- MODULES -->
+  <div class="card-rubrique card-diag">
+    <h3>Modules CliniLease</h3>
+
+    <a href="pacs-cloud.html" class="btn-3d-compact btn-diag-bg">PACS Cloud →</a><br><br>
+    <a href="ia-detection.html" class="btn-3d-compact btn-diag-bg">IA Détection →</a><br><br>
+    <a href="stations-3d.html" class="btn-3d-compact btn-diag-bg">Stations 3D →</a>
+  </div>
+
+</main>
+
+<footer style="background:#0b0f19; border-top:1px solid #1e293b; padding:15px; text-align:center; color:var(--text-muted); font-size:0.8rem;">
+  © NeutralEase — IA Clinique & Ingénierie Médicale.
+</footer>
+
+</body>
+</html>
