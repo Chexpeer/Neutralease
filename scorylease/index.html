@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScoryLease — Comparateur & Simulation de Financement — NeutralEase</title>
-  <meta name="description" content="Simulez vos mensualités de crédit-bail et location financière pour vos équipements médicaux avec ScoryLease par NeutralEase.">
+  <title>ScoryLease — Comparateur & Scoring Financier — NeutralEase</title>
+  <meta name="description" content="Découvrez ScoryLease par NeutralEase : outil de scoring et comparateur d'offres de financement médical pour évaluer l'éligibilité et optimiser vos mensualités.">
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../financement/index.html" class="nav-link active">Financement</a>
+            <a href="../financement/index.html" class="nav-link">Financement</a>
             <ul class="dropdown-menu">
               <li><a href="index.html">ScoryLease (Comparateur)</a></li>
             </ul>
@@ -49,7 +49,7 @@
             <a href="../a-propos/index.html" class="nav-link">À propos</a>
           </li>
           <li class="nav-item">
-            <a href="../contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+            <a href="../contact/index.html" class="nav-link highlight-fin">Parler de mon projet →</a>
           </li>
         </ul>
       </nav>
@@ -59,103 +59,95 @@
   <!-- SECTION HERO SCORYLEASE -->
   <section class="hero-section">
     <div class="container">
-      <span class="badge-tag">SIMULATEUR DE FINANCEMENT</span>
-      <h1>ScoryLease : Calculez votre investissement</h1>
+      <span class="badge-tag" style="background: rgba(76, 201, 240, 0.15); color: var(--color-fin); border-color: rgba(76, 201, 240, 0.3);">MODULE SCORYLEASE</span>
+      <h1>Scoring & Comparateur de Financement</h1>
       <p class="hero-subtitle">
-        Estimez rapidement vos mensualités indicatives de crédit-bail ou location financière en fonction de la durée et de la valeur de votre projet.
+        Analysez en temps réel l'éligibilité de votre cabinet, comparez les barèmes de nos bailleurs partenaires et obtenez la meilleure structure de loyer.
       </p>
     </div>
   </section>
 
-  <!-- SECTION SIMULATEUR INTERACTIF -->
+  <!-- SECTION FONCTIONNALITÉS SCORYLEASE -->
   <section class="univers-section">
     <div class="container">
       
-      <div class="feature-card" style="max-width: 800px; margin: 0 auto; padding: 35px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
-        <h2 style="margin-bottom: 25px; text-align: center;">Simulateur de Mensualités</h2>
-
-        <form id="scorySimForm" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 20px;">
-          
-          <!-- MONTANT DE L'ÉQUIPEMENT -->
-          <div>
-            <label for="montantInput" style="display: block; font-weight: 600; margin-bottom: 8px;">
-              Montant estimé de l'équipement (€ HT) :
-            </label>
-            <input type="number" id="montantInput" value="30000" min="2000" max="250000" step="1000" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1.1rem;" oninput="calculerSimulation()">
-          </div>
-
-          <!-- DURÉE DE FINANCEMENT -->
-          <div>
-            <label for="dureeSelect" style="display: block; font-weight: 600; margin-bottom: 8px;">
-              Durée du contrat :
-            </label>
-            <select id="dureeSelect" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1rem;" onchange="calculerSimulation()">
-              <option value="36">36 mois (3 ans)</option>
-              <option value="48">48 mois (4 ans)</option>
-              <option value="60" selected>60 mois (5 ans)</option>
-              <option value="72">72 mois (6 ans)</option>
-            </select>
-          </div>
-
-          <!-- TYPOLOGIE DU FINANCEMENT -->
-          <div>
-            <label for="optionSelect" style="display: block; font-weight: 600; margin-bottom: 8px;">
-              Formule souhaitée :
-            </label>
-            <select id="optionSelect" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f172a; color: #fff; font-size: 1rem;" onchange="calculerSimulation()">
-              <option value="loa">Crédit-Bail (LOA) avec option de rachat finale</option>
-              <option value="loc">Location Financière Évolutive</option>
-            </select>
-          </div>
-
-          <!-- RÉSULTAT DE LA SIMULATION -->
-          <div style="margin-top: 15px; padding: 25px; background: rgba(15, 23, 42, 0.9); border-radius: 8px; text-align: center; border: 1px solid var(--color-fin);">
-            <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
-              Estimation de la mensualité HT
-            </div>
-            <div id="resultatMensualite" style="font-size: 2.8rem; font-weight: 800; color: #38bdf8; margin: 10px 0;">
-              564 € HT / mois
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">
-              * Simulation indicative sans valeur contractuelle. Sous réserve d'acceptation de votre dossier par un organisme partenaire.
-            </div>
-          </div>
-
-          <!-- CTA VALIDATION -->
-          <div style="text-align: center; margin-top: 10px;">
-            <a href="../contact/index.html" class="btn btn-primary" style="width: 100%;">Valider cette simulation avec un conseiller →</a>
-          </div>
-
-        </form>
+      <!-- BOUTON ACTION RAPIDE -->
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
+        <a href="../contact/index.html" class="btn btn-secondary" style="border-color: var(--color-fin);">Lancer une simulation financière →</a>
       </div>
 
-    </div>
-  </section>
+      <!-- GRILLE DES SERVICES SCORYLEASE -->
+      <div class="univers-grid">
 
-  <!-- AVANTAGES COMPARATEUR -->
-  <section class="features-section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Comment fonctionne le scoring ScoryLease ?</h2>
-        <p>Une mise en concurrence automatisée auprès de nos bailleurs partenaires spécialisés dans le secteur médical.</p>
+        <!-- SERVICE 1 : PRE-SCORING EXPRESS -->
+        <div class="univers-card card-fin">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Pré-Scoring Financier en Ligne">
+          </div>
+          <div>
+            <span class="univers-tag">ANALYSE · ÉLIGIBILITÉ IMMÉDIATE</span>
+            <h3>Pré-Scoring de Dossier Express</h3>
+            <p>Évaluation instantanée de la capacité d’engagement de votre structure professionnelle médicale sans impacter votre notation bancaire.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Résultat d'éligibilité sous 24h</div>
+            <a href="../contact/index.html" class="card-link">Tester mon éligibilité →</a>
+          </div>
+        </div>
+
+        <!-- SERVICE 2 : BENCHMARK BAILLEURS -->
+        <div class="univers-card card-fin">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Comparateur Multi-Bailleurs Médicaux">
+          </div>
+          <div>
+            <span class="univers-tag">BENCHMARK · MULTI-BAILLEURS</span>
+            <h3>Comparatif d'Offres de Leasing</h3>
+            <p>Mise en concurrence automatique des grilles tarifaires de nos organismes financiers partenaires pour identifier la mensualité la plus basse.</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Optimisation du coût global de crédit</div>
+            <a href="../contact/index.html" class="card-link">Comparer les barèmes →</a>
+          </div>
+        </div>
+
+        <!-- SERVICE 3 : OPTIMISATION FISCALE & LOYERS -->
+        <div class="univers-card card-fin">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Simulation d'amortissement et fiscalité">
+          </div>
+          <div>
+            <span class="univers-tag">INGÉNIERIE · IMPACT FISCAL</span>
+            <h3>Simulation d'Impact Trésorerie & BNC</h3>
+            <p>Calculez le traitement comptable optimal de vos loyers (passés en charges deductibles) selon votre régime d'imposition (BNC/SELARL).</p>
+          </div>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Modélisation sur 24, 36, 48 ou 60 mois</div>
+            <a href="../contact/index.html" class="card-link">Simuler mon plan de loyers →</a>
+          </div>
+        </div>
+
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🔍</div>
-          <h3>Analyse Comparative</h3>
-          <p>Nous interrogeons plusieurs établissements pour identifier la meilleure offre de taux et de flexibilité contractuelle.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Réponse Rapide</h3>
-          <p>Dossier numérisé pour un accord de principe généralement délivré sous 24h à 48h ouvrées.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤝</div>
-          <h3>Accompagnement Indépendant</h3>
-          <p>ScoryLease agit de manière totalement neutre pour vous recommander la solution la plus équilibrée.</p>
+
+      <!-- AVANTAGES SCORYLEASE -->
+      <div class="feature-card" style="margin-top: 50px; padding: 35px;">
+        <h3 style="margin-bottom: 15px; text-align: center;">Les garanties du moteur ScoryLease</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 25px;">
+          <div>
+            <h4 style="color: var(--color-fin); margin-bottom: 8px;">Transparence Totale</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Aucun frais de dossier caché ni clause d'engagement lors de la phase de comparaison.</p>
+          </div>
+          <div>
+            <h4 style="color: var(--color-fin); margin-bottom: 8px;">Gain de Temps</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Évitez de multiplier les rendez-vous bancaires : un seul dossier est transmis à l'ensemble du réseau.</p>
+          </div>
+          <div>
+            <h4 style="color: var(--color-fin); margin-bottom: 8px;">Taux d'Accord Élevé</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Nos algorithmes orientent votre dossier vers les bailleurs les plus adaptés à votre profil d'activité.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -201,22 +193,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPT SIMULATION SCRIPT -->
-  <script style="display:none;">
-    function calculerSimulation() {
-      const montant = parseFloat(document.getElementById('montantInput').value) || 0;
-      const duree = parseInt(document.getElementById('dureeSelect').value, 10);
-      
-      // Facteur d'estimation simplifié (taux moyen + amortissement)
-      let coefficient = 0.0188; // Base 60 mois
-      if (duree === 36) coefficient = 0.0298;
-      if (duree === 48) coefficient = 0.0230;
-      if (duree === 72) coefficient = 0.0162;
-
-      const mensualite = Math.round(montant * coefficient);
-      document.getElementById('resultatMensualite').innerText = mensualite.toLocaleString('fr-FR') + ' € HT / mois';
-    }
-  </script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>

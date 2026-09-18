@@ -16,6 +16,8 @@
   --color-scory: #a855f7;
   --color-fin: #3b82f6;
   --color-dental: #06b6d4;
+  --color-partner: #e11d48;
+  --color-market: #d97706;
 }
 
 * {
@@ -37,7 +39,14 @@ body {
   padding: 0 20px;
 }
 
-/* ================= HEADER COMPACT SOMBRE ================= */
+/* ================= RÉGLAGES DE SÉCURITÉ DES IMAGES ================= */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================= HEADER COMPACT SOMBRE (BANDEAU) ================= */
 .header {
   position: sticky;
   top: 0;
@@ -45,6 +54,7 @@ body {
   background: #0d1322 !important;
   border-bottom: 2px solid #1e293b;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  width: 100%;
 }
 
 .nav-container {
@@ -58,6 +68,7 @@ body {
 
 .brand-logo img {
   height: 36px;
+  max-height: 36px;
   width: auto;
   display: block;
 }
@@ -152,6 +163,19 @@ body {
   border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: 20px;
   margin-bottom: 16px;
+}
+
+.badge-flag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--color-market);
+  background: rgba(217, 119, 6, 0.12);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  border-radius: 12px;
+  margin-bottom: 8px;
 }
 
 .hero-section h1 {
@@ -276,7 +300,7 @@ body {
 
 .univers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
 }
 
@@ -295,6 +319,8 @@ body {
 .univers-card.card-dental { border-top: 3px solid var(--color-dental); }
 .univers-card.card-clini { border-top: 3px solid var(--color-diag); }
 .univers-card.card-catalogue { border-top: 3px solid var(--color-fin); }
+.univers-card.card-partner { border-top: 3px solid var(--color-partner); }
+.univers-card.card-market { border-top: 3px solid var(--color-market); }
 
 .univers-tag {
   font-size: 0.65rem;
@@ -388,6 +414,12 @@ body {
   font-size: 0.8rem;
   color: var(--text-soft);
   margin-top: 10px;
+}
+
+.footer-brand img {
+  height: 30px;
+  max-height: 30px;
+  width: auto;
 }
 
 .footer-links {
