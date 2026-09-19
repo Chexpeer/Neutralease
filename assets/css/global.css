@@ -1,6 +1,10 @@
 /* =========================================================
    NEUTRALEASE - STYLE GLOBAL & ALTERNANCE DES BANDES
+<<<<<<< HEAD
 ========================================================= */[cite: 1]
+=======
+========================================================= */
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 
 :root {
   --bg-dark: #f8fafc;
@@ -85,11 +89,15 @@ img {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Pousse le logo à gauche et le hamburger à droite sur mobile */
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 16px;
   min-height: 58px;
+<<<<<<< HEAD
+=======
+  position: relative;
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 }
 
 .brand-logo { display: block; }
@@ -420,7 +428,11 @@ img {
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
 
+<<<<<<< HEAD
 /* ================= VALORISATION DE PARC ================= */
+=======
+/* ================= VALORISATION DE PARC : Identique à la 2ème bande (Effet Transparent) ================= */
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 .valorisation-section,
 .features-section:nth-of-type(3) {
   padding: 60px 0;
@@ -496,21 +508,42 @@ img {
   color: #94a3b8;
 }
 
+<<<<<<< HEAD
 /* ================= HAMBURGER MOBILE ================= */
+=======
+/* ================= HAMBURGER MOBILE (Actif et positionné à droite) ================= */
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 .hamburger-btn {
   display: none;
   background: #2b3959;
   border: 1px solid rgba(255,255,255,0.25);
   color: #fff;
+<<<<<<< HEAD
   font-size: 1.1rem;
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+=======
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1200; /* Assure qu'il est cliquable au-dessus des autres couches */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  background: #3b4d75;
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 }
 
 @media (max-width: 992px) {
-  .hamburger-btn { display: block; }
+  .hamburger-btn { 
+    display: block !important; /* Force l'affichage sur mobile/tablette */
+    margin-left: auto; /* Pousse le bouton complètement à droite */
+  }
 
   .nav-menu {
     display: none !important;
@@ -524,9 +557,16 @@ img {
     border-bottom: 3px solid var(--color-diag);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     gap: 8px;
+<<<<<<< HEAD
   }
 
   .nav-menu.active,
+=======
+    z-index: 1150;
+  }
+
+  /* Classe active déclenchée par un script JS pour ouvrir le menu */
+>>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
   .nav-menu.mobile-open { display: flex !important; }
   
   .nav-item { width: 100%; }
