@@ -3,275 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeutralEase — Le matériel médical, simplement</title>
-  <meta name="description" content="Plateforme indépendante d'équipement médical, de financement leasing, de reprise et d'accompagnement sur-mesure pour les professionnels de santé.">
-  <link rel="stylesheet" href="assets/css/global.css">
+  <title>À propos — Tiers de Confiance Médical — NeutralEase</title>
+  <meta name="description" content="Découvrez l'histoire et l'engagement de NeutralEase : un acteur indépendant au service des professionnels de santé pour l'équipement, le financement et la reprise de matériel.">
+  <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* Grille spécifique pour les catégories visuelles de matériel */
-    .catalog-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 35px;
-    }
-    .category-card {
-      position: relative;
-      height: 220px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: var(--border-glass);
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-card);
-    }
-    .category-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(8, 12, 20, 0.1) 0%, rgba(8, 12, 20, 0.9) 80%);
-      z-index: 1;
-      transition: opacity 0.3s ease;
-    }
-    .category-card:hover::before {
-      background: linear-gradient(180deg, rgba(8, 12, 20, 0.2) 0%, rgba(8, 12, 20, 0.95) 100%);
-    }
-    .category-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-      z-index: 0;
-    }
-    .category-card:hover img {
-      transform: scale(1.08);
-    }
-    .category-content {
-      position: relative;
-      z-index: 2;
-    }
-    .category-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .category-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-    .arrow-icon {
-      font-size: 1.1rem;
-      transition: transform 0.3s ease;
-    }
-    .category-card:hover .arrow-icon {
-      transform: translateX(5px);
-      color: var(--color-echo);
-    }
-  </style>
 </head>
 <body>
 
   <!-- HEADER UNIFIÉ -->
   <header class="header">
     <div class="nav-container">
-      <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase — Plateforme Équipement Médical" height="36">
       </a>
-      <button class="hamburger-btn" aria-label="Menu principal">☰</button>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu principal">☰</button>
       <nav>
         <ul class="nav-menu" id="navMenu">
           <li class="nav-item">
-            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="../index.html" class="nav-link">Accueil</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Équipements ▾</a>
             <ul class="dropdown-menu">
-              <li><a href="catalogue/index.html">Tous les Équipements</a></li>
-              <li><a href="echolease/index.html">EchoLease (Échographie)</a></li>
-              <li><a href="dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
-              <li><a href="clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
+              <li><a href="../catalogue/index.html">Tous les Équipements</a></li>
+              <li><a href="../echolease/index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../dentalease/index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../clinilease/index.html">CliniLease (Diagnostic & IA)</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="financement/index.html" class="nav-link">Financement</a>
+            <a href="../financement/index.html" class="nav-link">Financement</a>
             <ul class="dropdown-menu">
-              <li><a href="scorylease/index.html">ScoryLease (Comparateur)</a></li>
+              <li><a href="../scorylease/index.html">ScoryLease (Comparateur)</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="recuplease/index.html" class="nav-link">Reprise & Export</a>
+            <a href="../recuplease/index.html" class="nav-link">Reprise & Export</a>
           </li>
           <li class="nav-item">
-            <a href="partenaires/index.html" class="nav-link">Espace Partenaires</a>
+            <a href="../comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
           </li>
           <li class="nav-item">
-            <a href="comment-ca-marche/index.html" class="nav-link">Comment ça marche ?</a>
+            <a href="index.html" class="nav-link">À propos</a>
           </li>
           <li class="nav-item">
-            <a href="a-propos/index.html" class="nav-link">À propos</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact/index.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+            <a href="../contact/index.html" class="nav-link highlight-echo">Parler de mon projet →</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- SECTION HERO A PROPOS -->
   <section class="hero-section">
     <div class="container">
-      <span class="badge-tag">ÉQUIPEMENT · FINANCEMENT · REPRISE · ACCOMPAGNEMENT</span>
-      <h1>Le matériel médical, simplement.</h1>
+      <span class="badge-tag" style="background: rgba(42, 157, 143, 0.15); color: var(--color-echo); border-color: rgba(42, 157, 143, 0.3);">NOTRE VISION</span>
+      <h1>Un Tiers de Confiance pour la Santé</h1>
       <p class="hero-subtitle">
-        Accédez aux meilleures technologies médicales multi-marques, optimisez votre financement leasing et valorisez votre ancien matériel au sein d'une plateforme unique.
+        NeutralEase est né d'un constat simple : apporter de la transparence, de la neutralité et du sur-mesure dans l'acquisition et le renouvellement des équipements médicaux.
       </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="catalogue/index.html" class="btn btn-primary">Trouver mon équipement →</a>
-        <a href="scorylease/index.html" class="btn btn-secondary">Comparer les financements</a>
-      </div>
     </div>
   </section>
 
-  <!-- CATALOGUE VISUEL DIRECT -->
-  <section class="univers-section" style="padding-top: 20px;">
+  <!-- SECTION PIERS DE NOTRE ENGAGEMENT -->
+  <section class="univers-section">
     <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span class="badge-tag" style="margin-bottom: 8px;">CATALOGUE MULTI-MARQUES</span>
-          <h2 style="font-size: 2rem; color: #fff;">Explorez par catégorie d'équipement</h2>
-        </div>
-        <a href="catalogue/index.html" style="color: var(--color-echo); text-decoration: none; font-weight: 600;">Voir tous les équipements →</a>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px;">
+        <a href="../contact/index.html" class="btn btn-primary">Échanger avec notre équipe →</a>
       </div>
 
-      <div class="catalog-categories">
-        <!-- Échographie -->
-        <a href="echolease/index.html" class="category-card">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Échographie">
-          <div class="category-content">
-            <div class="category-title">Échographie <span class="arrow-icon">→</span></div>
-            <div class="category-subtitle">EchoLease · Cardiologie, Gynéco, Vasculaire</div>
+      <!-- GRILLE PILIERS -->
+      <div class="univers-grid">
+
+        <!-- PILIER 1 : INDÉPENDANCE -->
+        <div class="univers-card card-echo">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Indépendance et conseils neutres">
           </div>
-        </a>
-
-        <!-- Dentaire -->
-        <a href="dentalease/index.html" class="category-card">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Dentaire & CBCT">
-          <div class="category-content">
-            <div class="category-title">Dentaire & CBCT <span class="arrow-icon">→</span></div>
-            <div class="category-subtitle">DentalLease · Fauteuils, Panoramique, Imagerie 3D</div>
-          </div>
-        </a>
-
-        <!-- Diagnostic & IA -->
-        <a href="clinilease/index.html" class="category-card">
-          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Diagnostic & IA">
-          <div class="category-content">
-            <div class="category-title">Diagnostic & IA <span class="arrow-icon">→</span></div>
-            <div class="category-subtitle">CliniLease · ECG, PACS, Outils décisionnels</div>
-          </div>
-        </a>
-
-        <!-- Bloc & Monitoring -->
-        <a href="catalogue/index.html" class="category-card">
-          <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Bloc Opératoire">
-          <div class="category-content">
-            <div class="category-title">Bloc & Suivi Patient <span class="arrow-icon">→</span></div>
-            <div class="category-subtitle">Monitoring, Tables de chirurgie, Scialytiques</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOS UNIVERS COMPLÉMENTAIRES -->
-  <section class="features-section">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <span class="badge-tag">SERVICES INTÉGRÉS</span>
-        <h2 style="font-size: 2.2rem; color: #fff;">Un écosystème conçu pour les praticiens</h2>
-      </div>
-
-      <div class="features-grid">
-        <!-- ScoryLease -->
-        <div class="feature-card card-fin">
           <div>
-            <div class="feature-icon">📊</div>
-            <h3>ScoryLease — Financement</h3>
-            <p>Comparez les offres des principaux bailleurs médicaux en toute indépendance. Optimisez votre loyer leasing, mensualités et options d'achat.</p>
+            <span class="univers-tag">VALEUR · NEUTRALITÉ</span>
+            <h3>100% Indépendant</h3>
+            <p>Sans lien exclusif avec un fabricant ou une banque, nous sélectionnons objectivement les solutions technologiques et financières les plus avantageuses pour votre pratique.</p>
           </div>
-          <a href="scorylease/index.html" class="btn btn-secondary" style="margin-top: 24px; width: 100%; justify-content: center;">Simuler une offre →</a>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Conseil objectif centré praticien</div>
+            <a href="../catalogue/index.html" class="card-link">Découvrir l'offre globale →</a>
+          </div>
         </div>
 
-        <!-- RecupLease -->
-        <div class="feature-card card-recup">
+        <!-- PILIER 2 : EXPERTISE FINANCIÈRE ET TECHNIQUE -->
+        <div class="univers-card card-fin">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Expertise technique et financière">
+          </div>
           <div>
-            <div class="feature-icon">🔄</div>
-            <h3>RecupLease — Reprise & Export</h3>
-            <p>Faites évaluer votre équipement actuel. Réinjectez sa valeur en apport direct pour diminuer l'empreinte financière de votre nouveau matériel.</p>
+            <span class="univers-tag">VALEUR · EXPERTISE</span>
+            <h3>Double Saisie Technique & Finance</h3>
+            <p>Notre équipe maîtrise aussi bien les contraintes cliniques (imagerie, dentaire, diagnostic) que les montages fiscaux et locatifs adaptés aux professionnels libéraux.</p>
           </div>
-          <a href="recuplease/index.html" class="btn btn-secondary" style="margin-top: 24px; width: 100%; justify-content: center;">Estimer ma reprise →</a>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Optimisation BNC / SELARL</div>
+            <a href="../financement/index.html" class="card-link">En savoir plus sur le financement →</a>
+          </div>
         </div>
 
-        <!-- Espace Partenaires -->
-        <div class="feature-card card-clini">
+        <!-- PILIER 3 : ÉCONOMIE CIRCULAIRE -->
+        <div class="univers-card card-clini">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Économie circulaire et reprise">
+          </div>
           <div>
-            <div class="feature-icon">🤝</div>
-            <h3>Réseau de Partenaires</h3>
-            <p>Constructeurs, distributeurs et bailleurs : accédez à des canaux d'intermédiation qualifiés et fluidifiez la distribution de vos solutions.</p>
+            <span class="univers-tag">VALEUR · RESPONSABILITÉ</span>
+            <h3>Engagement Reprise & Seconde Vie</h3>
+            <p>À travers notre entité RecupLease, nous luttons contre l'obsolescence en réinjectant ou en exportant les équipements reconditionnés vers de nouveaux réseaux de soins.</p>
           </div>
-          <a href="partenaires/index.html" class="btn btn-secondary" style="margin-top: 24px; width: 100%; justify-content: center;">Rejoindre le réseau →</a>
+          <div style="margin-top: 16px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Valorisation du matériel usagé</div>
+            <a href="../recuplease/index.html" class="card-link">Découvrir RecupLease →</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SCHÉMA RECUPLEASE : LE CERCLE VERTUEUX -->
-  <section class="features-section" style="background: rgba(15, 23, 42, 0.4); border-top: var(--border-glass); border-bottom: var(--border-glass);">
-    <div class="container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
-        <span class="badge-tag" style="color: var(--color-recup); border-color: rgba(245, 158, 11, 0.3);">VALORISATION DE PARC</span>
-        <h2 style="font-size: 2.2rem; color: #fff;">Votre ancien matériel participe à votre nouveau projet</h2>
-        <p style="color: var(--text-muted); margin-top: 10px;">Transformez vos équipements existants en levier de financement immédiat.</p>
       </div>
 
-      <div class="process-steps">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <h4 style="color: #fff; margin-bottom: 8px;">Matériel Actuel</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Diagnostic de votre parc en renouvellement ou fin de bail.</p>
-        </div>
-
-        <div class="step-item">
-          <div class="step-number">2</div>
-          <h4 style="color: #fff; margin-bottom: 8px;">Expertise Reprise</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Cotation neutre et rapide selon le marché de l'occasion & de l'export.</p>
-        </div>
-
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <h4 style="color: #fff; margin-bottom: 8px;">Apport Immédiat</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">La valeur de reprise est déduite directement du prix de votre contrat.</p>
-        </div>
-
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <h4 style="color: #fff; margin-bottom: 8px;">Nouvel Équipement</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Livraison et mise en service de votre technologie de dernière génération.</p>
+      <!-- MANIFESTE NEUTRALEASE -->
+      <div class="feature-card" style="margin-top: 50px; padding: 35px;">
+        <h3 style="margin-bottom: 15px; text-align: center;">Notre Manifeste</h3>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 25px auto; color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+          « Mettre la technologie médicale à la portée de chaque cabinet en supprimant les barrières financières et administratives, tout en garantissant une éthique irréprochable et un accompagnement humain sur le long terme. »
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 25px;">
+          <div>
+            <h4 style="color: var(--color-echo); margin-bottom: 8px;">Accompagnement Dédié</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Un conseiller référent vous suit à chaque phase de votre installation ou de votre renouvellement.</p>
+          </div>
+          <div>
+            <h4 style="color: var(--color-echo); margin-bottom: 8px;">Transparence Totale</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Des contrats clairs, des loyers fixes et une valorisation juste de votre ancien matériel.</p>
+          </div>
+          <div>
+            <h4 style="color: var(--color-echo); margin-bottom: 8px;">Réactivité NATIONALE</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'installateurs et de partenaires financiers couvrant l'ensemble du territoire français.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -279,37 +157,35 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="NeutralEase Logo" height="30">
-        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.88rem;">
-          Plateforme indépendante dédiée à l'équipement, au financement et aux solutions médicales.
-        </p>
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p>Plateforme indépendante dédiée à l'équipement et aux solutions médicales.</p>
       </div>
       <div class="footer-links">
         <div>
           <h5>Équipements</h5>
           <ul>
-            <li><a href="catalogue/index.html">Catalogue Global</a></li>
-            <li><a href="echolease/index.html">EchoLease</a></li>
-            <li><a href="dentalease/index.html">DentalLease</a></li>
-            <li><a href="clinilease/index.html">CliniLease</a></li>
+            <li><a href="../catalogue/index.html">Catalogue</a></li>
+            <li><a href="../echolease/index.html">EchoLease</a></li>
+            <li><a href="../dentalease/index.html">DentalLease</a></li>
+            <li><a href="../clinilease/index.html">CliniLease</a></li>
           </ul>
         </div>
         <div>
           <h5>Services & Réseau</h5>
           <ul>
-            <li><a href="financement/index.html">Financement</a></li>
-            <li><a href="scorylease/index.html">ScoryLease</a></li>
-            <li><a href="recuplease/index.html">Reprise & Export</a></li>
-            <li><a href="partenaires/index.html">Espace Partenaires</a></li>
+            <li><a href="../financement/index.html">Financement</a></li>
+            <li><a href="../scorylease/index.html">ScoryLease</a></li>
+            <li><a href="../recuplease/index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/index.html">Espace Partenaires</a></li>
           </ul>
         </div>
         <div>
           <h5>Informations</h5>
           <ul>
-            <li><a href="comment-ca-marche/index.html">Comment ça marche ?</a></li>
-            <li><a href="a-propos/index.html">À propos</a></li>
-            <li><a href="contact/index.html">Contact / Mon projet</a></li>
-            <li><a href="mentions-legales/index.html">Mentions légales & RGPD</a></li>
+            <li><a href="../comment-ca-marche/index.html">Comment ça marche ?</a></li>
+            <li><a href="index.html">À propos</a></li>
+            <li><a href="../contact/index.html">Contact / Mon projet</a></li>
+            <li><a href="../mentions-legales/index.html">Mentions légales & RGPD</a></li>
           </ul>
         </div>
       </div>
@@ -319,6 +195,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
