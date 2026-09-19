@@ -30,13 +30,6 @@ function toggleMobileMenu() {
       const isOpen = navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open');
       hamburgerBtn.setAttribute('aria-expanded', isOpen);
       hamburgerBtn.classList.toggle('active', isOpen);
-  const isOpen = navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open');
-  if (hamburgerBtn) {
-    hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    hamburgerBtn.classList.toggle('active', isOpen);
-  }
-=======
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
     }
   }
 }
@@ -47,11 +40,7 @@ function initMobileMenu() {
 
   if (!hamburgerBtn) console.warn("⚠️ Bouton hamburger introuvable dans le DOM (vérifiez la classe .hamburger-btn)");
   if (!navMenu) console.warn("⚠️ Élément #navMenu introuvable dans le DOM");
-=======
-  const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
-  const navMenu = document.getElementById('navMenu');
 
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
   if (hamburgerBtn) {
     hamburgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -69,18 +58,6 @@ function initMobileMenu() {
           hamburgerBtn.setAttribute('aria-expanded', 'false');
           hamburgerBtn.classList.remove('active');
         }
-    if (navMenu && (navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open'))) {
-      if (!navMenu.contains(e.target) && (!hamburgerBtn || !hamburgerBtn.contains(e.target))) {
-        navMenu.classList.remove('active');
-        navMenu.classList.remove('mobile-open');
-        if (hamburgerBtn) {
-          hamburgerBtn.setAttribute('aria-expanded', 'false');
-          hamburgerBtn.classList.remove('active');
-        }
-      }
-    }
-=======
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
       }
     }
   });
@@ -182,3 +159,4 @@ function runNeutralEaseHealthCheck() {
     report.forEach(err => console.warn(err));
     console.groupEnd();
   }
+}

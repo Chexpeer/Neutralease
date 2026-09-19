@@ -1,27 +1,8 @@
 /* =========================================================
    NEUTRALEASE - STYLE GLOBAL & ALTERNANCE DES BANDES
 ========================================================= */
->>>>>>> d2bd32b9f31083c41ca5c427f8aaae6e8e368063
 
 :root {
-  --bg-dark: #f8fafc;
-  --bg-card: #ffffff;
-  --panel-border: rgba(0, 0, 0, 0.08);
-
-  --text-main: #0f172a;
-  --text-muted: #334155;
-  --text-soft: #64748b;
-
-  --color-diag: #f59e0b;
-  --color-echo: #10b981;
-  --color-scory: #a855f7;
-  --color-fin: #3b82f6;
-  --color-dental: #06b6d4;
-  --color-partner: #e11d48;
-  --color-market: #d97706;
-  --color-valor: #8b5cf6;
-  --color-recup: #f59e0b;
-}
   --bg-dark: #f8fafc;
   --bg-card: #ffffff;
   --panel-border: rgba(0, 0, 0, 0.08);
@@ -102,23 +83,13 @@ img {
 }
 
 .nav-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 16px;
   min-height: 58px;
-  position: relative;
-=======
-  width: 100%;
-}
-
-.brand-logo { 
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
 }
 
 .brand-logo { display: block; }
@@ -450,9 +421,6 @@ img {
 }
 
 /* ================= VALORISATION DE PARC : Identique à la 2ème bande (Effet Transparent) ================= */
-=======
-/* ================= VALORISATION DE PARC ================= */
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
 .valorisation-section,
 .features-section:nth-of-type(3) {
   padding: 60px 0;
@@ -528,10 +496,7 @@ img {
   color: #94a3b8;
 }
 
-/* ================= HAMBURGER MOBILE (Actif et positionné à droite) ================= */
-=======
-/* ================= HAMBURGER MOBILE & RESPONSIVE ================= */
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
+/* ================= HAMBURGER MOBILE ================= */
 .hamburger-btn {
   display: none;
   background: #2b3959;
@@ -542,29 +507,10 @@ img {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  font-size: 1.2rem;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 1200; /* Assure qu'il est cliquable au-dessus des autres couches */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background 0.2s ease;
-}
-
-.hamburger-btn:hover {
-  background: #3b4d75;
-}
-=======
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
 }
 
 @media (max-width: 992px) {
-  .hamburger-btn { 
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto !important; /* Force le bouton totalement à droite */
-  }
+  .hamburger-btn { display: block; }
 
   .nav-menu {
     display: none !important;
@@ -578,17 +524,9 @@ img {
     border-bottom: 3px solid var(--color-diag);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     gap: 8px;
-    z-index: 1150;
   }
 
-  /* Classe active déclenchée par un script JS pour ouvrir le menu */
-=======
-  }
-
-  .nav-menu.active,
->>>>>>> 642fc3d63258e6a31d1b13e03abeec8b92df0f12
   .nav-menu.mobile-open { display: flex !important; }
-  
   .nav-item { width: 100%; }
   .nav-link { width: 100%; justify-content: space-between; }
 
