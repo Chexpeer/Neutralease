@@ -514,11 +514,11 @@ img {
 @media (max-width: 992px) {
   .hamburger-btn { 
     display: block !important; 
-    margin-left: auto !important; /* Force l'affichage à l'extrême droite */
+    margin-left: auto !important; 
   }
 
   .nav-container {
-    justify-content: space-between !important; /* Espace le logo à gauche et le hamburger à droite */
+    justify-content: space-between !important; 
   }
 
   .nav-menu {
@@ -533,11 +533,14 @@ img {
     border-bottom: 3px solid var(--color-diag);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     gap: 8px;
-    z-index: 1150;
+    z-index: 9999 !important; /* Forcé au premier plan pour recevoir le clic */
   }
 
+  /* Règle prioritaire pour l'activation via le JS */
   .nav-menu.mobile-open,
-  .nav-menu.active { display: flex !important; }
+  .nav-menu.active { 
+    display: flex !important; 
+  }
   
   .nav-item { width: 100%; }
   .nav-link { width: 100%; justify-content: space-between; }

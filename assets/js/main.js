@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initActiveNavLinks();
   initUrlParamsFormHandling();
-
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has('debug') || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    runNeutralEaseHealthCheck();
-  }
 });
 
 /**
@@ -18,22 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function toggleMobileMenu() {
   const navMenu = document.getElementById('navMenu');
-  const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
 
   if (navMenu) {
-    navMenu.classList.toggle('active');
-    navMenu.classList.toggle('mobile-open');
+    // Bascule des classes d'affichage
+    const willOpen = !navMenu.classList.contains('active');
+    
+    if (willOpen) {
+      navMenu.classList.add('active', 'mobile-open');
+    } else {
+      navMenu.classList.remove('active', 'mobile-open');
+    }
     
     if (hamburgerBtn) {
-      const isOpen = navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open');
-      hamburgerBtn.setAttribute('aria-expanded', isOpen);
-      hamburgerBtn.classList.toggle('active', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', willOpen);
+      hamburgerBtn.classList.toggle('active', willOpen);
     }
   }
 }
 
 function initMobileMenu() {
-  const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
   const navMenu = document.getElementById('navMenu');
 
   if (hamburgerBtn) {
@@ -43,11 +43,11 @@ function initMobileMenu() {
     });
   }
 
+  // Fermeture au clic en dehors du menu
   document.addEventListener('click', (e) => {
     if (navMenu && (navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open'))) {
       if (!navMenu.contains(e.target) && (!hamburgerBtn || !hamburgerBtn.contains(e.target))) {
-        navMenu.classList.remove('active');
-        navMenu.classList.remove('mobile-open');
+        navMenu.classList.remove('active', 'mobile-open');
         if (hamburgerBtn) {
           hamburgerBtn.setAttribute('aria-expanded', 'false');
           hamburgerBtn.classList.remove('active');
@@ -56,6 +56,7 @@ function initMobileMenu() {
     }
   });
 
+  // Gestion des sous-menus au clic sur mobile
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => {
     const link = item.querySelector('.nav-link');
@@ -121,35 +122,5 @@ function initUrlParamsFormHandling() {
   if (profilParam && profilSelect) {
     const opt = profilSelect.querySelector(`option[value="${profilParam}"]`);
     if (opt) profilSelect.value = profilParam;
-  }
-}
-
-/**
- * 4. Outil de diagnostic automatique des anomalies web
- */
-function runNeutralEaseHealthCheck() {
-  const report = [];
-
-  const links = document.querySelectorAll('a[href]');
-  links.forEach(a => {
-    const href = a.getAttribute('href');
-    if (href.includes('diaglease')) {
-      report.push(`❌ Lien obsolète : "${href}" (remplacer par clinilease)`);
-    }
-  });
-
-  const images = document.querySelectorAll('img');
-  images.forEach(img => {
-    if (!img.complete || img.naturalWidth === 0) {
-      report.push(`🖼️ Image potentiellement cassée : ${img.getAttribute('src')}`);
-    }
-  });
-
-  if (!document.getElementById('navMenu')) report.push('🚫 Élément manquant : #navMenu');
-
-  if (report.length > 0) {
-    console.group('🔍 [NeutralEase Health Check]');
-    report.forEach(err => console.warn(err));
-    console.groupEnd();
   }
 }
