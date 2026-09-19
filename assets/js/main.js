@@ -159,4 +159,3 @@ function runNeutralEaseHealthCheck() {
     report.forEach(err => console.warn(err));
     console.groupEnd();
   }
-}
