@@ -19,18 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function toggleMobileMenu() {
   const navMenu = document.getElementById('navMenu');
-  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
 
   if (navMenu) {
     navMenu.classList.toggle('active');
+    navMenu.classList.toggle('mobile-open');
+    
     if (hamburgerBtn) {
-      hamburgerBtn.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+      const isOpen = navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      hamburgerBtn.classList.toggle('active', isOpen);
     }
   }
 }
 
 function initMobileMenu() {
-  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
   const navMenu = document.getElementById('navMenu');
 
   if (hamburgerBtn) {
@@ -42,10 +46,14 @@ function initMobileMenu() {
 
   // Fermeture du menu lors d'un clic en dehors
   document.addEventListener('click', (e) => {
-    if (navMenu && navMenu.classList.contains('active')) {
+    if (navMenu && (navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open'))) {
       if (!navMenu.contains(e.target) && (!hamburgerBtn || !hamburgerBtn.contains(e.target))) {
         navMenu.classList.remove('active');
-        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('mobile-open');
+        if (hamburgerBtn) {
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.classList.remove('active');
+        }
       }
     }
   });

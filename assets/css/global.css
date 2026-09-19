@@ -85,12 +85,11 @@ img {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Pousse le logo à gauche et le hamburger à droite sur mobile */
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 16px;
   min-height: 58px;
-  position: relative;
 }
 
 .brand-logo { display: block; }
@@ -187,7 +186,7 @@ img {
   .nav-item:hover .dropdown-menu { display: block; }
 }
 
-/* ================= 1ère BANDE : HERO SECTION (Clair et lumineux) ================= */
+/* ================= 1ère BANDE : HERO SECTION ================= */
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -268,7 +267,7 @@ img {
 .btn-secondary:hover { box-shadow: 0 6px 0 #cbd5e1, 0 12px 26px rgba(0,0,0,.12); }
 .btn:active { transform: translateY(2px); box-shadow: none !important; }
 
-/* ================= 2ème BANDE : SERVICES / PHOTOS (Effet Transparent) ================= */
+/* ================= 2ème BANDE : SERVICES / PHOTOS ================= */
 .features-section:nth-of-type(1) {
   padding: 60px 0;
   background: rgba(255, 255, 255, 0.78) !important;
@@ -421,7 +420,7 @@ img {
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
 
-/* ================= VALORISATION DE PARC : Identique à la 2ème bande (Effet Transparent) ================= */
+/* ================= VALORISATION DE PARC ================= */
 .valorisation-section,
 .features-section:nth-of-type(3) {
   padding: 60px 0;
@@ -497,30 +496,21 @@ img {
   color: #94a3b8;
 }
 
-/* ================= HAMBURGER MOBILE (Actif et positionné à droite) ================= */
+/* ================= HAMBURGER MOBILE ================= */
 .hamburger-btn {
   display: none;
   background: #2b3959;
   border: 1px solid rgba(255,255,255,0.25);
   color: #fff;
-  font-size: 1.2rem;
-  padding: 8px 12px;
+  font-size: 1.1rem;
+  padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 1200; /* Assure qu'il est cliquable au-dessus des autres couches */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background 0.2s ease;
-}
-
-.hamburger-btn:hover {
-  background: #3b4d75;
 }
 
 @media (max-width: 992px) {
-  .hamburger-btn { 
-    display: block !important; /* Force l'affichage sur mobile/tablette */
-    margin-left: auto; /* Pousse le bouton complètement à droite */
-  }
+  .hamburger-btn { display: block; }
 
   .nav-menu {
     display: none !important;
@@ -534,10 +524,9 @@ img {
     border-bottom: 3px solid var(--color-diag);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     gap: 8px;
-    z-index: 1150;
   }
 
-  /* Classe active déclenchée par un script JS pour ouvrir le menu */
+  .nav-menu.active,
   .nav-menu.mobile-open { display: flex !important; }
   
   .nav-item { width: 100%; }
