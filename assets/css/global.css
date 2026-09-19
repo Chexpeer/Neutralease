@@ -549,4 +549,19 @@ img {
 @keyframes scrollBackground {
   0% { background-position: 0 0, 0 0, 0 0; }
   100% { background-position: 0 0, 0 0, 800px 800px; }
+/* --- CORRECTIF POUR FORCER LE HAMBURGER À DROITE --- */
+.nav-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+@media (max-width: 968px) {
+  .hamburger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto !important; /* Pousse le bouton de force tout à droite */
+    order: 3;
+  }
 }
