@@ -83,16 +83,21 @@ img {
 }
 
 .nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 16px;
   min-height: 58px;
+  width: 100%;
 }
 
-.brand-logo { display: block; }
+.brand-logo { 
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
 .brand-logo img {
   height: 36px;
@@ -496,7 +501,7 @@ img {
   color: #94a3b8;
 }
 
-/* ================= HAMBURGER MOBILE ================= */
+/* ================= HAMBURGER MOBILE & RESPONSIVE ================= */
 .hamburger-btn {
   display: none;
   background: #2b3959;
@@ -510,7 +515,12 @@ img {
 }
 
 @media (max-width: 992px) {
-  .hamburger-btn { display: block; }
+  .hamburger-btn { 
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto !important; /* Force le bouton totalement à droite */
+  }
 
   .nav-menu {
     display: none !important;
@@ -549,19 +559,4 @@ img {
 @keyframes scrollBackground {
   0% { background-position: 0 0, 0 0, 0 0; }
   100% { background-position: 0 0, 0 0, 800px 800px; }
-/* --- CORRECTIF POUR FORCER LE HAMBURGER À DROITE --- */
-.nav-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-@media (max-width: 968px) {
-  .hamburger-btn {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto !important; /* Pousse le bouton de force tout à droite */
-    order: 3;
-  }
 }
