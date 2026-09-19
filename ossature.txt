@@ -31,3 +31,4 @@
     │   └── main.js
     └── images/
         └── logo.png
+        └── logos.png
