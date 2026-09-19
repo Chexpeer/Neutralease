@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavLinks();
   initUrlParamsFormHandling();
 
-  // Mode diagnostic (accessible via ?debug=1 ou sur environnement local)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('debug') || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     runNeutralEaseHealthCheck();
@@ -22,7 +21,6 @@ function toggleMobileMenu() {
   const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
 
   if (navMenu) {
-    // Bascule simultanée pour couvrir .active et .mobile-open selon le CSS
     navMenu.classList.toggle('active');
     navMenu.classList.toggle('mobile-open');
     
@@ -38,9 +36,6 @@ function initMobileMenu() {
   const hamburgerBtn = document.querySelector('.hamburger-btn') || document.querySelector('.hamburger');
   const navMenu = document.getElementById('navMenu');
 
-  if (!hamburgerBtn) console.warn("⚠️ Bouton hamburger introuvable dans le DOM (vérifiez la classe .hamburger-btn)");
-  if (!navMenu) console.warn("⚠️ Élément #navMenu introuvable dans le DOM");
-
   if (hamburgerBtn) {
     hamburgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -48,7 +43,6 @@ function initMobileMenu() {
     });
   }
 
-  // Fermeture du menu lors d'un clic en dehors
   document.addEventListener('click', (e) => {
     if (navMenu && (navMenu.classList.contains('active') || navMenu.classList.contains('mobile-open'))) {
       if (!navMenu.contains(e.target) && (!hamburgerBtn || !hamburgerBtn.contains(e.target))) {
@@ -62,7 +56,6 @@ function initMobileMenu() {
     }
   });
 
-  // Gestion des sous-menus déroulants en version mobile
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => {
     const link = item.querySelector('.nav-link');
@@ -108,7 +101,7 @@ function initActiveNavLinks() {
 }
 
 /**
- * 3. Pré-remplissage du formulaire via l'URL (?brique=... & ?profil=...)
+ * 3. Pré-remplissage du formulaire via l'URL
  */
 function initUrlParamsFormHandling() {
   const briqueSelect = document.getElementById('brique');

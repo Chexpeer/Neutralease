@@ -90,6 +90,7 @@ img {
   margin: 0 auto;
   padding: 8px 16px;
   min-height: 58px;
+  position: relative;
 }
 
 .brand-logo { display: block; }
@@ -420,7 +421,7 @@ img {
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
 
-/* ================= VALORISATION DE PARC : Identique à la 2ème bande (Effet Transparent) ================= */
+/* ================= VALORISATION DE PARC ================= */
 .valorisation-section,
 .features-section:nth-of-type(3) {
   padding: 60px 0;
@@ -507,10 +508,18 @@ img {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1200;
 }
 
 @media (max-width: 992px) {
-  .hamburger-btn { display: block; }
+  .hamburger-btn { 
+    display: block !important; 
+    margin-left: auto !important; /* Force l'affichage à l'extrême droite */
+  }
+
+  .nav-container {
+    justify-content: space-between !important; /* Espace le logo à gauche et le hamburger à droite */
+  }
 
   .nav-menu {
     display: none !important;
@@ -524,9 +533,12 @@ img {
     border-bottom: 3px solid var(--color-diag);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     gap: 8px;
+    z-index: 1150;
   }
 
-  .nav-menu.mobile-open { display: flex !important; }
+  .nav-menu.mobile-open,
+  .nav-menu.active { display: flex !important; }
+  
   .nav-item { width: 100%; }
   .nav-link { width: 100%; justify-content: space-between; }
 
