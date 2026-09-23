@@ -1,0 +1,72 @@
+Structure du dossier
+Le num‚ro de s‚rie du volume est A09D-9925
+C:.
+|   .gitattributes
+|   a-propos.html
+|   arborescence.txt
+|   ccm.html
+|   contact.html
+|   index.html
+|   index1.html
+|   legal-index.html
+|   
++---accompagner
+|   |   accompagner-index.html
+|   |   
+|   \---conseille
++---assets
+|   +---css
+|   |       global.css
+|   |       global1.css
+|   |       
+|   +---html
+|   |       footer.html
+|   |       header.html
+|   |       
+|   +---images
+|   |   |   1200x680.webp
+|   |   |   background.png
+|   |   |   Gemini_Generated_Image_53bwfi53bwfi53bw.jfif
+|   |   |   Gemini_Generated_Image_xe0m6dxe0m6dxe0m.jfif
+|   |   |   logo.png
+|   |   |   logos.png
+|   |   |   
+|   |   +---partners
+|   |   \---products
+|   \---js
+|           main.js
+|           
++---financement
+|   |   financement-index.html
+|   |   simulateur.html
+|   |   
+|   \---Leasing
++---Mondialease
+|   |   international-index.html
+|   |   
+|   \---international
++---nos-solutions
+|   |   solutions-index.html
+|   |   
+|   +---catalogue
+|   |       Catalogue-index.html
+|   |       
+|   +---cleanlease
+|   |       cleanlease-index.html
+|   |       
+|   +---dentalease
+|   |       dentalease-index.html
+|   |       
+|   \---echolease
+|           echo-index.html
+|           
++---partenaires
+|   |   partennaire-index.html
+|   |   
+|   \---Reseaux
+\---valoriser
+    |   valoriser-index.html
+    |   
+    \---recuplease
+            recuplease-index.html
+            

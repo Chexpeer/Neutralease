@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur de Leasing Médical — NeutralEase</title>
+  <meta name="description" content="Estimez en quelques clics le montant de vos mensualités de leasing pour l'acquisition de vos équipements médicaux.">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="36">
+      </a>
+      <button class="hamburger-btn" aria-label="Menu principal" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Équipements ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="../nos-solutions/catalogue/Catalogue-index.html">Tous les Équipements</a></li>
+              <li><a href="../nos-solutions/echolease/echo-index.html">EchoLease (Échographie)</a></li>
+              <li><a href="../nos-solutions/dentalease/dentalease-index.html">DentalLease (Dentaire & CBCT)</a></li>
+              <li><a href="../nos-solutions/cleanlease/cleanlease-index.html">CleanLease (Hygiène & Stérilisation)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="financement-index.html" class="nav-link active">Financement</a>
+            <ul class="dropdown-menu">
+              <li><a href="simulateur.html">Simulateur Leasing</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../valoriser/recuplease/recuplease-index.html" class="nav-link">Reprise & Export</a>
+          </li>
+          <li class="nav-item">
+            <a href="../partenaires/partennaire-index.html" class="nav-link">Espace Partenaires</a>
+          </li>
+          <li class="nav-item">
+            <a href="../ccm.html" class="nav-link">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item">
+            <a href="../a-propos.html" class="nav-link">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../contact.html" class="nav-link highlight-diag">Parler de mon projet →</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <span class="badge-tag">OUTIL DE SIMULATION INTERACTIF</span>
+        <h1>Simulateur de Financement & Leasing Médical</h1>
+        <p class="hero-subtitle">Calculez rapidement vos mensualités estimées selon le montant de votre investissement et la durée souhaitée.</p>
+      </div>
+    </section>
+
+    <!-- SECTION SIMULATEUR INTERACTIF -->
+    <section style="padding: 60px 0;">
+      <div class="container" style="max-width: 800px;">
+        <div class="feature-card" style="background: #ffffff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+          
+          <form id="leasingSimulatorForm">
+            <div style="margin-bottom: 24px;">
+              <label for="equipPrice" style="display: block; font-weight: 600; margin-bottom: 8px; color: #1e293b;">Montant total de l'équipement (€ HT) :</label>
+              <input type="number" id="equipPrice" value="25000" min="1000" step="500" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 24px;">
+              <label for="duration" style="display: block; font-weight: 600; margin-bottom: 8px; color: #1e293b;">Durée de location (Mois) :</label>
+              <select id="duration" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background: #fff;">
+                <option value="24">24 mois</option>
+                <option value="36">36 mois</option>
+                <option value="48" selected>48 mois</option>
+                <option value="60">60 mois</option>
+              </select>
+            </div>
+
+            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center;">
+              <span style="font-size: 0.9rem; color: #64748b; display: block;">Estimation de votre mensualité (HT) :</span>
+              <span id="resultMonthly" style="font-size: 2rem; font-weight: 800; color: #0f172a;">580 € / mois</span>
+            </div>
+
+            <a href="../contact.html" class="btn btn-denim-primary" style="display: block; width: 100%; text-align: center; padding: 14px; box-sizing: border-box;">Valider cette simulation avec un conseiller →</a>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" alt="NeutralEase Logo" height="30">
+        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.88rem;">
+          Plateforme indépendante dédiée à l'équipement, au financement et aux solutions médicales.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Équipements</h5>
+          <ul>
+            <li><a href="../nos-solutions/catalogue/Catalogue-index.html">Catalogue Global</a></li>
+            <li><a href="../nos-solutions/echolease/echo-index.html">EchoLease</a></li>
+            <li><a href="../nos-solutions/dentalease/dentalease-index.html">DentalLease</a></li>
+            <li><a href="../nos-solutions/cleanlease/cleanlease-index.html">CleanLease</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services & Réseau</h5>
+          <ul>
+            <li><a href="financement-index.html">Financement</a></li>
+            <li><a href="simulateur.html">Simulateur Leasing</a></li>
+            <li><a href="../valoriser/recuplease/recuplease-index.html">Reprise & Export</a></li>
+            <li><a href="../partenaires/partennaire-index.html">Espace Partenaires</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Informations</h5>
+          <ul>
+            <li><a href="../ccm.html">Comment ça marche ?</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact / Mon projet</a></li>
+            <li><a href="../legal-index.html">Mentions légales & RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeutralEase. Tous droits réservés. Tiers de confiance médical indépendant.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Script simple de calcul indicatif pour le simulateur
+    const priceInput = document.getElementById('equipPrice');
+    const durationSelect = document.getElementById('duration');
+    const resultSpan = document.getElementById('resultMonthly');
+
+    function calculateLeasing() {
+      const price = parseFloat(priceInput.value) || 0;
+      const months = parseInt(durationSelect.value) || 48;
+      // Formule indicative de leasing avec taux de service
+      const coefficient = 1.12; 
+      const monthly = (price * coefficient) / months;
+      resultSpan.textContent = Math.round(monthly) + ' € / mois';
+    }
+
+    priceInput.addEventListener('input', calculateLeasing);
+    durationSelect.addEventListener('change', calculateLeasing);
+    calculateLeasing();
+  </script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
