@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeutraLease - Parlons de votre besoin</title>
+    <meta name="description" content="Vous recherchez un équipement, une solution de mise à disposition, une maintenance ou une réponse à un besoin particulier ? Décrivez-nous votre situation.">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/institutionnel.css">
+</head>
+<body class="contact-body">
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+    <header class="site-header transparent-header">
+        <div class="logo-container">
+            <a href="index.html" aria-label="Retour à l'accueil NeutraLease">
+                <img src="neutralease.webp" alt="Logo NeutraLease">
+            </a>
+        </div>
+        <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="solutions-index.html">Solutions ▼</a>
+                    <ul class="submenu">
+                        <li><a href="Catalogue/Catalogue-index.html">Catalogue</a></li>
+                        <li><a href="Echolease/echo-index.html">EchoLease</a></li>
+                        <li><a href="Dentalease/dentalease-index.html">DentaLease</a></li>
+                        <li><a href="Cleanlease/cleanlease-index.html">CleanLease</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="Sensibilease/sensibilease-index.html">SensibiLease ▼</a>
+                    <ul class="submenu">
+                        <li><a href="Sensibilease/mobilite-autonomie.html">Mobilité &amp; autonomie</a></li>
+                        <li><a href="Sensibilease/habitat-adapte.html">Habitat adapté</a></li>
+                        <li><a href="Sensibilease/ma-prime-adapt.html">Ma Prime Adapt'</a></li>
+                        <li><a href="Sensibilease/teleassistance.html">Téléassistance</a></li>
+                        <li><a href="Sensibilease/financement-complementaire.html">Financement complémentaire</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="Financement/financement-index.html">Financement ▼</a>
+                    <ul class="submenu">
+                        <li><a href="Financement/simulateur.html">Simulateur</a></li>
+                        <li><a href="Financement/leasing/leasing.html">Location</a></li>
+                    </ul>
+                </li>
+                <li><a href="Maintenance/maintenance.html">Maintenance</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="hamburgerBtn" type="button" aria-label="Ouvrir le menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- =========================================================
+         CONTENU PRINCIPAL
+         ========================================================= -->
+    <main class="page-main">
+        <section class="page-hero">
+            <h1>Parlons de votre besoin</h1>
+            <p>Vous recherchez un équipement, une solution de mise à disposition, une maintenance ou une réponse à un besoin particulier ? Décrivez-nous votre situation.</p>
+            <p>Votre demande constitue le point de départ. Plus elle est précise, plus NeutraLease pourra identifier les acteurs et les solutions susceptibles d'y répondre.</p>
+            <ul class="need-types">
+                <li>Un équipement à trouver</li>
+                <li>Un matériel à remplacer</li>
+                <li>Une mise à disposition à étudier</li>
+                <li>Une maintenance ou une évolution de parc</li>
+                <li>Une demande partenaire</li>
+            </ul>
+        </section>
+
+        <section class="page-section">
+            <h2>Décrire mon besoin</h2>
+            <form id="needForm" class="need-form" novalidate>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="profil">Vous êtes</label>
+                        <select id="profil" name="profil" required>
+                            <option value="professionnel">Professionnel de santé</option>
+                            <option value="particulier">Particulier ou proche aidant</option>
+                            <option value="partenaire">Fournisseur ou partenaire</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="besoin">Votre besoin</label>
+                        <select id="besoin" name="besoin" required>
+                            <option value="imagerie">Échographie et imagerie</option>
+                            <option value="dentaire">Équipement dentaire</option>
+                            <option value="hygiene">Hygiène et stérilisation</option>
+                            <option value="mobilite">Mobilité et autonomie</option>
+                            <option value="habitat">Habitat adapté</option>
+                            <option value="teleassistance">Téléassistance</option>
+                            <option value="maintenance">Maintenance et garanties</option>
+                            <option value="incident">Déclarer un incident</option>
+                            <option value="reprise">Reprise d'un équipement</option>
+                            <option value="partenariat">Devenir partenaire</option>
+                            <option value="autre" selected>Autre besoin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Décrivez votre besoin</label>
+                    <textarea id="message" name="message" required placeholder="Équipement recherché, activité, nombre d'utilisateurs, contraintes…"></textarea>
+                    <p class="form-hint">Ne saisissez pas d'informations de santé personnelles (diagnostic, pathologie) : décrivez simplement l'équipement ou le service recherché.</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="delai">Délai souhaité</label>
+                        <select id="delai" name="delai">
+                            <option value="non précisé">Je ne sais pas encore</option>
+                            <option value="dès que possible">Dès que possible</option>
+                            <option value="1 à 3 mois">Dans 1 à 3 mois</option>
+                            <option value="plus de 3 mois">Dans plus de 3 mois</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="structure">Structure (facultatif)</label>
+                        <input type="text" id="structure" name="structure" autocomplete="organization">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="codepostal">Code postal (facultatif)</label>
+                        <input type="text" id="codepostal" name="codepostal" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code">
+                        <p class="form-hint">Il nous aide à trouver un fournisseur proche de vous.</p>
+                    </div>
+                    <div class="form-field">
+                        <label for="recontact">Comment souhaitez-vous être recontacté ?</label>
+                        <select id="recontact" name="recontact">
+                            <option value="courriel">Par courriel</option>
+                            <option value="téléphone">Par téléphone</option>
+                            <option value="indifférent">Peu importe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Courriel</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="telephone">Téléphone (facultatif)</label>
+                    <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+                </div>
+
+                <div class="form-hp" aria-hidden="true">
+                    <label for="website">Ne pas remplir</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <label class="form-consent">
+                    <input type="checkbox" name="consentement" required>
+                    <span>J'accepte que NeutraLease utilise ces informations pour étudier ma demande et me recontacter. Pour en savoir plus sur vos droits, consultez les <a href="legal-index.html#confidentialite">politique de confidentialité</a>.</span>
+                </label>
+
+                <label class="form-consent">
+                    <input type="checkbox" name="partage">
+                    <span>J'accepte (facultatif) que ma demande soit transmise à des fournisseurs ou partenaires susceptibles d'y répondre.</span>
+                </label>
+
+                <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+
+                <div class="page-actions">
+                    <button type="submit" class="cta-primary">Envoyer ma demande</button>
+                </div>
+                <p class="cta-hint">Nous étudions la solution.</p>
+            </form>
+        </section>
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="site-footer-invisible">
+        <div class="footer-content">
+            <ul class="footer-nav">
+                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="ccm.html">Comment ça marche</a></li>
+                <li><a href="Maintenance/maintenance.html">Maintenance</a></li>
+                <li><a href="Centralease/centralease-index.html">CentraLease</a></li>
+                <li><a href="legal-index.html">Mentions légales</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <p class="footer-copyright">&copy; 2026 NeutraLease - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+</html>

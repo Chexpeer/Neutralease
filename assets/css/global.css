@@ -1,0 +1,782 @@
+/* =================================================================
+   NEUTRALEASE - GLOBAL.CSS
+   Autorité commune du site
+   ================================================================ */
+
+:root {
+    --header-height: 80px;
+    --bg-primary: #0b0f19;
+    --accent-blue: #38bdf8;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --line: rgba(255, 255, 255, 0.12);
+    --header-bg: rgba(11, 15, 25, 0.92);
+    --submenu-bg: rgba(11, 15, 25, 0.97);
+    --footer-padding: 2.5rem 5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* SCROLL INVISIBLE : aucune barre de défilement n'est affichée sur le site
+   (page, menu mobile, zones de texte). Le défilement, lui, reste actif.
+   global.css est le seul fichier autorisé à piloter le scroll (CDC §10). */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: visible;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    background-image: url("../../images/fond.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    overflow: visible;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--header-height);
+    min-height: var(--header-height);
+    max-height: var(--header-height);
+    box-sizing: border-box;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background: var(--header-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.site-header.transparent-header {
+    background: rgba(11, 15, 25, 0.72);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-container a {
+    display: block;
+}
+
+.logo-container img {
+    display: block;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.35rem;
+}
+
+.main-nav li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0.45rem 0.35rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.main-nav > ul > li > a:hover,
+.main-nav > ul > li > a.active {
+    color: var(--accent-blue);
+}
+
+.main-nav .dropdown {
+    position: relative;
+}
+
+.main-nav .submenu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 235px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0.45rem 0;
+    list-style: none;
+    background: var(--submenu-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.main-nav .dropdown:hover > .submenu,
+.main-nav .dropdown:focus-within > .submenu {
+    display: flex;
+}
+
+.main-nav .submenu li {
+    width: 100%;
+}
+
+.main-nav .submenu a {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    padding: 0.65rem 1rem;
+    border-radius: 0;
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+.main-nav .submenu a:hover,
+.main-nav .submenu a.active {
+    color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #f8fafc;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-footer,
+.site-footer-invisible {
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: var(--footer-padding);
+    text-align: center;
+    background: transparent;
+    border-top: none;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-nav li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav a {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.25s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--accent-blue);
+}
+
+.footer-copyright {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.section {
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+button {
+    font: inherit;
+}
+
+/* =================================================================
+   COMPOSANTS COMMUNS : boutons d'action (CTA) utilisés sur toutes les pages.
+   Un bouton principal par page (voir CDC rédactionnel V2.0, §8).
+   ================================================================ */
+
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.6rem;
+}
+
+.cta-primary,
+.cta-secondary {
+    display: inline-block;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.85rem 1.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-primary {
+    color: #0b0f19;
+    background: linear-gradient(180deg, #7dd3fc, #38bdf8);
+    box-shadow: 0 6px 0 #0c6a99, 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cta-secondary {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 0 rgba(255, 255, 255, 0.12), 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cta-primary:hover,
+.cta-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.cta-primary:active,
+.cta-secondary:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cta-hint {
+    margin: 0.9rem 0 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Panneau de texte en verre (introductions des pages d'accueil de rubrique) */
+.intro-panel {
+    width: min(1100px, 90%);
+    margin: 2rem auto;
+    padding: 2rem 2.2rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(11, 15, 25, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.intro-panel h2 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    color: #ffffff;
+}
+
+.intro-panel p {
+    margin: 0 0 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.intro-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-panel .page-actions {
+    justify-content: flex-start;
+}
+
+
+/* =================================================================
+   NAVIGATION 3D : header en verre, boutons en relief, une couleur par
+   rubrique (via --nav-accent-rgb, attribuée par position dans le menu :
+   1 Accueil, 2 Solutions, 3 SensibiLease, 4 Financement, 5 Maintenance).
+   Si l'ordre du menu change, mettre à jour les 5 couleurs ci-dessous.
+   ================================================================ */
+
+.site-header,
+.site-header.transparent-header {
+    background: linear-gradient(180deg, rgba(24, 33, 56, 0.90) 0%, rgba(11, 15, 25, 0.80) 100%);
+    border-bottom: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* Filet lumineux multicolore sous le header */
+.site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #38bdf8, #2dd4bf, #f472b6, #fbbf24, #a78bfa);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+    pointer-events: none;
+}
+
+.main-nav > ul {
+    gap: 0.75rem;
+    perspective: 900px;
+}
+
+.main-nav > ul > li {
+    --nav-accent-rgb: 56, 189, 248;
+}
+
+.main-nav > ul > li:nth-child(2) { --nav-accent-rgb: 45, 212, 191; }
+.main-nav > ul > li:nth-child(3) { --nav-accent-rgb: 244, 114, 182; }
+.main-nav > ul > li:nth-child(4) { --nav-accent-rgb: 251, 191, 36; }
+.main-nav > ul > li:nth-child(5) { --nav-accent-rgb: 167, 139, 250; }
+
+.main-nav > ul > li > a {
+    padding: 0.5rem 1.05rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 3px solid rgba(var(--nav-accent-rgb), 0.8);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03));
+    color: var(--text-primary);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.main-nav > ul > li > a:hover,
+.main-nav > ul > li.dropdown:focus-within > a {
+    color: #ffffff;
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, rgba(var(--nav-accent-rgb), 0.40), rgba(var(--nav-accent-rgb), 0.08));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 12px 22px rgba(0, 0, 0, 0.45), 0 0 18px rgba(var(--nav-accent-rgb), 0.45);
+}
+
+/* Page courante : bouton "enfoncé" et allumé */
+.main-nav > ul > li > a.active {
+    color: #ffffff;
+    transform: translateY(1px);
+    border-bottom-color: rgb(var(--nav-accent-rgb));
+    background: linear-gradient(180deg, rgba(var(--nav-accent-rgb), 0.45), rgba(var(--nav-accent-rgb), 0.12));
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35), 0 0 16px rgba(var(--nav-accent-rgb), 0.4);
+}
+
+/* Sous-menus : carte de verre en perspective */
+.main-nav .submenu {
+    top: calc(100% + 8px);
+    min-width: 250px;
+    padding: 0.5rem;
+    border: 1px solid rgba(var(--nav-accent-rgb), 0.35);
+    border-top: 3px solid rgb(var(--nav-accent-rgb));
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(26, 36, 62, 0.98), rgba(11, 15, 25, 0.98));
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), 0 0 26px rgba(var(--nav-accent-rgb), 0.18);
+    transform-origin: top center;
+}
+
+/* Pont invisible : évite que le sous-menu se ferme entre le bouton et la carte */
+.main-nav .submenu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+}
+
+.main-nav .dropdown:hover > .submenu,
+.main-nav .dropdown:focus-within > .submenu {
+    animation: submenuIn 0.22s ease-out;
+}
+
+@keyframes submenuIn {
+    from {
+        opacity: 0;
+        transform: perspective(600px) rotateX(-14deg) translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0) translateY(0);
+    }
+}
+
+.main-nav .submenu a {
+    padding: 0.7rem 1rem;
+    border-radius: 9px;
+    transition: background 0.2s ease, padding-left 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-nav .submenu a:hover,
+.main-nav .submenu a.active {
+    color: #ffffff;
+    padding-left: 1.3rem;
+    background: rgba(var(--nav-accent-rgb), 0.18);
+    box-shadow: inset 3px 0 0 rgb(var(--nav-accent-rgb));
+}
+
+/* Hamburger : bouton en relief, barres dégradées */
+.menu-toggle {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 3px solid #38bdf8;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.03));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 14px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease;
+}
+
+.menu-toggle:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.menu-toggle span {
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+}
+
+.menu-toggle.open {
+    border-bottom-color: #f472b6;
+}
+
+.menu-toggle:focus-visible,
+.main-nav a:focus-visible,
+.footer-nav a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* =================================================================
+   FOOTER LISIBLE : panneau de verre, texte blanc, liens en pastilles
+   ================================================================ */
+
+.footer-content {
+    max-width: 1100px;
+    padding: 1.6rem 1.5rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(24, 33, 56, 0.85), rgba(11, 15, 25, 0.90));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.footer-nav a {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.16);
+    border-color: rgba(56, 189, 248, 0.5);
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+    .main-nav ul {
+        gap: 0.8rem;
+    }
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 800px) {
+    :root {
+        --header-height: 72px;
+    }
+    .site-header {
+        height: var(--header-height);
+        min-height: var(--header-height);
+        max-height: var(--header-height);
+        padding: 0 5%;
+    }
+    .logo-container img {
+        height: 36px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .main-nav {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        height: calc(100dvh - var(--header-height));
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 1.5rem 7% 3rem;
+        overflow-y: auto;
+        background: rgba(5, 8, 13, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+    }
+    .main-nav.open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    .main-nav > ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .main-nav > ul > li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .main-nav > ul > li > a {
+        display: flex;
+        width: 100%;
+        min-height: 54px;
+        padding: 0.9rem 0;
+        font-size: 1rem;
+    }
+    .main-nav .submenu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        display: none;
+        padding: 0 0 0.6rem;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    .main-nav .dropdown:hover > .submenu {
+        display: none;
+    }
+    .main-nav .dropdown:focus-within > .submenu {
+        display: flex;
+    }
+    .main-nav .submenu a {
+        min-height: 44px;
+        padding: 0.65rem 0 0.65rem 1rem;
+    }
+    .site-footer,
+    .site-footer-invisible {
+        padding: 2rem 5%;
+    }
+}
+
+/* =================================================================
+   MOBILE (menu hamburger) : boutons larges colorés, sous-menus toujours
+   visibles pour que chaque page reste accessible au toucher.
+   ================================================================ */
+@media (max-width: 800px) {
+    .main-nav {
+        background: #05080d;
+    }
+    .main-nav > ul {
+        perspective: none;
+        gap: 0.7rem;
+    }
+    .main-nav > ul > li {
+        border-bottom: 0;
+    }
+    .main-nav > ul > li > a {
+        min-height: 56px;
+        padding: 0.9rem 1.1rem;
+        border-left: 5px solid rgb(var(--nav-accent-rgb));
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+    .main-nav > ul > li > a:hover,
+    .main-nav > ul > li.dropdown:focus-within > a {
+        transform: none;
+    }
+    .main-nav .submenu,
+    .main-nav .dropdown:hover > .submenu,
+    .main-nav .dropdown:focus-within > .submenu {
+        display: flex;
+        margin: 0.45rem 0 0.2rem 1.1rem;
+        padding: 0;
+        border: 0;
+        border-left: 2px solid rgba(var(--nav-accent-rgb), 0.55);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        animation: none;
+    }
+    .main-nav .submenu::before {
+        display: none;
+    }
+    .main-nav .submenu a {
+        min-height: 46px;
+        padding: 0.7rem 1rem;
+        font-size: 0.98rem;
+        color: var(--text-secondary);
+    }
+    .main-nav .submenu a:hover,
+    .main-nav .submenu a.active {
+        padding-left: 1.2rem;
+    }
+    .footer-content {
+        padding: 1.3rem 1rem 1.2rem;
+    }
+    .footer-nav {
+        gap: 0.5rem 0.4rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-nav a,
+    .main-nav .submenu,
+    .footer-nav a,
+    .menu-toggle {
+        transition: none;
+        animation: none;
+    }
+    .main-nav > ul > li > a:hover,
+    .footer-nav a:hover {
+        transform: none;
+    }
+}

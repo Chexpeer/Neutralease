@@ -1,0 +1,207 @@
+/* =================================================================
+   SOLUTIONS.CSS - Styles spécifiques aux solutions et sous-solutions
+   ================================================================ */
+
+.solutions-body,
+.catalogue-body,
+.dentalease-body {
+    background-color: #0b0f19;
+    background-image: url('../../images/fond.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Fonds de rubrique : le .webp du dossier de la rubrique, repli sur images/fond.webp */
+.echolease-body,
+.cleanlease-body {
+    background-color: #0b0f19;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.echolease-body {
+    background-image: url('../../Echolease/echolease.webp'), url('../../images/fond.webp');
+}
+
+.cleanlease-body {
+    background-image: url('../../Cleanlease/cleanlease.webp'), url('../../images/fond.webp');
+}
+
+.dentalease-body {
+    background-image: url('../../Dentalease/dentalease.webp'), url('../../images/fond.webp');
+}
+
+.solutions-main,
+.catalogue-main,
+.echolease-main,
+.dentalease-main,
+.cleanlease-main {
+    background: transparent;
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1rem);
+    padding-bottom: 5rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-showroom {
+    background: transparent;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    margin: 0 0 1.2rem;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.solutions-content {
+    width: min(1400px, 90%);
+    margin: 0 auto;
+    padding: 2rem 0 6rem;
+}
+
+.solutions-intro {
+    max-width: 850px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.solutions-intro h2 {
+    margin: 0 0 1rem;
+    color: #ffffff;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+.solutions-intro p {
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.solutions-grid,
+.immersive-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.solution-card,
+.immersive-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 350px;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(10, 10, 15, 0.72));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.solution-card:hover,
+.immersive-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 24px 50px rgba(56, 189, 248, 0.15);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(10, 10, 15, 0.78));
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(11, 15, 25, 0) 0%, rgba(11, 15, 25, 0.85) 50%, rgba(11, 15, 25, 0.98) 100%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.solution-card h2,
+.immersive-card h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 0.7rem;
+    color: #ffffff;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    line-height: 1.2;
+}
+
+.solution-card p,
+.immersive-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-size: 0.98rem;
+}
+
+@media (max-width: 900px) {
+    .solutions-grid,
+    .immersive-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .solution-card,
+    .immersive-card {
+        min-height: 280px;
+    }
+}

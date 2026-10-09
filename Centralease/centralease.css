@@ -1,0 +1,129 @@
+/* =================================================================
+   CENTRELEASE.CSS - Regroupement technique (Partenaires & Valorisation)
+   Directive NeutralEase V4.3.2
+   ================================================================ */
+
+.partenaires-body,
+.valoriser-body,
+.recuplease-body,
+.centralease-body {
+    background-color: #0b0f19;
+    /* Remonte d'un niveau depuis Centralease/ vers la racine pour trouver images/fond.webp */
+    background-image: url('../images/fond.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.partenaires-main,
+.valoriser-main,
+.recuplease-main,
+.centralease-main {
+    background: transparent;
+}
+
+/* --- SECTION 1 : PARTENAIRES --- */
+.partenaires-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.partenaires-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.partenaire-card {
+    background: var(--overlay-glass, rgba(10, 25, 47, 0.6));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.1));
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.partenaire-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.partenaire-logo img {
+    max-width: 150px;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partenaire-card:hover .partenaire-logo img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --- SECTION 2 : VALORISATION --- */
+.valoriser-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.valoriser-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.valoriser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.valoriser-card {
+    background: var(--overlay-glass, rgba(10, 25, 47, 0.6));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.1));
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.valoriser-stats {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.valoriser-description {
+    color: var(--text-muted, #94a3b8);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION ÉCOSYSTÈME (liens vers Partenaires / Valorisation / RecupLease) --- */
+.ecosysteme-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.ecosysteme-back {
+    margin: 0;
+    padding: 0 2rem 3rem;
+    text-align: center;
+}
+
+.ecosysteme-back a {
+    color: var(--accent-blue, #38bdf8);
+    text-decoration: none;
+}
+
+.ecosysteme-back a:hover {
+    text-decoration: underline;
+}

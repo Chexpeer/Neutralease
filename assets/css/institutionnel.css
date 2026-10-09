@@ -1,0 +1,374 @@
+/* =================================================================
+   INSTITUTIONNEL.CSS - Pages de contenu (Comment ça marche, À propos,
+   Contact, Mentions légales). Dépend de global.css.
+   Ne gère que la mise en page du contenu : jamais header/footer/menu.
+   ================================================================ */
+
+.page-main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: calc(var(--header-height) + 2rem) 5% 4rem;
+}
+
+.page-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(11, 15, 25, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.page-hero h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.page-hero p + p {
+    margin-top: 1rem;
+}
+
+.page-hero p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.page-section {
+    margin-bottom: 2.5rem;
+    padding: 2.4rem 2rem 2rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(11, 15, 25, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.page-section--plain {
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+}
+
+.page-section > h2 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.page-section > .section-intro {
+    max-width: 760px;
+    margin: 0 0 1.8rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Cartes d'étapes numérotées */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+}
+
+.step-card {
+    --card-accent: 56, 189, 248;
+    position: relative;
+    counter-increment: step;
+    padding: 2.6rem 1.6rem 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 3px solid rgb(var(--card-accent));
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(24, 33, 56, 0.88), rgba(11, 15, 25, 0.92));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step-card::before {
+    content: counter(step);
+    position: absolute;
+    top: -18px;
+    left: 1.4rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #0b0f19;
+    background: rgb(var(--card-accent));
+    box-shadow: 0 0 16px rgba(var(--card-accent), 0.55);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5), 0 0 22px rgba(var(--card-accent), 0.25);
+}
+
+.step-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.step-card p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Variante sans numéro : listes d'équipements ou d'arguments */
+.steps--plain .step-card {
+    padding-top: 1.6rem;
+}
+
+.steps--plain .step-card::before {
+    display: none;
+}
+
+/* Quatre cartes : grille 2 x 2 (évite une carte seule sur la dernière ligne) */
+.steps--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.step-card:nth-child(5n + 2) { --card-accent: 45, 212, 191; }
+.step-card:nth-child(5n + 3) { --card-accent: 244, 114, 182; }
+.step-card:nth-child(5n + 4) { --card-accent: 251, 191, 36; }
+.step-card:nth-child(5n + 5) { --card-accent: 167, 139, 250; }
+
+/* Carte entièrement cliquable */
+.step-card .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.step-card .card-link h3::after {
+    content: " \2192";
+    color: rgb(var(--card-accent));
+}
+
+/* Types de demandes (page Contact) */
+.need-types {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.need-types li {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.page-note {
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 0 10px 10px 0;
+    background: rgba(11, 15, 25, 0.7);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- FORMULAIRE "DÉCRIVEZ VOTRE BESOIN" --- */
+.need-form {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-field label,
+.form-legend {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.form-hint {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.need-form input[type="text"],
+.need-form input[type="email"],
+.need-form input[type="tel"],
+.need-form select,
+.need-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(11, 15, 25, 0.85);
+    color: #ffffff;
+    font: inherit;
+}
+
+.need-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.need-form input:focus,
+.need-form select:focus,
+.need-form textarea:focus {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+}
+
+.form-consent {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.form-consent input {
+    margin-top: 0.25rem;
+    flex: 0 0 auto;
+}
+
+.form-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-status {
+    margin: 0;
+    min-height: 1.4rem;
+    font-weight: 600;
+    color: #7dd3fc;
+}
+
+.form-status.is-error {
+    color: #fda4af;
+}
+
+/* --- PAGE JURIDIQUE --- */
+.legal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+}
+
+.legal-nav a {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.legal-nav a:hover {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.16);
+}
+
+.legal-text {
+    scroll-margin-top: 100px;
+}
+
+.legal-text h3 {
+    margin: 1.6rem 0 0.4rem;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.legal-text p,
+.legal-text li {
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.legal-text ul {
+    margin: 0.4rem 0;
+    padding-left: 1.4rem;
+}
+
+.legal-text a {
+    color: #7dd3fc;
+}
+
+/* Champ juridique à renseigner (voir tools/check-links.py) */
+mark.todo {
+    padding: 0 0.3em;
+    border-radius: 4px;
+    background: #fde68a;
+    color: #0b0f19;
+    font-weight: 600;
+}
+
+@media (max-width: 800px) {
+    .steps--four {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .page-main {
+        padding-top: calc(var(--header-height) + 1.2rem);
+    }
+    .page-hero {
+        padding: 2rem 1.2rem;
+    }
+    .page-section {
+        padding: 2rem 1.1rem 1.5rem;
+    }
+    .steps {
+        gap: 2rem;
+    }
+}
+
+/* Fond de la page Contact */
+.contact-body {
+    background-image: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.5)), url('../../images/APPEL-AC6.webp'), url('../../images/fond.webp');
+}

@@ -1,0 +1,93 @@
+Structure du dossier
+C:.
+|   .gitattributes
+|   a-propos.html
+|   arborescence.txt
+|   ccm.html
+|   contact.html
+|   index.html
+|   index.webp
+|   legal-index.html
+|   LISEZ-MOI.txt
+|   neutralease.webp
+|   solutions-index.html
++---assets
+|   +---css
+|   |   |   global.css
+|   |   |   homepage.css
+|   |   |   institutionnel.css
+|   |   |   solutions.css
+|   +---html
+|   |   |   footer.html
+|   |   |   header.html
+|   |   |   main.html
+|   \---js
+|       |   contact.js
+|       |   main.js
++---Catalogue
+|   |   Catalogue-index.html
+|   |   catalogue.css
+|   |   Catalogue.webp
++---Centralease
+|   |   centralease-index.html
+|   |   centralease.css
+|   |   centralease.webp
+|   +---Partenaires
+|   |   |   partenaire-index.html
+|   \---Valoriser
+|       |   valoriser-index.html
+|       \---Recuplease
+|           |   recuplease-index.html
++---Cleanlease
+|   |   cleanlease-index.html
+|   |   cleanlease.webp
++---Dentalease
+|   |   dentalease-index.html
+|   |   dentalease.webp
++---Echolease
+|   |   echo-index.html
+|   |   echolease.webp
++---Financement
+|   |   financement-index.html
+|   |   financement.css
+|   |   financement.webp
+|   |   simulateur.html
+|   \---leasing
+|       |   leasing.html
+|       |   leasing.webp
++---images
+|   |   APPEL-AC6.webp
+|   |   cleanlease.webp
+|   |   echolease (1).webp
+|   |   fond.webp
+|   |   index.webp
+|   |   leasing.webp
+|   |   maintenance.webp
+|   |   mobilite.webp
+|   |   xyz.webp
+|   +---partners
+|   \---products
++---Maintenance
+|   |   garantie.html
+|   |   garantie.webp
+|   |   maintenance.css
+|   |   maintenance.html
+|   |   maintenance.webp
++---Sensibilease
+|   |   financement-complementaire.html
+|   |   garantie.webp
+|   |   habitat-adapte.html
+|   |   habitat-adapte.webp
+|   |   LISEZ-MOI.txt
+|   |   ma-prime-adapt.html
+|   |   ma-prime-adapt.webp
+|   |   mobilite-autonomie.html
+|   |   mobilite-autonomie.webp
+|   |   sensibilease-index.html
+|   |   sensibilease.css
+|   |   sensibilease.webp
+|   |   teleassistance.html
+|   |   teleassistance.webp
+\---tools
+    |   check-links.py
+    |   sync-layout.py

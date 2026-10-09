@@ -1,0 +1,129 @@
+/* =================================================================
+    HOMEPAGE.CSS - Style spécifique à la page d'accueil (Niveau 4)
+    Dépendance stricte : global.css (Niveau 3)
+   ================================================================ */
+
+.homepage-main {
+    padding-top: calc(var(--header-height) + 1rem);
+    padding-bottom: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+}
+
+.hero-showroom {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+    border-radius: 20px;
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    margin: 0 0 1.2rem;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.immersive-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.immersive-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 350px;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(10, 10, 15, 0.72));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.immersive-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 24px 50px rgba(56, 189, 248, 0.15);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(10, 10, 15, 0.78));
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(11, 15, 25, 0) 0%, rgba(11, 15, 25, 0.85) 50%, rgba(11, 15, 25, 0.98) 100%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-overlay h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 0.7rem;
+    color: #ffffff;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    line-height: 1.2;
+}
+
+.card-overlay p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-size: 0.98rem;
+}
+
+@media (max-width: 900px) {
+    .immersive-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .immersive-card {
+        min-height: 280px;
+    }
+}
+
+/* Fond de l'accueil : image du dossier racine, voile sombre (lisibilité), repli sur images/fond.webp */
+.homepage-body {
+    background-image: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.5)), url('../../index.webp'), url('../../images/fond.webp');
+}
