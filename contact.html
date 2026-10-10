@@ -25,6 +25,7 @@
                     <a href="solutions-index.html">Solutions ▼</a>
                     <ul class="submenu">
                         <li><a href="Catalogue/Catalogue-index.html">Catalogue</a></li>
+                        <li><a href="Catalogue/reconditionne.html">Matériel reconditionné</a></li>
                         <li><a href="Echolease/echo-index.html">EchoLease</a></li>
                         <li><a href="Dentalease/dentalease-index.html">DentaLease</a></li>
                         <li><a href="Cleanlease/cleanlease-index.html">CleanLease</a></li>
@@ -61,56 +62,43 @@
          CONTENU PRINCIPAL
          ========================================================= -->
     <main class="page-main">
-        <section class="page-hero">
+        <section class="page-hero page-hero--compact">
             <h1>Parlons de votre besoin</h1>
-            <p>Vous recherchez un équipement, une solution de mise à disposition, une maintenance ou une réponse à un besoin particulier ? Décrivez-nous votre situation.</p>
-            <p>Votre demande constitue le point de départ. Plus elle est précise, plus NeutraLease pourra identifier les acteurs et les solutions susceptibles d'y répondre.</p>
-            <ul class="need-types">
-                <li>Un équipement à trouver</li>
-                <li>Un matériel à remplacer</li>
-                <li>Une mise à disposition à étudier</li>
-                <li>Une maintenance ou une évolution de parc</li>
-                <li>Une demande partenaire</li>
-            </ul>
+            <p>Équipement à trouver, à remplacer, à louer, neuf ou reconditionné : décrivez votre situation en quelques clics. Votre demande est le point de départ ; sans engagement.</p>
         </section>
 
-        <section class="page-section">
-            <h2>Décrire mon besoin</h2>
-            <form id="needForm" class="need-form" novalidate>
-                <div class="form-row">
+        <section class="page-section page-section--form">
+            <form id="needForm" class="need-form need-form--compact" novalidate>
+                <div class="form-row form-row--3">
                     <div class="form-field">
                         <label for="profil">Vous êtes</label>
-                        <select id="profil" name="profil" required>
-                            <option value="professionnel">Professionnel de santé</option>
+                        <select id="profil" name="profil">
+                            <option value="professionnel" selected>Professionnel de santé</option>
                             <option value="particulier">Particulier ou proche aidant</option>
                             <option value="partenaire">Fournisseur ou partenaire</option>
+                            <option value="investisseur">Investisseur ou financeur</option>
                         </select>
                     </div>
                     <div class="form-field">
                         <label for="besoin">Votre besoin</label>
-                        <select id="besoin" name="besoin" required>
-                            <option value="imagerie">Échographie et imagerie</option>
-                            <option value="dentaire">Équipement dentaire</option>
-                            <option value="hygiene">Hygiène et stérilisation</option>
-                            <option value="mobilite">Mobilité et autonomie</option>
-                            <option value="habitat">Habitat adapté</option>
-                            <option value="teleassistance">Téléassistance</option>
-                            <option value="maintenance">Maintenance et garanties</option>
-                            <option value="incident">Déclarer un incident</option>
-                            <option value="reprise">Reprise d'un équipement</option>
-                            <option value="partenariat">Devenir partenaire</option>
-                            <option value="autre" selected>Autre besoin</option>
+                        <select id="besoin" name="besoin">
+                            <option value="imagerie" data-for="professionnel">Échographie et imagerie</option>
+                            <option value="dentaire" data-for="professionnel">Équipement dentaire</option>
+                            <option value="hygiene" data-for="professionnel">Hygiène et stérilisation</option>
+                            <option value="mobilite" data-for="particulier">Mobilité et autonomie</option>
+                            <option value="habitat" data-for="particulier">Habitat adapté</option>
+                            <option value="teleassistance" data-for="particulier">Téléassistance</option>
+                            <option value="aides" data-for="particulier">Aides et financement (Ma Prime Adapt'…)</option>
+                            <option value="maintenance" data-for="professionnel particulier">Maintenance et garanties</option>
+                            <option value="incident" data-for="professionnel particulier">Déclarer un incident</option>
+                            <option value="reprise" data-for="professionnel particulier partenaire">Reprise d'un équipement</option>
+                            <option value="fournisseur" data-for="partenaire">Proposer des équipements ou un service</option>
+                            <option value="partenariat" data-for="partenaire">Devenir partenaire</option>
+                            <option value="financement" data-for="investisseur">Financer ou cofinancer des mises à disposition</option>
+                            <option value="investissement" data-for="investisseur">Investir ou échanger sur le projet</option>
+                            <option value="autre" data-for="professionnel particulier partenaire investisseur" selected>Autre besoin</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="form-field">
-                    <label for="message">Décrivez votre besoin</label>
-                    <textarea id="message" name="message" required placeholder="Équipement recherché, activité, nombre d'utilisateurs, contraintes…"></textarea>
-                    <p class="form-hint">Ne saisissez pas d'informations de santé personnelles (diagnostic, pathologie) : décrivez simplement l'équipement ou le service recherché.</p>
-                </div>
-
-                <div class="form-row">
                     <div class="form-field">
                         <label for="delai">Délai souhaité</label>
                         <select id="delai" name="delai">
@@ -120,29 +108,81 @@
                             <option value="plus de 3 mois">Dans plus de 3 mois</option>
                         </select>
                     </div>
-                    <div class="form-field">
-                        <label for="structure">Structure (facultatif)</label>
-                        <input type="text" id="structure" name="structure" autocomplete="organization">
-                    </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row form-row--3" data-group="equipement">
                     <div class="form-field">
-                        <label for="codepostal">Code postal (facultatif)</label>
-                        <input type="text" id="codepostal" name="codepostal" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code">
-                        <p class="form-hint">Il nous aide à trouver un fournisseur proche de vous.</p>
+                        <label for="type">Type d'appareil</label>
+                        <select id="type" name="type">
+                            <option value="">Je ne sais pas encore</option>
+                            <optgroup label="Imagerie">
+                                <option value="echo-portable">Échographe portable</option>
+                                <option value="echo-console">Console fixe ou Doppler</option>
+                            </optgroup>
+                            <optgroup label="Dentaire">
+                                <option value="dent-unite">Unité de soins dentaire</option>
+                                <option value="dent-imagerie">Imagerie dentaire</option>
+                            </optgroup>
+                            <optgroup label="Hygiène">
+                                <option value="sterilisation">Stérilisation (autoclave, laveur)</option>
+                                <option value="hygiene">Hygiène et désinfection</option>
+                            </optgroup>
+                            <optgroup label="Autonomie et domicile">
+                                <option value="fauteuil-roulant">Fauteuil roulant ou scooter</option>
+                                <option value="lit-medicalise">Lit médicalisé</option>
+                                <option value="leve-personne">Lève-personne</option>
+                                <option value="salle-de-bain">Salle de bain adaptée</option>
+                                <option value="teleassistance">Téléassistance</option>
+                            </optgroup>
+                            <option value="autre">Autre équipement</option>
+                        </select>
                     </div>
                     <div class="form-field">
-                        <label for="recontact">Comment souhaitez-vous être recontacté ?</label>
-                        <select id="recontact" name="recontact">
-                            <option value="courriel">Par courriel</option>
-                            <option value="téléphone">Par téléphone</option>
-                            <option value="indifférent">Peu importe</option>
+                        <label for="etat">Neuf ou reconditionné ?</label>
+                        <select id="etat" name="etat">
+                            <option value="indifferent">Indifférent (meilleur prix)</option>
+                            <option value="reconditionne">Reconditionné (bonne affaire)</option>
+                            <option value="neuf">Neuf</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="formule">Formule</label>
+                        <select id="formule" name="formule">
+                            <option value="nsp">Je ne sais pas encore</option>
+                            <option value="location">Location avec maintenance</option>
+                            <option value="achat">Achat</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row form-row--3">
+                    <div class="form-field" data-group="equipement">
+                        <label for="budget">Budget indicatif</label>
+                        <select id="budget" name="budget">
+                            <option value="">Non précisé</option>
+                            <option value="moins de 5 000 €">Moins de 5 000 €</option>
+                            <option value="5 000 à 20 000 €">5 000 à 20 000 €</option>
+                            <option value="20 000 à 50 000 €">20 000 à 50 000 €</option>
+                            <option value="plus de 50 000 €">Plus de 50 000 €</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="codepostal">Code postal</label>
+                        <input type="text" id="codepostal" name="codepostal" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" placeholder="Facultatif">
+                    </div>
+                    <div class="form-field">
+                        <label for="structure">Structure ou société</label>
+                        <input type="text" id="structure" name="structure" autocomplete="organization" placeholder="Facultatif">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Précisions</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Modèle, activité, contraintes… (facultatif)"></textarea>
+                    <p class="form-hint">Ne saisissez aucune information de santé personnelle : décrivez seulement l'équipement ou le service.</p>
+                </div>
+
+                <div class="form-row form-row--3">
                     <div class="form-field">
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" required autocomplete="name">
@@ -151,11 +191,21 @@
                         <label for="email">Courriel</label>
                         <input type="email" id="email" name="email" required autocomplete="email">
                     </div>
+                    <div class="form-field">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" autocomplete="tel" placeholder="Facultatif">
+                    </div>
                 </div>
 
-                <div class="form-field">
-                    <label for="telephone">Téléphone (facultatif)</label>
-                    <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+                <div class="form-row form-row--3">
+                    <div class="form-field">
+                        <label for="recontact">Recontact</label>
+                        <select id="recontact" name="recontact">
+                            <option value="courriel">Par courriel</option>
+                            <option value="téléphone">Par téléphone</option>
+                            <option value="indifférent">Peu importe</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-hp" aria-hidden="true">
@@ -165,7 +215,7 @@
 
                 <label class="form-consent">
                     <input type="checkbox" name="consentement" required>
-                    <span>J'accepte que NeutraLease utilise ces informations pour étudier ma demande et me recontacter. Pour en savoir plus sur vos droits, consultez les <a href="legal-index.html#confidentialite">politique de confidentialité</a>.</span>
+                    <span>J'accepte que NeutraLease utilise ces informations pour étudier ma demande et me recontacter. Mes droits sont détaillés dans la <a href="legal-index.html#confidentialite">politique de confidentialité</a>.</span>
                 </label>
 
                 <label class="form-consent">

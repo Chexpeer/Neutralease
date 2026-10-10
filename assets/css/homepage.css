@@ -127,3 +127,17 @@
 .homepage-body {
     background-image: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.5)), url('../../index.webp'), url('../../images/fond.webp');
 }
+
+/* Image de chaque carte de l'accueil */
+.card-home-solutions::before { background-image: url('../../images/cartes/console-doppler.webp'); }
+.card-home-reconditionne::before { background-image: url('../../images/cartes/reconditionne.webp'); }
+.card-home-sensibi::before { background-image: url('../../images/cartes/habitat.webp'); }
+.card-home-financement::before { background-image: url('../../Financement/financement.webp'); }
+
+/* Quatre cartes sur une seule ligne sur grand écran */
+@media (min-width: 1000px) {
+    .homepage-main .immersive-cards-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.4rem;
+    }
+}

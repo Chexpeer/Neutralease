@@ -372,3 +372,68 @@ mark.todo {
 .contact-body {
     background-image: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.5)), url('../../images/APPEL-AC6.webp'), url('../../images/fond.webp');
 }
+
+
+/* --- FORMULAIRE COMPACT (contact) : plus petit, plus complet --- */
+.page-hero--compact {
+    padding: 1.6rem 2rem;
+}
+
+.page-hero--compact h1 {
+    margin-bottom: 0.5rem;
+}
+
+.page-section--form {
+    padding-top: 1.6rem;
+    padding-bottom: 1.4rem;
+}
+
+.need-form--compact {
+    gap: 0.8rem;
+}
+
+.need-form--compact .form-row {
+    gap: 0.8rem;
+}
+
+.form-row--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.need-form--compact .form-field {
+    gap: 0.25rem;
+}
+
+.need-form--compact .form-field label {
+    font-size: 0.85rem;
+}
+
+.need-form--compact input[type="text"],
+.need-form--compact input[type="email"],
+.need-form--compact input[type="tel"],
+.need-form--compact select,
+.need-form--compact textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+.need-form--compact textarea {
+    min-height: 64px;
+}
+
+.need-form--compact .form-hint,
+.need-form--compact .form-consent {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.need-form--compact .page-actions {
+    margin-top: 0.4rem;
+}
+
+@media (max-width: 800px) {
+    .form-row--3 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -91,3 +91,9 @@ C:.
 \---tools
     |   check-links.py
     |   sync-layout.py
+
+AJOUTS (version reconditionne / ecosysteme) :
+  Catalogue/reconditionne.html, reconditionne.webp
+  Centralease/Partenaires/fournisseurs.html
+  Centralease/Partenaires/investisseurs-financeurs.html
+  images/cartes/ (10 images de cartes)

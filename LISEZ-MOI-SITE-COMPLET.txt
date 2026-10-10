@@ -1,0 +1,11 @@
+SITE COMPLET NeutraLease (version en ligne + reconditionne + ecosysteme)
+=====================================================================
+Ce zip contient TOUT le site, pas seulement les fichiers modifies : aucun fichier ne peut manquer ou etre melange.
+
+POUR TESTER SANS RISQUE
+1. Decompressez ce zip dans un NOUVEAU dossier vide (clic droit > Extraire tout).
+2. Ouvrez index.html (double-clic) puis Sensibilease/sensibilease-index.html.
+   Vous devez voir : fond d'ecran, cartes, boutons roses. Sinon, envoyez-moi une capture.
+3. Rien n'est modifie sur votre site tant que vous ne copiez pas ce dossier dans votre dossier Git.
+
+Nouveautes : voir l'ancien LISEZ-MOI (page reconditionne, cartes illustrees, formulaire compact, pages partenaires).

@@ -110,22 +110,17 @@
     margin: 0;
 }
 
-/* Identités visuelles spécifiques pour les cartes (fonds thématiques) */
-.card-echo {
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.8));
-}
+/* Image de chaque carte (dossier images/cartes/) */
+.card-echographe-portable::before { background-image: url('../images/cartes/echographe-portable.webp'); }
+.card-console-doppler::before { background-image: url('../images/cartes/console-doppler.webp'); }
+.card-unite-soins::before { background-image: url('../images/cartes/unite-soins.webp'); }
+.card-imagerie-dentaire::before { background-image: url('../images/cartes/imagerie-dentaire.webp'); }
+.card-sterilisation::before { background-image: url('../images/cartes/sterilisation.webp'); }
+.card-hygiene::before { background-image: url('../images/cartes/hygiene.webp'); }
+.card-mobilite::before { background-image: url('../images/cartes/mobilite.webp'); }
+.card-habitat::before { background-image: url('../images/cartes/habitat.webp'); }
+.card-teleassistance::before { background-image: url('../images/cartes/teleassistance.webp'); }
 
-.card-dentalease {
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.1), rgba(15, 23, 42, 0.8));
-}
-
-.card-cleanlease {
-    background: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(15, 23, 42, 0.8));
-}
-
-.card-sensibi {
-    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(15, 23, 42, 0.8));
-}
 
 @media (max-width: 768px) {
     .catalogue-main {
@@ -149,11 +144,183 @@
 
 /* Fond de la rubrique Catalogue : image du dossier, repli sur images/fond.webp
    (le nom respecte la casse exacte du fichier : Catalogue.webp) */
-.catalogue-body {
+.catalogue-body,
+.reconditionne-body {
     background-color: #0b0f19;
     background-image: url('Catalogue.webp'), url('../images/fond.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+/* Fond de la page Matériel reconditionné : reconditionne.webp, repli sur Catalogue.webp puis fond.webp */
+.reconditionne-body {
+    background-image: linear-gradient(rgba(11, 15, 25, 0.5), rgba(11, 15, 25, 0.5)), url('reconditionne.webp'), url('Catalogue.webp'), url('../images/fond.webp');
+}
+
+/* Titres de section du catalogue */
+.catalogue-title {
+    margin: 2.8rem 0 1.2rem;
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Bandeau "bonnes affaires" */
+.deal-band {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0.5rem;
+    padding: 1.1rem 1.5rem;
+    border: 1px solid rgba(251, 191, 36, 0.45);
+    border-left: 5px solid #fbbf24;
+    border-radius: 14px;
+    background: rgba(11, 15, 25, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.deal-band:hover {
+    transform: translateY(-3px);
+    border-color: #fbbf24;
+}
+
+.deal-band strong {
+    color: #ffffff;
+}
+
+.deal-badge {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #fde68a, #fbbf24);
+    color: #0b0f19;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.deal-text {
+    flex: 1 1 auto;
+}
+
+.deal-go {
+    flex: 0 0 auto;
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* Bande d'engagements */
+.trust-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2.8rem 0 0;
+}
+
+.trust-strip div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(11, 15, 25, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.trust-strip strong {
+    color: #ffffff;
+}
+
+.trust-strip span {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+/* Tableau comparatif neuf / reconditionné */
+.compare-wrap {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.compare-table thead th {
+    color: #ffffff;
+    font-size: 1.05rem;
+}
+
+.compare-table tbody th {
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.compare-table .is-highlight {
+    background: rgba(251, 191, 36, 0.1);
+    color: #ffffff;
+}
+
+/* Questions fréquentes */
+.faq {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.faq details {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(11, 15, 25, 0.6);
+    padding: 0.9rem 1.2rem;
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.faq details p {
+    margin: 0.7rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.faq a,
+.page-section .section-intro a {
+    color: var(--accent-blue);
+}
+
+@media (max-width: 900px) {
+    .trust-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .deal-band {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 520px) {
+    .trust-strip {
+        grid-template-columns: 1fr;
+    }
 }
