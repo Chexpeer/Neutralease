@@ -1,0 +1,26 @@
+ETAPE 3 : PAGES "MA PRIME ADAPT'" ET "TELEASSISTANCE"
+====================================================
+
+3 fichiers, aucune image. Independant du paquet "Etape-suivante-v2".
+
+  - ma-prime-adapt.html .... page guide complete : chiffres cles, qui peut
+    en beneficier, travaux concernes, 5 etapes, reste a charge, questions
+    frequentes, bandeau d'action, sources officielles
+  - teleassistance.html .... page guide : comment ca marche, 3 types de
+    solutions, situations, aides financieres, 5 questions a poser avant de
+    choisir, questions frequentes, bandeau d'action
+  - sensibilease.css ....... styles de ces pages + panneau sombre derriere
+    le titre des pages SensibiLease (meilleure lisibilite sur fonds clairs)
+
+A VERIFIER AVANT PUBLICATION
+  - Les regles de MaPrimeAdapt' (50 % / 70 %, plafond 22 000 EUR HT, conditions
+    d'age et de handicap) sont celles de 2026 relevees sur plusieurs sources.
+    Le site officiel n'a pas pu etre lu : controlez sur france-renov.gouv.fr.
+  - Le credit d'impot de 50 % de la teleassistance est a verifier de meme.
+  - Les phrases sur le role de NeutralEase doivent correspondre a votre offre.
+
+INSTALLATION
+1. Faites une copie de votre dossier de travail.
+2. Decompressez, copiez le dossier "Sensibilease" (pas ce LISEZ-MOI) et collez-le
+   a la racine de votre dossier de travail. Repondez "Remplacer".
+3. Ouvrez Sensibilease\ma-prime-adapt.html puis Ctrl + F5.

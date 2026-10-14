@@ -1,0 +1,402 @@
+/* =================================================================
+   SENSIBILEASE.CSS - Styles spécifiques SensibiLease
+   Directive NeutralEase V5.2 (Conforme arborescence & encapsulation)
+   ================================================================ */
+
+/* Body de l'univers SensibiLease : Fond combiné et fixe au scroll */
+.sensibilease-body {
+    background-color: #0b0f19;
+    /* sensibilease.webp est dans le même dossier /SensibiLease/ ; fond.webp remonte dans ../images/ */
+    background-image: url('sensibilease.webp'), url('../images/fond.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.sensibilease-main {
+    background: transparent;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* Hero spécifique SensibiLease */
+.sensibilease-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sensibilease-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.sensibilease-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted, #94a3b8);
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Grille des cartes immersives SensibiLease */
+.sensibilease-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Cartes immersives */
+.sensibilease-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    height: 350px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    background-image: url('../images/fond.webp');
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 20%, rgba(11, 15, 25, 0.4) 100%);
+}
+
+.sensibilease-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+}
+
+.sensibilease-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.sensibilease-card p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Fonds par page : image de la page, puis image de la rubrique, puis fond par défaut */
+.sensibilease-body.page-habitat-adapte {
+    background-image: url('habitat-adapte.webp'), url('sensibilease.webp'), url('../images/fond.webp');
+}
+
+.sensibilease-body.page-mobilite-autonomie {
+    background-image: url('mobilite-autonomie.webp'), url('sensibilease.webp'), url('../images/fond.webp');
+}
+
+.sensibilease-body.page-teleassistance {
+    background-image: url('teleassistance.webp'), url('sensibilease.webp'), url('../images/fond.webp');
+}
+
+.sensibilease-body.page-ma-prime-adapt {
+    background-image: url('ma-prime-adapt.webp'), url('sensibilease.webp'), url('../images/fond.webp');
+}
+
+/* ---- Pages guides SensibiLease : chiffres clés, étapes, FAQ, appel à l'action ---- */
+.guide-section {
+    margin-top: 3.5rem;
+}
+
+.section-title {
+    margin: 0 0 1.6rem;
+    text-align: center;
+    color: #ffffff;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 1.8rem;
+}
+
+.btn-primary,
+.btn-ghost {
+    display: inline-block;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f9a8d4, #fb7185);
+    color: #2a0a18;
+    box-shadow: 0 8px 24px rgba(244, 114, 182, 0.3);
+}
+
+.btn-ghost {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-primary:hover,
+.btn-ghost:hover {
+    transform: translateY(-2px);
+}
+
+.key-facts,
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+}
+
+.key-fact,
+.guide-card {
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(11, 15, 25, 0.74));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.key-fact {
+    text-align: center;
+}
+
+.key-fact strong {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    font-weight: 800;
+    color: #f9a8d4;
+}
+
+.key-fact span,
+.guide-card p,
+.guide-card li {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 0.96rem;
+}
+
+.guide-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.guide-card p {
+    margin: 0;
+}
+
+.guide-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+    display: grid;
+    gap: 1rem;
+}
+
+.steps li {
+    position: relative;
+    padding: 1.2rem 1.4rem 1.2rem 4.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(11, 15, 25, 0.72));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 1.2rem;
+    top: 1.15rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f9a8d4, #fb7185);
+    color: #2a0a18;
+    font-weight: 800;
+}
+
+.steps li strong {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+
+.info-note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.3rem;
+    border-left: 4px solid #fbbf24;
+    border-radius: 10px;
+    background: rgba(251, 191, 36, 0.12);
+    color: #fde68a;
+    line-height: 1.6;
+}
+
+.guide-text {
+    max-width: 820px;
+    margin: 0 auto;
+    color: #cbd5e1;
+    line-height: 1.75;
+    text-align: center;
+}
+
+.guide-text a {
+    color: #f9a8d4;
+    font-weight: 700;
+}
+
+.faq {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.faq details {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(11, 15, 25, 0.72));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.faq summary {
+    cursor: pointer;
+    padding: 1.1rem 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: "+";
+    float: right;
+    color: #f9a8d4;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.faq details[open] summary::after {
+    content: "\2212";
+}
+
+.faq details p {
+    margin: 0;
+    padding: 0 1.4rem 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.cta-band {
+    margin-top: 3.5rem;
+    padding: 2.4rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(244, 114, 182, 0.4);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.18), rgba(251, 113, 133, 0.1) 60%, rgba(11, 15, 25, 0.75));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.cta-band h2 {
+    margin: 0 0 0.6rem;
+    color: #ffffff;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.cta-band p {
+    margin: 0 auto;
+    max-width: 660px;
+    color: #cbd5e1;
+    line-height: 1.65;
+}
+
+.cta-band .privacy-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.sources-note {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.sources-note a {
+    color: #f9a8d4;
+}
+
+/* Lisibilité de l'en-tête sur les fonds clairs : panneau en verre sombre */
+.sensibilease-hero {
+    padding: 2.4rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(11, 15, 25, 0.62), rgba(11, 15, 25, 0.78));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sensibilease-hero p {
+    color: #e2e8f0;
+}
+
+a.guide-card {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+a.guide-card:hover,
+.sensibilease-card:hover .card-more {
+    transform: translateY(-3px);
+    border-color: rgba(249, 168, 212, 0.6);
+}
+
+.card-more {
+    display: inline-block;
+    margin-top: 0.9rem;
+    color: #f9a8d4;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.card-more::after {
+    content: " \2192";
+}

@@ -1,0 +1,27 @@
+CORRECTIF DES FONDS D'ECRAN
+===========================
+
+Ce paquet ne contient QUE 8 fichiers modifies. Il ne supprime rien et ne touche
+pas a vos images.
+
+Pages concernees :
+  - Catalogue ............ utilise Catalogue/Catalogue.webp
+  - DentaLease .......... utilise Dentalease/dentalease.webp
+  - Habitat adapte ....... utilise Sensibilease/habitat-adapte.webp
+  - Mobilite autonomie ... utilise Sensibilease/mobilite-autonomie.webp
+  - Teleassistance ....... utilise Sensibilease/teleassistance.webp
+  - Garantie ............. utilise Maintenance/garantie.webp
+
+Si une image est absente ou mal nommee, la page affiche simplement le fond
+habituel : rien ne casse.
+
+COMMENT L'INSTALLER
+1. Decompressez ce zip (clic droit > Extraire tout).
+2. Ouvrez le dossier obtenu, selectionnez tout son contenu (SANS le fichier
+   LISEZ-MOI) et copiez-le.
+3. Collez-le dans C:\Users\szine\Documents\GITHUB\Neutralease
+   Windows demande de remplacer des fichiers : repondez "Remplacer".
+   (Vos images et vos autres fichiers ne sont pas touches.)
+4. Ouvrez GitHub Desktop : 8 fichiers apparaissent. Ecrivez le message
+   "Fonds par page" puis "Commit to main" puis "Push origin".
+5. Attendez 1 a 2 minutes, ouvrez le site en navigation privee.

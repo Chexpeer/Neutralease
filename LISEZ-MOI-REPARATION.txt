@@ -1,0 +1,16 @@
+REPARATION DES CONFLITS GIT (texte "HEAD ... >>>>>>> de75301...")
+==================================================================
+Ce zip est VOTRE dossier complet (votre version avec cubes 3D, logo emblem, fil d'Ariane, pages de familles),
+dans lequel les 83 marques de conflit "<<<<<<< HEAD / ======= / >>>>>>> de75301..." ont ete resolues
+en gardant votre version la plus recente. Aucune page n'est supprimee.
+
+Une seule restitution : le texte d'introduction de l'accueil ("NeutraLease n'attend pas que l'offre cherche
+sa demande...") avait disparu dans la resolution ; je l'ai remis au-dessus des cubes.
+
+Controles faits : plus aucune marque de conflit, CSS equilibres, liens et en-tete/pied de page OK (check-links, sync-layout).
+
+POUR PUBLIER SANS RECREER LE PROBLEME
+1. Decompressez dans un dossier neuf, ouvrez index.html : verifiez cubes, logo, menus.
+2. Copiez TOUT le contenu dans C:\Users\szine\Documents\GITHUB\Neutralease (Remplacer).
+3. GitHub Desktop : si un message parle de "merge" ou de "conflicts", NE PUBLIEZ PAS : envoyez-moi une capture.
+4. Commit, Push, attendez 1-2 min, ouvrez le site en navigation privee.
